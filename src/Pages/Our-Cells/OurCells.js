@@ -15,9 +15,7 @@ export default function OurCells() {
             <p className="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus, quam id hendrerit varius, lacus tellus cursus turpis, quis tempus ante odio vitae lectus. Nullam interdum lacus at nibh pulvinar efficitur. Praesent et justo nisl. Integer porta porta mollis.</p>
             <div className="cell-container">
                 {cellData.map((cell, index) => (
-                    <div className={cell.class} style={{
-                        backgroundImage: `url(${cell.img})`
-                    }} key={index} >
+                    <div className={cell.class} key={index} >
                         <hr />
                         <h3 className="cell-heading">{cell.title}</h3>
                     </div>
