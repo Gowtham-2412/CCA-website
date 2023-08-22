@@ -1,4 +1,6 @@
 import React from 'react';
+import './OurCells.css';
+
 
 export default function OurCells() {
     const cellData = [
