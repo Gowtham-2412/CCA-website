@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Bungee+Shade&family=Cinzel:wght@500;800&family=Comic+Neue:wght@400;700&family=DM+Serif+Display:ital@1&family=Dongle:wght@300&family=Frijole&family=Inter:wght@700&family=Kalam&family=Kanit:wght@300&family=Lora:ital,wght@1,700&family=Marcellus&family=Monoton&family=Nunito&family=Poppins:wght@100;400&family=Roboto:wght@700&family=Rowdies:wght@300&family=Rubik+Moonrocks&family=Rubik+Vinyl&family=Rubik+Wet+Paint&family=Rye&family=Tapestry&family=Tillana:wght@700&family=Tilt+Prism&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.aboutuspage {
+    padding: 5rem;
+    background: #F2EFE4;
+}
+
+.main-h {
+    font-family: "Inter";
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: -0.015em;
+    text-align: left;
+    text-align: center;
+}
+
+.abt-para {
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: -0.015em;
+    text-align: left;
+}
+
+.exp-button {
+    width: 163px;
+    height: 56px;
+    border-width: 0;
+    border-radius: 6px;
+    background: #8EC15C;
+    color: white;
+    font-family: "Inter";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: -0.005em;
+}
+
+.abt-image {
+    background: #3E3D3A;
+    width: auto;
+    height: 561px;
+    border: 2px solid #303030;
+    border-radius: 6px;
+}
+
+.arrow-icon {
+    height: 12.38px;
+    width: 12.33px;
+    display: inline;
+    background: #8EC15C;
+}
