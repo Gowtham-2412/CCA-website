@@ -27,7 +27,7 @@ const Navbar = () => {
                             alt="right" 
                             width={15}
                             height={15}
-                            className='opacity-0 group-hover/item:opacity-100'
+                            className='opacity-0 group-hover/item:opacity-100 ml-1'
                         />
                     </li>
                 ))}
