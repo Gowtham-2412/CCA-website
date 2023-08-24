@@ -18,7 +18,7 @@ export default function OurCells() {
             <div className="cell-container">
                 {cellData.map((cell, index) => (
                     <div className={cell.class} key={index} >
-                        <hr />
+                        <hr className='hr' />
                         <h3 className="cell-heading">{cell.title}</h3>
                     </div>
                 ))}
