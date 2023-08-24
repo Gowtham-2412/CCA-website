@@ -1,46 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@700&display=swap');
 
 .main-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 100px;
+  box-sizing: border-box;
+  background-color: #F2EFE4;
+  font-family: 'Inter', sans-serif;
+
+
 }
 
 .hero-section-data {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
   padding-left: 107px;
-  width: 50%;
+
+
+}
+
+.btn-section {
+
+  gap: 2rem;
 }
 
 .hero-section-data .hero-heading {
   color: #303030;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Inter;
   font-size: 65px;
   font-style: normal;
   font-weight: 700;
   line-height: 84px;
   letter-spacing: -0.42px;
-  padding-bottom: 64px;
+  /* padding-bottom: 4rem; */
+  margin: 0;
+  padding: 0;
   letter-spacing: 0.24px;
 }
 
 .hero-section-data .hero-para {
-  color: #3f3f3f;
+  color: #3F3F3F;
   font-family: Inter;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
   line-height: 36px;
-  padding-bottom: 65px;
+  padding-bottom: 4rem;
+  /* padding-top: 2.5rem; */
   letter-spacing: -0.36px;
-}
-
-.btn-section {
-  /* width: 50%; */
-  display: flex;
-  /* float: left; */
 }
 
 .btn-1 {
@@ -48,13 +55,13 @@
   font-size: 1.8rem;
   font-weight: 600;
   border-radius: 5px;
-  background-color: #9ddb5e;
   width: 15.375rem;
   height: 4.875rem;
   cursor: pointer;
-  box-shadow: 0px 2.5px 4px #000000;
   border: none;
   outline: none;
+  background: #9DDB5E;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .btn-2 {
@@ -71,18 +78,36 @@
 }
 
 .hero-section-img {
-  width: 50%;
+  padding-left: 100px;
 }
 
-.main-img {
-  width: 750px;
-  height: auto;
-  flex-shrink: 0;
+
+
+@media (max-width: 1230px) {
+  .btn-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 2rem;
+  }
+
+  .btn-1 .btn-2 {
+    font-size: 5px;
+  }
+
+  .hero-para {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+
 }
 
 @media (max-width: 1024px) {
-  .max-container {
-    flex-wrap: wrap;
+  .main-container {
+    display: flex;
+    flex-direction: column;
+
   }
 
   .hero-section-data {
@@ -96,7 +121,8 @@
     font-style: normal;
     font-weight: 500;
     line-height: 50px;
-    padding-bottom: 65px;
+    padding-bottom: 8rem;
+    padding-top: .5rem;
     letter-spacing: -0.36px;
   }
 
@@ -106,7 +132,7 @@
     font-weight: 600;
     line-height: 100px;
     letter-spacing: -0.42px;
-    padding-bottom: 64px;
+    /* padding-bottom: 64px; */
     letter-spacing: 0.63px;
   }
 
@@ -121,12 +147,13 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 2rem;
+    padding: 1rem;
   }
 
   .main-img {
     width: 100%;
   }
+
 }
 
 @media (max-width: 750px) {
@@ -143,7 +170,7 @@
 
   .hero-section-data .hero-para {
     font-size: 24px;
-    padding-bottom: 2rem;
+    padding-bottom: 5rem;
   }
 
   .hero-section-data .hero-heading {
@@ -152,9 +179,10 @@
     font-weight: 700;
     line-height: 100px;
     letter-spacing: -0.24px;
-    padding-bottom: 64px;
+    padding-bottom: 3rem;
     line-height: 4.5rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 2rem;
+
   }
 
   .btn-1,
@@ -164,6 +192,14 @@
 }
 
 @media (max-width: 480px) {
+  .hero-heading {
+    font-size: 2.8rem;
+  }
+
+  .hero-para {
+    font-size: .8rem;
+  }
+
   .hero-section-data {
     padding: 1.5rem;
   }
@@ -171,7 +207,11 @@
   .btn-section {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    justify-content: center;
+    align-items: center;
+
   }
 
   .hero-section-data .hero-heading {
@@ -179,7 +219,7 @@
     font-style: normal;
     font-weight: 550;
     letter-spacing: -0.14px;
-    padding-bottom: 64px;
+    padding-bottom: 1rem;
     line-height: 3.4rem;
     padding-bottom: 1.5rem;
   }
@@ -189,7 +229,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 2rem;
     letter-spacing: -0.36px;
   }
 
