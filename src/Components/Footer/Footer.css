@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Varela+Round&display=swap');
 
 .Footer {
-  background: #F2EFE4;
+  background: #f2efe4;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .footer-p {
