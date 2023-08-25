@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './Hall.css'
 import ImgLib from "../../Components/ImgLink/ImageLib"
-// import img1 from "../../Assets/Images/Sample.jpg"
 
 const Hall = () => {
     
