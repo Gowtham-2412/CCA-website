@@ -19,7 +19,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/our-cells" element={<OurCells />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }

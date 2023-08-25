@@ -1,30 +1,25 @@
+// Navbar.jsx
+import React, { useState } from 'react';
 import { logo } from '../../Assets/Images';
 import { dark, ChevronRight } from '../../Assets/Icons';
 import { navLinks } from '../../Utility/Constant';
-import { useState } from 'react';
 
 const Navbar = () => {
-  let [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+
   return (
     <header
-      className={`padding-x mt-[1px] ${
+      className={`navbar ${
         open ? 'overflow-visible' : 'overflow-hidden'
-      }  z-10 h-[71px] w-full `}
+      } z-10 h-[71px] w-full`}
     >
-      <nav className="flex justify-between items-center max-container transition-all">
-        <a href="./">
-          <img
-            src={logo}
-            alt="Nike"
-            width={89}
-            height={35}
-            className="max-sm:mx-0:"
-          />
+      <nav className="max-container w-100 flex justify-between items-center transition-all">
+        <a href="./" className="max-sm:mx-0">
+          <img src={logo} alt="Nike" width={89} height={35} />
         </a>
         <ul
-          className={` link-style1 top-0 max-lg:pl-15  lg:opacity-100 max-lg:visibility-hidden max-lg:border-2 max-lg:drop-shadow-xl ${
-            open ? 'right-[0%] ' : 'right-[-100%]'
-          } ${open ? 'z-10' : 'z-[-1]'}`}
+          className={`link-style1 top-0 max-lg:pl-15 lg:opacity-100 max-lg:visibility-hidden max-lg:border-2 max-lg:drop-shadow-xl
+            ${open ? 'right-0' : 'right-[-100%]'} ${open ? 'z-10' : 'z-[-1]'}`}
           id="header"
         >
           {navLinks.map((item) => (
@@ -56,7 +51,7 @@ const Navbar = () => {
               <img src={dark} alt="dark to light" width={35} height={35} />
             </li>
             <li
-              className="hidden max-lg:block cursor-pointer text-3xl max-lg:z-10 -translate-y-1 duration-700 rotate-180 "
+              className="hidden max-lg:block cursor-pointer text-3xl max-lg:z-10 -translate-y-1 duration-700 rotate-180"
               onClick={() => setOpen(!open)}
             >
               <ion-icon name={open ? 'close' : 'menu'}></ion-icon>
