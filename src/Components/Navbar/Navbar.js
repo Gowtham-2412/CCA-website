@@ -19,18 +19,18 @@ const Navbar = () => {
         </a>
         <ul
           className={`link-style1 top-0 max-lg:pl-15 lg:opacity-100 max-lg:visibility-hidden max-lg:border-2 max-lg:drop-shadow-xl
-            ${open ? 'right-0' : 'right-[-100%]'} ${open ? 'z-10' : 'z-[-1]'}`}
+            ${open ? 'right-0' : 'right-[-100%]'} ${open ? 'z-10' : 'z-[9]'}`}
           id="header"
         >
           {navLinks.map((item) => (
             <li
               key={item.label}
-              className="group/item flex flex-nowarp justify-between max-lg:px-5 max-lg:mt-2 max-lg:py-3 max-lg:first:mt-16 max-lg:last:mb-8 max-lg:hover:border-3 hover:-translate-y-1 max-lg:hover:bg-[#eef2e4] max-2xl:hover:cursor-pointer"
+              className="group/item flex flex-nowarp justify-between max-lg:px-5 max-lg:mt-2 max-lg:py-3 max-lg:first:mt-16 max-lg:last:mb-8 max-lg:hover:border-3 max-lg:hover:-translate-y-1 max-lg:hover:bg-[#eef2e4] max-2xl:hover:cursor-pointer hover:scale-95"
             >
               <a
                 href={item.href}
-                className="font-inter font-semibold leading-normal text-lg text-nav-black max-lg:hover:drop-shadow-lg max-lg:hover:font-bold "
-                style={{ textDecoration: 'none' }}
+                className="lg:nav font-inter font-semibold leading-normal text-lg text-nav-black max-lg:hover:drop-shadow-lg max-lg:hover:font-bold "
+                style={{ textDecoration: 'none', color:'#4A4A4A' }}
                 id="link"
               >
                 {item.label}
@@ -40,7 +40,7 @@ const Navbar = () => {
                 alt="right"
                 width={15}
                 height={15}
-                className="opacity-0 group-hover/item:opacity-100 ml-1"
+                className="opacity-0 max-lg:group-hover/item:opacity-100 ml-1"
               />
             </li>
           ))}
