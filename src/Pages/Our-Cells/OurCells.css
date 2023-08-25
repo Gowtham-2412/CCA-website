@@ -2,136 +2,137 @@
 
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .our-cells-page {
-  padding: 5rem;
-  background: #F2EFE4;
+    padding: 5rem;
+    background: #F2EFE4;
 }
 
 .main-heading {
-  font-family: "Inter";
-  font-size: 96px;
-  font-weight: 700;
-  line-height: 84px;
-  letter-spacing: -0.005em;
-  text-align: center;
-  color: #303030;
+    font-family: "Inter";
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 84px;
+    letter-spacing: -0.005em;
+    text-align: center;
+    color: #303030;
 }
 
 .para {
-  font-family: "Inter";
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 36px;
-  letter-spacing: -0.005em;
-  text-align: center;
-  color: #3F3F3F;
-  padding-bottom: 6rem;
+    font-family: "Inter";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.005em;
+    text-align: center;
+    color: #3F3F3F;
+    padding-bottom: 6rem;
 }
 
 .cell-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: fit-content;
-  margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: fit-content;
+    margin: auto;
 }
 
 .cell {
-  width: 300px;
-  height: 400px;
-  background: #8A8984;
-  border-radius: 8px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  padding: 20px;
-  margin: 0 -50px;
-  filter: blur(0px);
-  margin-bottom: 9rem;
-  transition: transform 0.3s ease-in-out;
+    width: 300px;
+    height: 400px;
+    background: #8A8984;
+    background-size: cover;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    margin: 0 -50px;
+    filter: blur(0px);
+    margin-bottom: 9rem;
+    transition: transform 0.3s ease-in-out;
 }
 
 
 .cell:hover~.cell {
-  filter: blur(2px);
+    filter: blur(2px);
 
 }
 
 .cell:hover {
-  transform: scale(1.17);
-  cursor: pointer;
-  z-index: 6;
-  filter: none;
+    transform: scale(1.17);
+    cursor: pointer;
+    z-index: 6;
+    filter: none;
 }
 
 .cell-container:hover .cell:not(:hover) {
-  filter: blur(2px);
+    filter: blur(2px);
 }
 
 .cell-heading {
-  position: absolute;
-  font-family: "Roboto";
-  font-size: 42px;
-  font-weight: 700;
-  line-height: 36px;
-  letter-spacing: -0.005em;
-  text-align: left;
-  top: 430px;
-  left: 7px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    font-family: "Roboto";
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.005em;
+    text-align: left;
+    top: 430px;
+    left: 7px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .cell:hover .cell-heading {
-  opacity: 1;
+    opacity: 1;
 }
 
 
 
 .hr {
-  position: absolute;
-  top: 410px;
-  text-align: center;
-  background: #3A3A3A;
-  height: 3px;
-  width: 280px;
-  left: 6px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    top: 410px;
+    text-align: center;
+    background: #3A3A3A;
+    height: 3px;
+    width: 280px;
+    left: 6px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
 
 .cell:hover .hr {
-  opacity: 1;
+    opacity: 1;
 }
 
 .core-cell {
-  margin-right: -50px;
-  z-index: 5;
+    margin-right: -50px;
+    z-index: 5;
 }
 
 .wdct {
-  margin-right: -50px;
-  z-index: 4;
+    margin-right: -50px;
+    z-index: 1;
 }
 
 .robo-cell {
-  margin-right: -50px;
-  z-index: 3;
+    margin-right: -50px;
+    z-index: 2;
 }
 
 .e-cell {
-  margin-right: -50px;
-  z-index: 2;
+    margin-right: -50px;
+    z-index: 4;
 }
 
 .rd-cell {
-  margin-right: -50px;
-  z-index: 1;
+    margin-right: -50px;
+    z-index: 3;
 }
