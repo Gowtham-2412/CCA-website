@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <header
       className={`navbar  ${
-        open ? 'overflow-visible' : 'overflow-hidden'
+        open ? 'overflow-visible' : 'overflow-visible'
       } z-10 h-[80px] w-full`}
     >
       <nav className="max-container mx-[0rem] w-100 flex justify-between items-center transition-all">
@@ -27,7 +27,7 @@ const Navbar = () => {
           {navLinks.map((item) => (
             <li
               key={item.label}
-              className="group/item flex flex-nowarp justify-between max-lg:px-5 max-lg:mt-2 max-lg:py-3 max-lg:first:mt-16 max-lg:last:mb-8 max-lg:hover:border-3 max-lg:hover:-translate-y-1 max-lg:hover:bg-[#eef2e4] max-2xl:hover:cursor-pointer lg:hover:scale-100"
+              className="group/item flex flex-nowarp justify-between max-lg:px-5 max-lg:mt-2 max-lg:py-3 max-lg:first:mt-16 max-lg:last:mb-8 max-lg:hover:border-3 max-lg:hover:-translate-y-1 max-lg:hover:bg-[#eef2e4] max-2xl:hover:cursor-pointer lg:hover:scale-100 transition-none"
               onClick={() => setOpen(!open)}
             >
               <Link
