@@ -11,7 +11,7 @@ const Navbar = () => {
     <header
       className={`navbar ${
         open ? 'overflow-visible' : 'overflow-hidden'
-      } z-10 h-[71px] w-full`}
+      } z-10 h-[80px] w-full`}
     >
       <nav className="max-container w-100 flex justify-between items-center transition-all">
         <a href="./" className="max-sm:mx-0">
