@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { logo } from '../../Assets/Images';
 import { dark, ChevronRight } from '../../Assets/Icons';
 import { navLinks } from '../../Utility/Constant';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -27,14 +28,14 @@ const Navbar = () => {
               key={item.label}
               className="group/item flex flex-nowarp justify-between max-lg:px-5 max-lg:mt-2 max-lg:py-3 max-lg:first:mt-16 max-lg:last:mb-8 max-lg:hover:border-3 max-lg:hover:-translate-y-1 max-lg:hover:bg-[#eef2e4] max-2xl:hover:cursor-pointer lg:hover:scale-100"
             >
-              <a
-                href={item.href}
+              <Link
+                to={item.href}
                 className="lg:nav font-inter font-semibold leading-normal text-lg text-nav-black max-lg:hover:drop-shadow-lg max-lg:hover:font-bold "
-                style={{ textDecoration: 'none', color:'#4A4A4A' }}
+                style={{ textDecoration: 'none', color: '#4A4A4A' }}
                 id="link"
               >
                 {item.label}
-              </a>
+              </Link>
               <img
                 src={ChevronRight}
                 alt="right"
