@@ -7,6 +7,7 @@ import AboutUs from './Pages/AboutUs/AboutUs';
 import Hall from './Pages/HallofFame/Hall';
 import OurCells from './Pages/Our-Cells/OurCells';
 import Footer from './Components/Footer/Footer';
+import Team from './Pages/Our-Team/Team';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/hall" element={<Hall />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/our-team" element={<Team />} />
         <Route path="/our-cells" element={<OurCells />} />
       </Routes>
       <Footer />
