@@ -1,0 +1,139 @@
+.heading{
+    color: #303030;
+    text-align: center;
+    font-size: 4rem;
+    font-style: normal;
+    margin-top: 2.18rem;
+    margin-bottom: 1.87rem;
+    font-weight: 700;
+    line-height: 5.25rem;
+    letter-spacing: -0.03rem;
+    }
+.team-tab{
+        margin: auto;
+    display: flex;   
+    width: 1050px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #8EC15C;
+    justify-content: space-around;
+    }
+.team-tab button{
+        position: relative;
+        display: inline-block;
+        font-size: 19px;
+        color: #fff;
+        height: 40px;
+        margin: auto;
+        font-weight: 550;
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+.team-tab button::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 5px;
+        background: rgb(255, 255, 255);
+        bottom: 0px;
+        border-radius: 20px;
+        transform: scaleX(0);
+        transform-origin:left ;
+        transition: transform 0.3s;
+    
+    }
+.team-tab button:hover::after,
+.team-tab button:focus::after{
+        transform-origin :left;
+        transform: scaleX(1);
+    }
+.team-tab button:focus{
+        outline: none;
+        
+    }
+.sec-heading{
+        color: #303030;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 84px;
+    margin: 30px;
+    
+    }
+#fa-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+@media(max-width:1245px){
+
+    .heading{
+        font-size: 60px;
+    }
+    .sec-heading{
+        font-size: 35px;
+    }
+    .team-tab{
+        width: 900px;
+    }
+    .card-body{
+        width: 200px;
+        height: 290px;
+        margin: 1.5rem;
+        margin-top: 1rem;
+    }
+
+}
+@media(max-width:1075px){
+}
+@media(max-width:992px){
+    .team-tab{
+        width: 800px;
+    }
+}
+@media(max-width:840px){
+    .team-tab{
+        width: 700px;
+    }
+}
+
+@media(max-width:720px){
+    .team-tab{
+        width: 500px;
+
+    }
+
+}
+@media(max-width:502px){
+    .team-tab{
+        width: 400px;
+
+    }
+    .team-tab button{
+        height:69px;
+        width: 70px;
+    }
+}
+@media(max-width:400px){
+    .heading{
+        font-size:40px;
+    }
+    .sec-heading{
+        font-size: 25px;
+    }
+    .team-tab{
+        width: 350px;
+    }
+    .tab-switch{
+        font-size: 15px;
+    }
+}
+
+        
