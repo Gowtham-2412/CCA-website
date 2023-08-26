@@ -10,16 +10,16 @@ const Navbar = () => {
 
   return (
     <header
-      className={`navbar ${
+      className={`navbar  ${
         open ? 'overflow-visible' : 'overflow-hidden'
       } z-10 h-[80px] w-full`}
     >
-      <nav className="max-container w-100 flex justify-between items-center transition-all">
-        <a href="./" className="max-sm:mx-0">
+      <nav className="max-container mx-[0rem] w-100 flex justify-between items-center transition-all">
+        <a href="./" className="max-sm:mx-0 pl-4 pr-6">
           <img src={logo} alt="Nike" width={89} height={35} />
         </a>
         <ul
-          className={`link-style1 top-0 max-lg:pl-15 lg:opacity-100 max-lg:visibility-hidden max-lg:border-2 max-lg:drop-shadow-xl
+          className={`link-style1 flex justify-around top-0 max-lg:pl-15 lg:opacity-100 max-lg:visibility-hidden max-lg:border-2 max-lg:drop-shadow-xl
             ${open ? 'right-0' : 'right-[-100%]'} ${open ? 'z-10' : 'z-[9]'}`}
           id="header"
         >
@@ -48,7 +48,7 @@ const Navbar = () => {
         </ul>
         <div className="flex items-end">
           <ul className="flex flex-nowarp items-center ">
-            <li className="mr-4">
+            <li className="mx-4">
               <img src={dark} alt="dark to light" width={35} height={35} />
             </li>
             <li

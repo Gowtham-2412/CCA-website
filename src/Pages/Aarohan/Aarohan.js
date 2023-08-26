@@ -96,6 +96,9 @@ const Aarohan = () => {
                 </div>
             </SwiperSlide>
         </Swiper>
+        <div className="mt-[4rem] h-[2.4rem] ">
+            <button className="border-[2px] font-inter font-semibold border-[#252525] px-3 py-2 hover:scale-105">View more</button>
+        </div>
     </div>
 
     <div class="event">
