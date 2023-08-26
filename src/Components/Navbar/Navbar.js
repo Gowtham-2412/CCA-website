@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <header
       className={`navbar  ${
-        open ? 'overflow-visible' : 'overflow-visible'
+        open ? 'overflow-visible' : 'overflow-hidden'
       } z-10 h-[80px] w-full`}
     >
       <nav className="max-container mx-[0rem] w-100 flex justify-between items-center transition-all">
