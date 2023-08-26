@@ -7,6 +7,7 @@ import AboutUs from './Pages/AboutUs/AboutUs';
 import Hall from './Pages/HallofFame/Hall';
 import OurCells from './Pages/Our-Cells/OurCells';
 import Footer from './Components/Footer/Footer';
+import Aarohan from './Pages/Aarohan/Aarohan';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/hall" element={<Hall />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/our-cells" element={<OurCells />} />
+        <Route path="/aarohan" element={<Aarohan />} />
       </Routes>
       <Footer />
     </BrowserRouter>
