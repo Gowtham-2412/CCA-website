@@ -58,3 +58,56 @@
     display: inline;
     background: #8EC15C;
 }
+
+@media (max-width : 496px) {
+    .aboutuspage {
+        padding: 2.5rem;
+    }
+
+    .abt-image {
+        height: 300px;
+    }
+
+    .main-h {
+        font-size: 38px;
+        margin-top: 1rem;
+    }
+
+    .abt-para {
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .exp-button {
+        width: 140px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width:991px) and (min-width: 496px) {
+    .abt-image {
+        height: 400px;
+    }
+
+    .aboutuspage {
+        padding: 2.8rem;
+    }
+
+    .main-h {
+        font-size: 40px;
+        margin-top: 1rem;
+    }
+
+    .abt-para {
+        font-size: 20px;
+        text-align: center;
+    }
+
+
+}
+
+@media (max-width:1186px) and (min-width: 992px) {
+    .abt-image {
+        height: 600px;
+    }
+}
