@@ -39,7 +39,7 @@ const Team = () => {
   return (
     <div>
         <div className='heading'>
-            <h1>Our Cell</h1>
+            <h1>Our Team</h1>
         </div>
         <div className='team-tab'> 
         <button className='tab-switch' onClick={() => scrollToSection(faculty)}>Faculty Advisers</button>  
