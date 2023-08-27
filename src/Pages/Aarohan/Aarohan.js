@@ -112,33 +112,53 @@ const Aarohan = () => {
         >
                 <div class="card1">
                     <img src={sample} alt="" />
-                    <div class="card-content"></div>
+                    <div className="card-content">
+                        <h3>wdct corner</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa odio pariatur minus, neque dolorem maxime?</p>
+                    </div>
                 </div>
                 <div class="card1">
                     <img src={sample} alt="" />
-                    <div class="card-content"></div>
+                    <div className="card-content">
+                        <h3>wdct corner</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa odio pariatur minus, neque dolorem maxime?</p>
+                    </div>
                 </div>
                 <div class="card1">
                     <img src={sample} alt="" />
-                    <div class="card-content"></div>
+                    <div className="card-content">
+                        <h3>wdct corner</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa odio pariatur minus, neque dolorem maxime?</p>
+                    </div>
+                </div>
+                <div class="card1">
+                    <img src={sample} alt="" /><div className="card-content">
+                        <h3>wdct corner</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa odio pariatur minus, neque dolorem maxime?</p>
+                    </div>
                 </div>
                 <div class="card1">
                     <img src={sample} alt="" />
-                    <div class="card-content"></div>
+                    <div className="card-content">
+                        <h3>wdct corner</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa odio pariatur minus, neque dolorem maxime?</p>
+                    </div>
                 </div>
                 <div class="card1">
                     <img src={sample} alt="" />
-                    <div class="card-content"></div>
+                    <div className="card-content">
+                        <h3>wdct corner</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa odio pariatur minus, neque dolorem maxime?</p>
+                    </div>
                 </div>
                 <div class="card1">
                     <img src={sample} alt="" />
-                    <div class="card-content"></div>
+                    <div className="card-content">
+                        <h3>wdct corner</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa odio pariatur minus, neque dolorem maxime?</p>
+                    </div>
                 </div>
-                <div class="card1">
-                    <img src={sample} alt="" />
-                    <div class="card-content"></div>
-                </div>
-        </Carousel>;
+        </Carousel>
     </div>
 </div>
   )

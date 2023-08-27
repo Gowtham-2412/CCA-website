@@ -3,6 +3,7 @@
 .aarohan {
     background-color: #f2efe4;
     font-family: 'Inter';
+    margin-bottom: 3rem;
 }
 
 .header {
@@ -60,7 +61,7 @@
 
 .card img {
     width: 100%;
-    height: 100%;
+    height: 60%;
     object-fit: cover;
     border-radius: 1rem;
 }
@@ -89,9 +90,28 @@
 
 .card1 img {
     width: 100%;
-    height: 100%;
+    height: 75%;
     object-fit: cover;
     border-radius: 0.312rem;
+}
+
+.card-content {
+    width: 100%;
+    height: auto;
+}
+
+.card-content h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 0.3rem;
+}
+
+.card-content p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 0rem;
 }
 
 .swiper-pagination {
@@ -186,7 +206,7 @@
     }
     .card1 {
         width: 13vw;
-        height: 40vh;
+        height: 50vh;
         border: 1px;
         border-radius: 0.5rem;
         margin: auto;
@@ -234,7 +254,7 @@
     }
     .card1 {
         width: 21vw;
-        height: 40vh;
+        height: 60vh;
         border: 1px;
         border-radius: 0.5rem;
         margin: auto;
@@ -323,7 +343,7 @@
     }
     .card1 {
         width: 26vw;
-        height: 40vh;
+        height: 50vh;
         border: 1px;
         border-radius: 0.5rem;
         margin: auto;
