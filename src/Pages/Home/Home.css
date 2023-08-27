@@ -12,7 +12,7 @@
 .hero-section-data {
   /* display: grid; */
   /* grid-template-rows: 2fr 2fr 1fr; */
-  margin-top: 8rem;
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
   padding-left: 107px;
@@ -20,7 +20,7 @@
 }
 
 .hero-section-img {
-  margin-top: 8rem;
+  margin-top: 4rem;
   padding-left: 100px;
 }
 
@@ -217,9 +217,9 @@
   .btn-section {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
 
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
@@ -253,12 +253,14 @@
   }
 
   .btn-2 {
-    margin-left: 0;
-    margin-top: 2rem;
+    margin-top: 3px;
+    margin-left: 1rem;
+    /* margin-top: 2rem; */
   }
 
   .hero-section-img {
-    margin-top: 0rem;
+    /* margin-top: 0rem; */
+    display: none;
   }
 
   .hero-section-data {
