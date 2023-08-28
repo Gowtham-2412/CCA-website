@@ -15,7 +15,7 @@ const Navbar = () => {
         open ? 'overflow-visible' : 'overflow-hidden'
       } z-10 h-[80px] w-full`}
     >
-      <nav className="max-container mx-[0rem] w-100 flex justify-between items-center transition-all">
+      <nav className="max-container mx-[0rem] min-w-full flex justify-between items-center transition-all">
         <a href="./" className="max-sm:mx-0 pl-4 pr-6">
           <img src={logo} alt="Nike" width={89} height={35} />
         </a>
