@@ -18,7 +18,6 @@ const Hall = () => {
 
     setItems(updatedItems);
   };
-
   return (
     <div>
       <div className="Heading">
