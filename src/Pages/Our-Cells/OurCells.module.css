@@ -6,12 +6,12 @@
     box-sizing: border-box;
 }
 
-.our-cells-page {
+.ourcellspage {
     padding: 5rem;
     background: #F2EFE4;
 }
 
-.main-heading {
+.mainheading {
     font-family: "Inter";
     font-size: 96px;
     font-weight: 700;
@@ -19,6 +19,7 @@
     letter-spacing: -0.005em;
     text-align: center;
     color: #303030;
+    padding-bottom: 1rem;
 }
 
 .para {
@@ -33,7 +34,7 @@
     padding-top: 1rem;
 }
 
-.cell-container {
+.cellcontainer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -71,11 +72,11 @@
     filter: none;
 }
 
-.cell-container:hover .cell:not(:hover) {
+.cellcontainer:hover .cell:not(:hover) {
     filter: blur(2px);
 }
 
-.cell-heading {
+.cellheading {
     position: absolute;
     font-family: "Roboto";
     font-size: 42px;
@@ -90,7 +91,7 @@
     transition: opacity 0.3s ease-in-out;
 }
 
-.cell:hover .cell-heading {
+.cell:hover .cellheading {
     opacity: 1;
 }
 
@@ -113,7 +114,7 @@
     opacity: 1;
 }
 
-.core-cell {
+.corecell {
     margin-right: -50px;
     z-index: 5;
 }
@@ -123,17 +124,17 @@
     z-index: 1;
 }
 
-.robo-cell {
+.robocell {
     margin-right: -50px;
     z-index: 2;
 }
 
-.e-cell {
+.ecell {
     margin-right: -50px;
     z-index: 4;
 }
 
-.rd-cell {
+.rdcell {
     margin-right: -50px;
     z-index: 3;
 }
@@ -143,7 +144,7 @@
         margin-bottom: 8.5rem;
     }
 
-    .our-cells-page {
+    .ourcellspage {
         padding: 3rem;
         padding-bottom: 0rem;
     }
@@ -154,11 +155,11 @@
         padding-bottom: 4rem;
     }
 
-    .main-heading {
+    .mainheading {
         font-size: 56px;
     }
 
-    .cell-heading {
+    .cellheading {
         font-size: 33px;
     }
 
@@ -170,12 +171,12 @@
         margin-bottom: 7.5rem;
     }
 
-    .our-cells-page {
+    .ourcellspage {
         padding: 5rem;
         padding-bottom: 0rem;
     }
 
-    .main-heading {
+    .mainheading {
         font-size: 75px;
     }
 
@@ -185,7 +186,7 @@
         padding-bottom: 4rem;
     }
 
-    .cell-heading {
+    .cellheading {
         font-size: 37px;
     }
 

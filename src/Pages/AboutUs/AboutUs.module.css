@@ -11,7 +11,7 @@
     background: #F2EFE4;
 }
 
-.main-h {
+.mainh {
     font-family: "Inter";
     font-size: 48px;
     font-weight: 600;
@@ -19,18 +19,21 @@
     letter-spacing: -0.015em;
     text-align: left;
     text-align: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 
-.abt-para {
+.abtpara {
     font-family: "Inter";
     font-size: 20px;
     font-weight: 500;
     line-height: 36px;
     letter-spacing: -0.015em;
     text-align: left;
+    padding-bottom: 1rem;
 }
 
-.exp-button {
+.expbutton {
     width: 163px;
     height: 56px;
     border-width: 0;
@@ -44,7 +47,7 @@
     letter-spacing: -0.005em;
 }
 
-.abt-image {
+.abtimage {
     background: #3E3D3A;
     width: auto;
     height: 561px;
@@ -52,11 +55,13 @@
     border-radius: 6px;
 }
 
-.arrow-icon {
+.arrowicon {
     height: 12.38px;
     width: 12.33px;
     display: inline;
     background: #8EC15C;
+    margin-left: 1rem;
+    margin-bottom: 0.2rem;
 }
 
 @media (max-width : 496px) {
@@ -64,28 +69,28 @@
         padding: 2.5rem;
     }
 
-    .abt-image {
+    .abtimage {
         height: 300px;
     }
 
-    .main-h {
+    .mainh {
         font-size: 38px;
         margin-top: 1rem;
     }
 
-    .abt-para {
+    .abtpara {
         font-size: 17px;
         text-align: center;
     }
 
-    .exp-button {
+    .expbutton {
         width: 140px;
         font-size: 20px;
     }
 }
 
 @media (max-width:991px) and (min-width: 496px) {
-    .abt-image {
+    .abtimage {
         height: 400px;
     }
 
@@ -93,12 +98,12 @@
         padding: 2.8rem;
     }
 
-    .main-h {
+    .mainh {
         font-size: 40px;
         margin-top: 1rem;
     }
 
-    .abt-para {
+    .abtpara {
         font-size: 20px;
         text-align: center;
     }
@@ -107,7 +112,7 @@
 }
 
 @media (max-width:1186px) and (min-width: 992px) {
-    .abt-image {
+    .abtimage {
         height: 600px;
     }
 }
