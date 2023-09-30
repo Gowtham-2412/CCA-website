@@ -9,7 +9,7 @@
     line-height: 5.25rem;
     letter-spacing: -0.03rem;
     }
-.team-tab{
+.teamtab{
         margin: auto;
     display: flex;   
     width: 1050px;
@@ -19,7 +19,7 @@
     background: #8EC15C;
     justify-content: space-around;
     }
-.team-tab button{
+.teamtab button{
         position: relative;
         display: inline-block;
         font-size: 19px;
@@ -32,7 +32,7 @@
         border: none;
         cursor: pointer;
     }
-.team-tab button::after{
+.teamtab button::after{
         content: "";
         position: absolute;
         width: 100%;
@@ -46,16 +46,16 @@
         transition: transform 0.3s;
     
     }
-.team-tab button:hover::after,
-.team-tab button:focus::after{
+.teamtab button:hover::after,
+.teamtab button:focus::after{
         transform-origin :left;
         transform: scaleX(1);
     }
-.team-tab button:focus{
+.teamtab button:focus{
         outline: none;
         
     }
-.sec-heading{
+.secheading{
         color: #303030;
     text-align: center;
     font-size: 40px;
@@ -64,7 +64,7 @@
     margin: 30px;
     
     }
-#fa-content{
+#facontent{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -72,18 +72,29 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+.cardbody{
+    width: 210px;
+    height: 306px;
+    margin: 2rem;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+.cardbody img{
+    width: 100%;
+    height: 100%;
+}
 @media(max-width:1245px){
 
     .heading{
         font-size: 60px;
     }
-    .sec-heading{
+    .secheading{
         font-size: 35px;
     }
-    .team-tab{
+    .teamtab{
         width: 900px;
     }
-    .card-body{
+    .cardbody{
         width: 200px;
         height: 290px;
         margin: 1.5rem;
@@ -94,29 +105,29 @@
 @media(max-width:1075px){
 }
 @media(max-width:992px){
-    .team-tab{
+    .teamtab{
         width: 800px;
     }
 }
 @media(max-width:840px){
-    .team-tab{
+    .teamtab{
         width: 700px;
     }
 }
 
 @media(max-width:720px){
-    .team-tab{
+    .teamtab{
         width: 500px;
 
     }
 
 }
 @media(max-width:502px){
-    .team-tab{
+    .teamtab{
         width: 400px;
 
     }
-    .team-tab button{
+    .teamtab button{
         height:69px;
         width: 70px;
     }
@@ -125,13 +136,13 @@
     .heading{
         font-size:40px;
     }
-    .sec-heading{
+    .secheading{
         font-size: 25px;
     }
-    .team-tab{
+    .teamtab{
         width: 350px;
     }
-    .tab-switch{
+    tab-switch{
         font-size: 15px;
     }
 }

@@ -9,7 +9,7 @@
     line-height: 5.25rem;
     letter-spacing: -0.03rem;
     }
-    .Tab-bar{
+    .Tabbar{
         margin: auto;
     display: flex;   
     width: 1050px;
@@ -19,7 +19,7 @@
     background: #8EC15C;
     justify-content: space-around;
     }
-    .Tab-bar button{
+    .Tabbar button{
         position: relative;
         display: inline-block;
         font-size: 19px;
@@ -32,7 +32,7 @@
         border: none;
         cursor: pointer;
     }
-    .Tab-bar button::after{
+    .Tabbar button::after{
         content: "";
         position: absolute;
         width: 100%;
@@ -46,17 +46,17 @@
         transition: transform 0.3s;
     
     }
-    .Tab-bar button:hover::after,
-    .Tab-bar button:focus::after{
+    .Tabbar button:hover::after,
+    .Tabbar button:focus::after{
         transform-origin :left;
         transform: scaleX(1);
     }
-    .Tab-bar button:focus{
+    .Tabbar button:focus{
         outline: none;
         
     }
     
-    .batch-heading{
+    .batchheading{
         color: #303030;
     text-align: center;
     font-size: 40px;
@@ -65,21 +65,21 @@
     margin: 30px;
     
     }
-    #card-container{
+    #cardcontainer{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         margin: 10rem;
         margin-top: 1rem;
     }
-    .card-body{
+    .cardbody{
         width: 210px;
         height: 306px;
         margin: 2rem;
         margin-top: 1rem;
         overflow: hidden;
     }
-    .card-body img{
+    .cardbody img{
         width: 100%;
         height: 100%;
     }
@@ -88,10 +88,10 @@
             margin:15rem;
     
         }
-        .card-body{
+        .cardbody{
             margin:2rem;
         }
-        .Tab-bar{
+        .Tabbar{
             
         }
     }*/
@@ -101,13 +101,13 @@
             font-size: 60px;
     
         }
-        .batch-heading{
+        .batchheading{
             font-size: 35px;
         }
-        .Tab-bar{
+        .Tabbar{
             width: 900px;
         }
-        .card-body{
+        .cardbody{
             width: 200px;
             height: 290px;
             margin: 1.5rem;
@@ -118,29 +118,29 @@
     @media(max-width:1075px){
     }
     @media(max-width:992px){
-        .Tab-bar{
+        .Tabbar{
             width: 800px;
         }
     }
     @media(max-width:840px){
-        .Tab-bar{
+        .Tabbar{
             width: 700px;
         }
     }
     
     @media(max-width:720px){
-        .Tab-bar{
+        .Tabbar{
             width: 500px;
     
         }
     
     }
     @media(max-width:502px){
-        .Tab-bar{
+        .Tabbar{
             width: 400px;
     
         }
-        .Tab-bar button{
+        .Tabbar button{
             height:69px;
             width: 70px;
         }
@@ -149,13 +149,13 @@
         .Heading{
             font-size:40px;
         }
-        .batch-heading{
+        .batchheading{
             font-size: 25px;
         }
-        .Tab-bar{
+        .Tabbar{
             width: 350px;
         }
-        .tab-switch{
+        .tabswitch{
             font-size: 15px;
         }
     }

@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { useRef } from 'react'
-import './Team.css'
+import Teamcss from './Team.module.css'
 import ImgLib from '../../Components/ImgLink/ImageLib'
 
 const Team = () => {
@@ -38,20 +38,20 @@ const Team = () => {
     }
   return (
     <div>
-        <div className='heading'>
+        <div className={Teamcss.heading}>
             <h1>Our Team</h1>
         </div>
-        <div className='team-tab'> 
-        <button className='tab-switch' onClick={() => scrollToSection(faculty)}>Faculty Advisers</button>  
-        <button className='tab-switch' onClick={() => scrollToSection(office)}>Office Bearers</button>  
-        <button className='tab-switch' onClick={() => scrollToSection(senior)}>Senior Members</button>     
+        <div className={Teamcss.teamtab}> 
+        <button className={Teamcss.tabswitch} onClick={() => scrollToSection(faculty)}>Faculty Advisers</button>  
+        <button className={Teamcss.tabswitch} onClick={() => scrollToSection(office)}>Office Bearers</button>  
+        <button className={Teamcss.tabswitch} onClick={() => scrollToSection(senior)}>Senior Members</button>     
 
         </div>
-        <div className='fa-section'>
-        <div ref= {faculty} className='sec-heading'>
+        <div className={Teamcss.fasection}>
+        <div ref= {faculty} className={Teamcss.secheading}>
             <h3>Faculty Advisers</h3>
         </div>
-        <main id='fa-content'>
+        <main id={Teamcss.facontent}>
         {
             FacLib.map((elem) => {
                 const { name, image } = elem;
@@ -59,7 +59,7 @@ const Team = () => {
                 return(
                     
                     <div className='Card-section'>
-                    <div className='card-body'>
+                    <div className={Teamcss.cardbody}>
                         <img src={image} alt={name}></img>
                     </div>
                     </div> 
@@ -69,11 +69,11 @@ const Team = () => {
         }
         </main>
         </div>
-        <div className='ob-section'>
-            <div ref= {office} className='sec-heading'>
+        <div className={Teamcss.obsection}>
+            <div ref= {office} className={Teamcss.secheading}>
                 <h3>Office Bearers</h3>
             </div>
-            <main id='fa-content'>
+            <main id={Teamcss.facontent}>
         {
             items.slice(21,31).map((elem) => {
                 const {  name, image } = elem;
@@ -81,7 +81,7 @@ const Team = () => {
                 return(
                     
                     <div className='Card-section'>
-                    <div className='card-body'>
+                    <div className={Teamcss.cardbody}>
                         <img src={image} alt={name}></img>
                     </div>
                     </div> 
@@ -91,11 +91,11 @@ const Team = () => {
         }
         </main>
         </div>
-        <div className='sm-section'>
-            <div ref= {senior} className='sec-heading'>
+        <div className={Teamcss.smsection}>
+            <div ref= {senior} className={Teamcss.secheading}>
                 <h3>Senior Members</h3>
             </div>
-            <main id='fa-content'>
+            <main id={Teamcss.facontent}>
         {
             items.slice(32,).map((elem) => {
                 const {  name, image } = elem;
@@ -103,7 +103,7 @@ const Team = () => {
                 return(
                     
                     <div className='Card-section'>
-                    <div className='card-body'>
+                    <div className={Teamcss.cardbody}>
                         <img src={image} alt={name}></img>
                         {console.log(items.categoty)}
                     </div>
