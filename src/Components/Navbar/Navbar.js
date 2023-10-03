@@ -20,7 +20,7 @@ const Navbar = () => {
           <img src={logo} alt="Nike" width={89} height={35} />
         </a>
         <ul
-          className={`link-style1 top-0 max-lg:pl-15 lg:opacity-100 max-lg:visibility-hidden max-lg:border-2 max-lg:drop-shadow-xl
+          className={`link-style1 top-0 max-lg:pl-15 lg:opacity-100 max-lg:visibility-hidden max-lg:border-2 max-lg:drop-shadow-xl max-sm:grid max-sm:place-content-center max-sm:gap-4 max-lg:mb-13px
             ${open ? 'right-0' : 'right-[-100%]'} ${open ? 'z-10' : 'z-[9]'}`}
           id="header"
         >
@@ -32,7 +32,7 @@ const Navbar = () => {
             >
               <Link
                 to={item.href}
-                className="lg:effect lg:overflow-hidden font-inter font-semibold leading-normal text-lg text-nav-black max-lg:hover:drop-shadow-lg max-lg:hover:font-bold "
+                className="lg:effect lg:overflow-hidden font-inter font-semibold leading-normal text-lg text-nav-black max-lg:hover:drop-shadow-lg max-lg:hover:font-bold max-sm:text-[1.8em] max-lg:text-[1.5rem]"
                 style={{ textDecoration: 'none', color: '#4A4A4A' }}
                 id="link"
               >
