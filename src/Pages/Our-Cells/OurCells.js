@@ -18,7 +18,7 @@ export default function OurCells() {
     return (
         <div className={CellsCss.ourcellspage}>
             <h1 className={CellsCss.mainheading}>Our Cells</h1>
-            <p className={CellsCss.para}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus, quam id hendrerit varius, lacus tellus cursus turpis, quis tempus ante odio vitae lectus. Nullam interdum lacus at nibh pulvinar efficitur. Praesent et justo nisl. Integer porta porta mollis.</p>
+            <p className={CellsCss.para}>CCA is divided into five cells which work together in collaboration with each other. We believe in the fact that togetherness yields excellent results. These cells basically function to cover every aspect required for the success of an organisation.</p>
             <div className={CellsCss.cellcontainer}>
                 {cellData.map((cell, index) => (
                     <div className={`${CellsCss.cell} ${cell.class}`} style={{ backgroundImage: `url(${cell.img})` }} key={index}>

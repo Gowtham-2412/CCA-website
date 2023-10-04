@@ -61,7 +61,7 @@ const Aarohan = () => {
     <div className="aarohan">
     <div class="header">
         <h1>AAROHAN</h1>
-        <p>Lorem Ipsum dolor sit amet,consectetur adipisicing elit, sed doeiusmod tempor incididunt ut laboreet dolore magna aliqua. Ut enim adminim veniam, quis nostrudexercitation ullamco laboris nisi utaliquip ex ea commodo consequat.</p>
+        <p>Aarohan means to conquer greater heights. As the annual Techno Management festival of NIT Durgapur, it dares one to elevate his limits and to defy one's capacity. This year, yet again, they celebrate technology with a hope to explore that minuscule thing that always eludes us - perfection. Aarohan hosts a galaxy of events aimed at boosting the technological and managerial skills inherent in today's youth and providing them with an opportunity to showcase their innovative ideas and thoughts.</p>
     </div>
 
     <div class="aftermovie">
