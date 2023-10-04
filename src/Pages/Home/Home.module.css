@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@700&display=swap');
 
-.main-container {
+.maincontainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
 
@@ -9,7 +9,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-.hero-section-data {
+.herosectiondata {
   /* display: grid; */
   /* grid-template-rows: 2fr 2fr 1fr; */
   margin-top: 3rem;
@@ -19,17 +19,17 @@
   margin-bottom: 2rem;
 }
 
-.hero-section-img {
+.herosectionimg {
   margin-top: 4rem;
   padding-left: 100px;
 }
 
-.btn-section {
+.btnsection {
   display: flex;
 
 }
 
-.hero-section-data .hero-heading {
+.herosectiondata .heroheading {
   color: #303030;
   font-family: Inter;
   font-size: 3.7rem;
@@ -41,7 +41,7 @@
   letter-spacing: 0.24px;
 }
 
-.hero-section-data .hero-para {
+.herosectiondata .heropara {
   color: #3f3f3f;
   font-family: Inter;
   font-size: 1.5rem;
@@ -53,7 +53,7 @@
   letter-spacing: -0.36px;
 }
 
-.btn-1 {
+.btn1 {
   padding: 0.938rem;
   font-size: 1.8rem;
   font-weight: 600;
@@ -69,14 +69,14 @@
     0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.btn-1:hover {
+.btn1:hover {
   border-radius: 5px;
   background: #84B950;
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
 }
 
 
-.btn-2 {
+.btn2 {
   border: 2px solid #252525;
   padding: 0.938rem;
   font-size: 1.8rem;
@@ -90,7 +90,7 @@
   color: #3A3A3A;
 }
 
-.btn-2:hover {
+.btn2:hover {
   border-radius: 5px;
   background: #303030;
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
@@ -101,7 +101,7 @@
 
 
 @media (max-width: 1230px) {
-  .btn-section {
+  .btnsection {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -109,11 +109,11 @@
     /* gap: 2rem; */
   }
 
-  .btn-1 .btn-2 {
+  .btn1 .btn2 {
     font-size: 5px;
   }
 
-  .hero-para {
+  .heropara {
     padding-top: 3rem;
     padding-bottom: 4rem;
     font-size: 1.2rem;
@@ -121,18 +121,18 @@
 }
 
 @media (max-width: 1024px) {
-  .main-container {
+  .maincontainer {
     display: flex;
     flex-direction: column;
   }
 
-  .hero-section-data {
+  .herosectiondata {
     width: 100%;
     padding-bottom: 1.5rem;
     padding: 3rem;
   }
 
-  .hero-section-data .hero-para {
+  .herosectiondata .heropara {
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 500;
@@ -142,7 +142,7 @@
     letter-spacing: -0.36px;
   }
 
-  .hero-section-data .hero-heading {
+  .herosectiondata .heroheading {
     font-size: 80px;
     font-style: normal;
     font-weight: 600;
@@ -152,44 +152,44 @@
     letter-spacing: 0.63px;
   }
 
-  .btn-section {
+  .btnsection {
     width: 100%;
     display: flex;
     /* justify-content: start; */
 
   }
 
-  .hero-section-img {
+  .herosectionimg {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 1rem;
   }
 
-  .main-img {
+  .mainimg {
     width: 100%;
   }
 
 }
 
 @media (max-width: 750px) {
-  .hero-section-img {
+  .herosectionimg {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 2rem;
   }
 
-  .main-img {
+  .mainimg {
     width: 100%;
   }
 
-  .hero-section-data .hero-para {
+  .herosectiondata .heropara {
     font-size: 24px;
     padding-bottom: 5rem;
   }
 
-  .hero-section-data .hero-heading {
+  .herosectiondata .heroheading {
     font-size: 60px;
     font-style: normal;
     font-weight: 700;
@@ -200,8 +200,8 @@
     padding-bottom: 2rem;
   }
 
-  .btn-1,
-  .btn-2 {
+  .btn1,
+  .btn2 {
     font-size: 1.5rem;
   }
 }
@@ -210,11 +210,11 @@
 
 
 
-  .hero-section-data {
+  .herosectiondata {
     padding: 1.5rem;
   }
 
-  .btn-section {
+  .btnsection {
     width: 100%;
     display: flex;
     /* flex-direction: column; */
@@ -225,7 +225,7 @@
     box-sizing: border-box;
   }
 
-  .hero-section-data .hero-heading {
+  .herosectiondata .heroheading {
     font-size: 3rem;
     font-style: normal;
     font-weight: 550;
@@ -235,7 +235,7 @@
     padding-bottom: 1.5rem;
   }
 
-  .hero-section-data .hero-para {
+  .herosectiondata .heropara {
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 500;
@@ -244,26 +244,26 @@
     letter-spacing: -0.36px;
   }
 
-  .btn-1,
-  .btn-2 {
+  .btn1,
+  .btn2 {
     font-size: 1rem;
     width: 10rem;
     height: 4rem;
 
   }
 
-  .btn-2 {
+  .btn2 {
     margin-top: 3px;
     margin-left: 1rem;
     /* margin-top: 2rem; */
   }
 
-  .hero-section-img {
+  .herosectionimg {
     /* margin-top: 0rem; */
     display: none;
   }
 
-  .hero-section-data {
+  .herosectiondata {
     margin-top: 1rem;
   }
 }
