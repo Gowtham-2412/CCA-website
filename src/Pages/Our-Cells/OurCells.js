@@ -8,11 +8,11 @@ import wdctimg from '../../Assets/Images/wdct.jpg';
 
 export default function OurCells() {
     const cellData = [
-        { title: "Core Cell", class: CellsCss.corecell, img: coreimg },
-        { title: "E Cell", class: CellsCss.ecell, img: ecellimg },
-        { title: "R&D Cell", class: CellsCss.rdcell, img: rndimg },
-        { title: "Robo Cell", class: CellsCss.robocell, img: robocellimg },
-        { title: "WDCT", class: CellsCss.wdct, img: wdctimg },
+        { herf: "/core", title: "Core Cell", class: CellsCss.corecell, img: coreimg },
+        { herf: "/ecell", title: "E Cell", class: CellsCss.ecell, img: ecellimg },
+        { herf: "/rnd", title: "R&D Cell", class: CellsCss.rdcell, img: rndimg },
+        { herf: "/robo", title: "Robo Cell", class: CellsCss.robocell, img: robocellimg },
+        { herf: "/wdct", title: "WDCT", class: CellsCss.wdct, img: wdctimg },
     ];
 
     return (
@@ -21,10 +21,12 @@ export default function OurCells() {
             <p className={CellsCss.para}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus, quam id hendrerit varius, lacus tellus cursus turpis, quis tempus ante odio vitae lectus. Nullam interdum lacus at nibh pulvinar efficitur. Praesent et justo nisl. Integer porta porta mollis.</p>
             <div className={CellsCss.cellcontainer}>
                 {cellData.map((cell, index) => (
-                    <div className={`${CellsCss.cell} ${cell.class}`} style={{ backgroundImage: `url(${cell.img})` }} key={index}>
-                        <hr className={CellsCss.hr} />
-                        <h3 className={CellsCss.cellheading}>{cell.title}</h3>
-                    </div>
+                    <a href={cell.herf}>
+                        <div className={`${CellsCss.cell} ${cell.class}`} style={{ backgroundImage: `url(${cell.img})` }} key={index}>
+                            <hr className={CellsCss.hr} />
+                            <h3 className={CellsCss.cellheading}>{cell.title}</h3>
+                        </div>
+                    </a>
                 ))}
             </div>
         </div>

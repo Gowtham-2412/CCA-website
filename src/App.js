@@ -9,6 +9,7 @@ import OurCells from './Pages/Our-Cells/OurCells';
 import Footer from './Components/Footer/Footer';
 import Aarohan from './Pages/Aarohan/Aarohan';
 import Team from './Pages/Our-Team/Team';
+import Core from './Pages/Cells/CoreCell/CoreCell';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/our-team" element={<Team />} />
         <Route path="/our-cells" element={<OurCells />} />
         <Route path="/aarohan" element={<Aarohan />} />
+        <Route path="/core" element={<Core />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Open+Sans&family=Roboto:wght@700&display=swap');
-
 * {
     padding: 0;
     margin: 0;
@@ -59,10 +58,12 @@
     transition: transform 0.3s ease-in-out;
 }
 
-
 .cell:hover~.cell {
     filter: blur(2px);
+}
 
+a:hover {
+    z-index: 7;
 }
 
 .cell:hover {
@@ -95,8 +96,6 @@
     opacity: 1;
 }
 
-
-
 .hr {
     position: absolute;
     top: 415px;
@@ -108,7 +107,6 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
-
 
 .cell:hover .hr {
     opacity: 1;
@@ -139,55 +137,44 @@
     z-index: 3;
 }
 
-@media (max-width : 496px) {
+@media (max-width: 496px) {
     .cell {
         margin-bottom: 8.5rem;
     }
-
     .ourcellspage {
         padding: 3rem;
         padding-bottom: 0rem;
     }
-
     .para {
         font-size: 18px;
         padding-top: 0rem;
         padding-bottom: 4rem;
     }
-
     .mainheading {
         font-size: 56px;
     }
-
     .cellheading {
         font-size: 33px;
     }
-
 }
 
 @media (max-width:1160px) and (min-width: 496px) {
-
     .cell {
         margin-bottom: 7.5rem;
     }
-
     .ourcellspage {
         padding: 5rem;
         padding-bottom: 0rem;
     }
-
     .mainheading {
         font-size: 75px;
     }
-
     .para {
         font-size: 20px;
         padding-top: 0rem;
         padding-bottom: 4rem;
     }
-
     .cellheading {
         font-size: 37px;
     }
-
 }
