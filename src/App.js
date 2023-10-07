@@ -10,6 +10,11 @@ import Footer from './Components/Footer/Footer';
 import Aarohan from './Pages/Aarohan/Aarohan';
 import Team from './Pages/Our-Team/Team';
 import Core from './Pages/Cells/CoreCell/CoreCell';
+import Ecell from './Pages/Cells/Ecell/Ecell';
+import RnD from './Pages/Cells/RnD/RnD.js';
+import RoboCell from './Pages/Cells/RoboCell/RoboCell.js';
+import WDCT from './Pages/Cells/WDCT/WDCT.js';
+
 
 function App() {
   return (
@@ -24,6 +29,10 @@ function App() {
         <Route path="/our-cells" element={<OurCells />} />
         <Route path="/aarohan" element={<Aarohan />} />
         <Route path="/core" element={<Core />} />
+        <Route path="/ecell" element={<Ecell />} />
+        <Route path="/rnd" element={<RnD />} />
+        <Route path="/robo" element={<RoboCell />} />
+        <Route path="/wdct" element={<WDCT />} />
       </Routes>
       <Footer />
     </BrowserRouter>
