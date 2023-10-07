@@ -1,4 +1,4 @@
-.heading{
+.heading {
     color: #303030;
     text-align: center;
     font-size: 4rem;
@@ -8,63 +8,70 @@
     font-weight: 700;
     line-height: 5.25rem;
     letter-spacing: -0.03rem;
-    }
-.teamtab{
-        margin: auto;
-    display: flex;   
+}
+
+.teamtab {
+    margin: auto;
+    display: flex;
     width: 1050px;
     height: 70px;
     flex-shrink: 0;
     border-radius: 10px;
     background: #8EC15C;
     justify-content: space-around;
-    }
-.teamtab button{
-        position: relative;
-        display: inline-block;
-        font-size: 19px;
-        color: #fff;
-        height: 40px;
-        margin: auto;
-        font-weight: 550;
-        text-decoration: none;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-    }
-.teamtab button::after{
-        content: "";
-        position: absolute;
-        width: 100%;
-        left: 0;
-        height: 5px;
-        background: rgb(255, 255, 255);
-        bottom: 0px;
-        border-radius: 20px;
-        transform: scaleX(0);
-        transform-origin:left ;
-        transition: transform 0.3s;
-    
-    }
+}
+
+.teamtab button {
+    position: relative;
+    display: inline-block;
+    font-size: 19px;
+    color: #fff;
+    height: 40px;
+    margin: auto;
+    font-weight: 550;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.teamtab button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 5px;
+    background: rgb(255, 255, 255);
+    bottom: 0px;
+    border-radius: 20px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+
+}
+
 .teamtab button:hover::after,
-.teamtab button:focus::after{
-        transform-origin :left;
-        transform: scaleX(1);
-    }
-.teamtab button:focus{
-        outline: none;
-        
-    }
-.secheading{
-        color: #303030;
+.teamtab button:focus::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.teamtab button:focus {
+    outline: none;
+
+}
+
+.secheading {
+    color: #303030;
     text-align: center;
     font-size: 40px;
     font-weight: 700;
     line-height: 84px;
     margin: 30px;
-    
-    }
-#facontent{
+
+}
+
+#facontent {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -72,29 +79,35 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-.cardbody{
+
+.cardbody {
     width: 210px;
     height: 306px;
     margin: 2rem;
     margin-top: 1rem;
     overflow: hidden;
 }
-.cardbody img{
+
+.cardbody img {
     width: 100%;
     height: 100%;
 }
-@media(max-width:1245px){
 
-    .heading{
+@media(max-width:1245px) {
+
+    .heading {
         font-size: 60px;
     }
-    .secheading{
+
+    .secheading {
         font-size: 35px;
     }
-    .teamtab{
+
+    .teamtab {
         width: 900px;
     }
-    .cardbody{
+
+    .cardbody {
         width: 200px;
         height: 290px;
         margin: 1.5rem;
@@ -102,49 +115,55 @@
     }
 
 }
-@media(max-width:1075px){
-}
-@media(max-width:992px){
-    .teamtab{
+
+@media(max-width:1075px) {}
+
+@media(max-width:992px) {
+    .teamtab {
         width: 800px;
     }
 }
-@media(max-width:840px){
-    .teamtab{
+
+@media(max-width:840px) {
+    .teamtab {
         width: 700px;
     }
 }
 
-@media(max-width:720px){
-    .teamtab{
+@media(max-width:720px) {
+    .teamtab {
         width: 500px;
 
     }
 
 }
-@media(max-width:502px){
-    .teamtab{
+
+@media(max-width:502px) {
+    .teamtab {
         width: 400px;
 
     }
-    .teamtab button{
-        height:69px;
+
+    .teamtab button {
+        height: 69px;
         width: 70px;
     }
 }
-@media(max-width:400px){
-    .heading{
-        font-size:40px;
+
+@media(max-width:400px) {
+    .heading {
+        font-size: 40px;
     }
-    .secheading{
+
+    .secheading {
         font-size: 25px;
     }
-    .teamtab{
+
+    .teamtab {
         width: 350px;
     }
-    tab-switch{
+
+    tab-switch {
         font-size: 15px;
     }
 }
-
-        

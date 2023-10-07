@@ -62,15 +62,12 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 2.2rem;
-    color: #303030;
-
 }
 
 .card-text-1 p {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 1.1rem;
-    color: #303030;
 }
 
 
@@ -106,14 +103,12 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 2.2rem;
-    color: #303030;
 }
 
 .card-text-2 p {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     font-size: 1.1rem;
-    color: #303030;
 }
 
 
@@ -121,94 +116,6 @@ body {
 
 
 /*responsive*/
-
-@media(max-width:1600px) {
-    .header {
-        text-align: center;
-        padding: 0 3rem 0 3rem;
-    }
-
-    .header h1 {
-        font-size: 5rem;
-    }
-
-    .header p {
-        font-size: 2.1rem;
-        padding: 0 7rem 0 7rem;
-    }
-
-    .card-container {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        margin: auto;
-    }
-
-    .card-1 {
-        display: flex;
-        margin-top: 5rem;
-    }
-
-    .card-image-1 {
-        width: 100%;
-        border-radius: 0.5rem;
-    }
-
-    .card-image-1 img {
-        width: 100%;
-        min-height: 100%;
-        border-radius: 0.5rem;
-    }
-
-    .card-text-1 {
-        width: 70%;
-        padding-left: 1.5rem;
-    }
-
-    .card-text-1 h2 {
-        font-size: 3rem;
-    }
-
-    .card-text-1 p {
-        font-size: 2rem;
-    }
-
-    /*odd position*/
-    /*even position*/
-    .card-2 {
-        margin-top: 5rem;
-        display: flex;
-    }
-
-    .card-image-2 {
-        width: 100%;
-        order: 2;
-        border-radius: 0.5rem;
-    }
-
-    .card-image-2 img {
-        width: 100%;
-        min-height: 100%;
-        border-radius: 0.5rem;
-    }
-
-    .card-text-2 {
-        padding-right: 1.5rem;
-        width: 70%;
-        order: 1;
-    }
-
-    .card-text-2 h2 {
-        font-size: 3rem;
-    }
-
-    .card-text-2 p {
-        font-size: 2.1rem;
-    }
-
-    /*even position*/
-}
-
 @media(max-width:1600px) {
     .header {
         text-align: center;
@@ -257,7 +164,7 @@ body {
     }
 
     .card-text-1 p {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     /*odd position*/
@@ -290,7 +197,7 @@ body {
     }
 
     .card-text-2 p {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     /*even position*/
@@ -307,7 +214,7 @@ body {
     }
 
     .header p {
-        font-size: 1rem;
+        font-size: 20px;
         padding: 0 7rem 0 7rem;
     }
 
@@ -344,7 +251,7 @@ body {
     }
 
     .card-text-1 p {
-        font-size: 1rem;
+        font-size: 1.8rem;
     }
 
     /*odd position*/
@@ -377,7 +284,7 @@ body {
     }
 
     .card-text-2 p {
-        font-size: 1rem;
+        font-size: 1.8rem;
     }
 
     /*even position*/
@@ -394,7 +301,7 @@ body {
     }
 
     .header p {
-        font-size: 0.9rem;
+        font-size: 20px;
     }
 
     .card-container {
@@ -430,7 +337,7 @@ body {
     }
 
     .card-text-1 p {
-        font-size: 0.9rem;
+        font-size: 1.7rem;
     }
 
     /*odd position*/
@@ -463,7 +370,7 @@ body {
     }
 
     .card-text-2 p {
-        font-size: 0.9rem;
+        font-size: 1.7rem;
     }
 
     /*even position*/
@@ -480,7 +387,7 @@ body {
     }
 
     .header p {
-        font-size: 1rem;
+        font-size: 20px;
         padding: 0 2.1rem 0 2.1rem;
     }
 
@@ -516,7 +423,7 @@ body {
     }
 
     .card-text-1 p {
-        font-size: 1rem;
+        font-size: 1.6rem;
     }
 
     /*odd position*/
@@ -550,7 +457,7 @@ body {
     }
 
     .card-text-2 p {
-        font-size: 1rem;
+        font-size: 1.6rem;
     }
 
     /*even position*/
@@ -567,7 +474,7 @@ body {
     }
 
     .header p {
-        font-size: 0.8rem;
+        font-size: 1.25rem;
         padding: 0 0.4rem 0 0.4rem;
     }
 
@@ -598,7 +505,7 @@ body {
     }
 
     .card-text-1 p {
-        font-size: 0.8rem;
+        font-size: 1.6rem;
     }
 
     /*odd position*/
@@ -631,13 +538,14 @@ body {
     }
 
     .card-text-2 p {
-        font-size: 0.8rem;
+        font-size: 1.6rem;
     }
 
     /*even position*/
 }
 
-@media(max-width:426px) {
+/* 426px */
+@media(max-width:496px) {
     .header {
         text-align: center;
         padding: 0 3rem 0 3rem;
@@ -648,7 +556,7 @@ body {
     }
 
     .header p {
-        font-size: 0.8rem;
+        font-size: 18px;
         padding: 0 0.6rem 0 0.6rem;
     }
 
@@ -683,7 +591,7 @@ body {
     }
 
     .card-text-1 p {
-        font-size: 0.8rem;
+        font-size: 1.6rem;
     }
 
     /*odd position*/
@@ -716,7 +624,7 @@ body {
     }
 
     .card-text-2 p {
-        font-size: 0.8rem;
+        font-size: 1.6rem;
     }
 
     /*even position*/
@@ -733,7 +641,7 @@ body {
     }
 
     .header p {
-        font-size: 0.7rem;
+        font-size: 18px;
     }
 
     .card-container {
@@ -767,7 +675,7 @@ body {
     }
 
     .card-text-1 p {
-        font-size: 0.7rem;
+        font-size: 1.3rem;
     }
 
     /*odd position*/
@@ -800,7 +708,7 @@ body {
     }
 
     .card-text-2 p {
-        font-size: 0.7rem;
+        font-size: 1.3px;
     }
 
     /*even position*/
@@ -817,7 +725,7 @@ body {
     }
 
     .header p {
-        font-size: 0.6rem;
+        font-size: 18px;
     }
 
     .card-container {
@@ -851,7 +759,7 @@ body {
     }
 
     .card-text-1 p {
-        font-size: 0.6rem;
+        font-size: 1.2rem;
     }
 
     /*odd position*/
@@ -884,8 +792,7 @@ body {
     }
 
     .card-text-2 p {
-        font-size: 0.6rem;
+        font-size: 1.2rem;
+        /*even position*/
     }
-
-    /*even position*/
 }

@@ -48,7 +48,6 @@
 
 .gallery h3 {
     font-weight: 700;
-    line-height: 84px;
     color: #303030;
     font-size: 3.7rem;
     margin-bottom: 4rem;
@@ -113,6 +112,7 @@
     font-weight: 500;
     font-size: 15px;
     margin-top: 0rem;
+    color: #303030;
 }
 
 .swiper-pagination {
@@ -158,7 +158,7 @@
 @media(max-width:2770px) {
     .card {
         width: 60vw;
-        height: 80vh;
+        height: 90vh;
         border-radius: 1rem;
     }
 
@@ -167,6 +167,10 @@
         height: 100%;
         object-fit: cover;
         border-radius: 1rem;
+    }
+
+    .aftermovie {
+        margin: 6rem 9rem 0 9rem;
     }
 
     .card1 {
@@ -189,11 +193,8 @@
     }
 
     .header p {
-        font-family: "Inter";
-        color: #303030;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         padding: 0 7rem 0 7rem;
-        line-height: 3rem;
     }
 
     .gallery {
@@ -230,7 +231,6 @@
 }
 
 @media(max-width:1024px) {
-
     .aftermovie {
         margin: 4rem 4rem 0 4rem;
     }
@@ -250,7 +250,7 @@
     }
 
     .card {
-        width: 60vw;
+        width: 55vw;
         height: 60vh;
         border-radius: 1rem;
     }
@@ -271,14 +271,14 @@
 
     .header p {
         font-size: 1.4rem;
-        line-height: 3rem;
-        padding: 0 3rem 0 3rem;
+        padding: 0 7rem 0 7rem;
+        line-height: 2.6rem;
     }
 }
 
 @media(max-width:680px) {
     .card1 {
-        width: 40vw;
+        width: 41vw;
         height: 40vh;
         border: 1px;
         border-radius: 0.5rem;
@@ -286,19 +286,7 @@
     }
 
     .event h4 {
-        font-size: 3.5rem;
         line-height: 5rem;
-    }
-
-    .gallery h3 {
-        font-size: 3.5rem;
-        line-height: 5rem;
-    }
-
-    .header p {
-        font-size: 1.35rem;
-        line-height: 3rem;
-        padding: 0 3rem 0 3rem;
     }
 }
 
@@ -313,24 +301,23 @@
     }
 
     .header p {
-        font-size: 1.35rem;
-        line-height: 3rem;
-        padding: 0 3rem 0 3rem;
+        font-size: 1.3rem;
+        padding: 0 4rem 0 4rem;
+        line-height: 2.6rem;
     }
 }
 
-
 @media(max-width: 500px) {
     .card1 {
-        width: 60vw;
+        width: 70vw;
         height: 45vh;
         border: 1px;
         border-radius: 0.5rem;
         margin: auto;
     }
 
-    .header p {
-        line-height: 2.5rem;
+    .galary h3 {
+        line-height: 4rem;
     }
 
 }
@@ -346,14 +333,13 @@
         margin: 2rem 0.3rem 0 0.3rem;
     }
 
-    .card {
-        width: 55vw;
-        height: 35vh;
+    .aftermovie iframe {
+        position: absolute;
     }
 
-    .header p {
-        font-size: 1.2rem;
-        line-height: 2.1rem;
+    .card {
+        width: 60vw;
+        height: 35vh;
     }
 }
 
@@ -362,8 +348,8 @@
         margin: 2rem 0.1rem 0 0.1rem;
     }
 
-    .card {
-        width: 59vw;
-        height: 35vh;
+    .header p {
+        font-size: 1.2rem;
+        line-height: 2rem;
     }
 }
