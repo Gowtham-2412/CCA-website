@@ -1,0 +1,80 @@
+.wrap {
+    background-color: #f2efe4;
+    font-family: 'Roboto';
+    margin-top: 3rem;
+    margin-left: 4rem;
+    margin-right: 2rem;
+}
+
+.heading {
+    font-weight: 700;
+    font-size: 3.7rem;
+    text-decoration: none;
+    line-height: 84px;
+    letter-spacing: 1px;
+    color: #303030;
+}
+
+.detailWrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.CellImg {
+    width: 35vw;
+    border-radius: 0.5rem;
+}
+
+img {
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.great {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 4px;
+    color: #000000;
+    padding-top: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.line {
+    background-color: #000000;
+    height: 1px;
+    width: 80%;
+    margin-bottom: 3.5rem;
+}
+
+.slogo {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: auto;
+    color: #000000;
+    display: inline-block;
+}
+
+.CellInfo {
+    width: 50vw;
+}
+
+.CellWork {
+    width: 60vw;
+}
+
+.CellWork h1 {
+    font-weight: 600;
+    font-size: 2.2rem;
+    font-family: 'Roboto';
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+.CellWork p {
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #000000;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
