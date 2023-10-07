@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@500;600;700;800&family=Roboto+Slab:wght@300&family=Roboto:wght@500;700;900&display=swap');
+
 body {
     background-color: #f2efe4;
     font-family: 'Inter', sans-serif;
@@ -121,69 +122,85 @@ body {
         text-align: center;
         padding: 0 3rem 0 3rem;
     }
+
     .header h1 {
         font-size: 6rem;
     }
+
     .header p {
         font-size: 2.3rem;
         padding: 0 7rem 0 7rem;
     }
+
     .card-container {
         display: flex;
         flex-direction: column;
         width: 90%;
         margin: auto;
     }
+
     .card-1 {
         display: flex;
         margin-top: 5rem;
     }
+
     .card-image-1 {
         width: 100%;
         border-radius: 0.5rem;
     }
+
     .card-image-1 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-1 {
         width: 70%;
         padding-left: 1.5rem;
     }
+
     .card-text-1 h2 {
         font-size: 3.3rem;
     }
+
     .card-text-1 p {
         font-size: 2.3rem;
     }
+
     /*odd position*/
     /*even position*/
     .card-2 {
         margin-top: 5rem;
         display: flex;
     }
+
     .card-image-2 {
         width: 100%;
         order: 2;
         border-radius: 0.5rem;
     }
+
     .card-image-2 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-2 {
         padding-right: 1.5rem;
         width: 70%;
         order: 1;
     }
+
     .card-text-2 h2 {
         font-size: 3.3rem;
     }
+
     .card-text-2 p {
         font-size: 2.3rem;
     }
+
     /*even position*/
 }
 
@@ -192,69 +209,85 @@ body {
         text-align: center;
         padding: 0 3rem 0 3rem;
     }
+
     .header h1 {
         font-size: 5rem;
     }
+
     .header p {
         font-size: 2.1rem;
         padding: 0 7rem 0 7rem;
     }
+
     .card-container {
         display: flex;
         flex-direction: column;
         width: 90%;
         margin: auto;
     }
+
     .card-1 {
         display: flex;
         margin-top: 5rem;
     }
+
     .card-image-1 {
         width: 100%;
         border-radius: 0.5rem;
     }
+
     .card-image-1 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-1 {
         width: 70%;
         padding-left: 1.5rem;
     }
+
     .card-text-1 h2 {
         font-size: 3rem;
     }
+
     .card-text-1 p {
         font-size: 2rem;
     }
+
     /*odd position*/
     /*even position*/
     .card-2 {
         margin-top: 5rem;
         display: flex;
     }
+
     .card-image-2 {
         width: 100%;
         order: 2;
         border-radius: 0.5rem;
     }
+
     .card-image-2 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-2 {
         padding-right: 1.5rem;
         width: 70%;
         order: 1;
     }
+
     .card-text-2 h2 {
         font-size: 3rem;
     }
+
     .card-text-2 p {
         font-size: 2.1rem;
     }
+
     /*even position*/
 }
 
@@ -263,69 +296,85 @@ body {
         text-align: center;
         padding: 0 3rem 0 3rem;
     }
+
     .header h1 {
         font-size: 3.6rem;
     }
+
     .header p {
         font-size: 1.3rem;
         padding: 0 7rem 0 7rem;
     }
+
     .card-container {
         display: flex;
         flex-direction: column;
         width: 90%;
         margin: auto;
     }
+
     .card-1 {
         display: flex;
         margin-top: 5rem;
     }
+
     .card-image-1 {
         width: 100%;
         border-radius: 0.5rem;
     }
+
     .card-image-1 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-1 {
         width: 70%;
         padding-left: 1.5rem;
     }
+
     .card-text-1 h2 {
         font-size: 2.3rem;
     }
+
     .card-text-1 p {
         font-size: 1.3rem;
     }
+
     /*odd position*/
     /*even position*/
     .card-2 {
         margin-top: 5rem;
         display: flex;
     }
+
     .card-image-2 {
         width: 100%;
         order: 2;
         border-radius: 0.5rem;
     }
+
     .card-image-2 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-2 {
         padding-right: 1.5rem;
         width: 70%;
         order: 1;
     }
+
     .card-text-2 h2 {
         font-size: 2.3rem;
     }
+
     .card-text-2 p {
         font-size: 1.3rem;
     }
+
     /*even position*/
 }
 
@@ -334,69 +383,85 @@ body {
         text-align: center;
         padding: 0 3rem 0 3rem;
     }
+
     .header h1 {
         font-size: 3rem;
     }
+
     .header p {
-        font-size: 1rem;
+        font-size: 20px;
         padding: 0 7rem 0 7rem;
     }
+
     .card-container {
         display: flex;
         flex-direction: column;
         width: 90%;
         margin: auto;
     }
+
     .card-1 {
         display: flex;
         margin-top: 5rem;
     }
+
     .card-image-1 {
         width: 100%;
         border-radius: 0.5rem;
     }
+
     .card-image-1 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-1 {
         width: 70%;
         padding-left: 1.5rem;
     }
+
     .card-text-1 h2 {
         font-size: 2rem;
     }
+
     .card-text-1 p {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
+
     /*odd position*/
     /*even position*/
     .card-2 {
         margin-top: 5rem;
         display: flex;
     }
+
     .card-image-2 {
         width: 100%;
         order: 2;
         border-radius: 0.5rem;
     }
+
     .card-image-2 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-2 {
         padding-right: 1.5rem;
         width: 70%;
         order: 1;
     }
+
     .card-text-2 h2 {
         font-size: 2rem;
     }
+
     .card-text-2 p {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
+
     /*even position*/
 }
 
@@ -405,68 +470,84 @@ body {
         text-align: center;
         padding: 0 3rem 0 3rem;
     }
+
     .header h1 {
         font-size: 2.9rem;
     }
+
     .header p {
-        font-size: 0.9rem;
+        font-size: 20px;
     }
+
     .card-container {
         display: flex;
         flex-direction: column;
         width: 90%;
         margin: auto;
     }
+
     .card-1 {
         display: flex;
         margin-top: 5rem;
     }
+
     .card-image-1 {
         width: 100%;
         border-radius: 0.5rem;
     }
+
     .card-image-1 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-1 {
         width: 70%;
         padding-left: 1.5rem;
     }
+
     .card-text-1 h2 {
         font-size: 1.9rem;
     }
+
     .card-text-1 p {
-        font-size: 0.9rem;
+        font-size: 1.25rem;
     }
+
     /*odd position*/
     /*even position*/
     .card-2 {
         margin-top: 5rem;
         display: flex;
     }
+
     .card-image-2 {
         width: 100%;
         order: 2;
         border-radius: 0.5rem;
     }
+
     .card-image-2 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-2 {
         padding-right: 1.5rem;
         width: 70%;
         order: 1;
     }
+
     .card-text-2 h2 {
         font-size: 1.9rem;
     }
+
     .card-text-2 p {
-        font-size: 0.9rem;
+        font-size: 1.25rem;
     }
+
     /*even position*/
 }
 
@@ -475,41 +556,51 @@ body {
         text-align: center;
         padding: 0 3rem 0 3rem;
     }
+
     .header h1 {
         font-size: 3rem;
     }
+
     .header p {
-        font-size: 1rem;
+        font-size: 20px;
         padding: 0 2.1rem 0 2.1rem;
     }
+
     .card-container {
         width: 80%;
     }
+
     /*odd position*/
     .card-1 {
         display: flex;
         flex-direction: column;
         margin-top: 5rem;
     }
+
     .card-image-1 {
         width: 100%;
         border-radius: 0.5rem;
     }
+
     .card-image-1 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-1 {
         width: 90%;
         padding: 1rem;
     }
+
     .card-text-1 h2 {
         font-size: 2rem;
     }
+
     .card-text-1 p {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
+
     /*odd position*/
     /*even position*/
     .card-2 {
@@ -517,27 +608,33 @@ body {
         flex-direction: column;
         margin-top: 5rem;
     }
+
     .card-image-2 {
         width: 100%;
         border-radius: 0.5rem;
         order: 1;
     }
+
     .card-image-2 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-2 {
         width: 90%;
         padding: 1rem;
         order: 2;
     }
+
     .card-text-2 h2 {
         font-size: 2rem;
     }
+
     .card-text-2 p {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
+
     /*even position*/
 }
 
@@ -546,37 +643,46 @@ body {
         text-align: center;
         padding: 0 3rem 0 3rem;
     }
+
     .header h1 {
         font-size: 2.8rem;
     }
+
     .header p {
-        font-size: 0.8rem;
+        font-size: 1.25rem;
         padding: 0 0.4rem 0 0.4rem;
     }
+
     /*odd position*/
     .card-1 {
         display: flex;
         flex-direction: column;
         margin-top: 5rem;
     }
+
     .card-image-1 {
         width: 100%;
         border-radius: 0.5rem;
     }
+
     .card-image-1 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-1 {
         width: 90%;
     }
+
     .card-text-1 h2 {
         font-size: 1.8rem;
     }
+
     .card-text-1 p {
-        font-size: 0.8rem;
+        font-size: 1.25rem;
     }
+
     /*odd position*/
     /*even position*/
     .card-2 {
@@ -584,68 +690,85 @@ body {
         flex-direction: column;
         margin-top: 5rem;
     }
+
     .card-image-2 {
         width: 100%;
         border-radius: 0.5rem;
         order: 1;
     }
+
     .card-image-2 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-2 {
         width: 90%;
         order: 2;
     }
+
     .card-text-2 h2 {
         font-size: 1.8rem;
     }
+
     .card-text-2 p {
-        font-size: 0.8rem;
+        font-size: 1.25rem;
     }
+
     /*even position*/
 }
 
-@media(max-width:426px) {
+/* 426px */
+@media(max-width:496px) {
     .header {
         text-align: center;
         padding: 0 3rem 0 3rem;
     }
+
     .header h1 {
         font-size: 2.8rem;
     }
+
     .header p {
-        font-size: 0.8rem;
+        font-size: 18px;
         padding: 0 0.6rem 0 0.6rem;
     }
+
     .card-container {
         width: 80%;
     }
+
     /*odd position*/
     .card-1 {
         display: flex;
         flex-direction: column;
         margin-top: 4rem;
     }
+
     .card-image-1 {
         width: 100%;
         border-radius: 0.5rem;
     }
+
     .card-image-1 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-1 {
         width: 90%;
     }
+
     .card-text-1 h2 {
         font-size: 1.8rem;
     }
+
     .card-text-1 p {
-        font-size: 0.8rem;
+        font-size: 18px;
     }
+
     /*odd position*/
     /*even position*/
     .card-2 {
@@ -653,26 +776,32 @@ body {
         flex-direction: column;
         margin-top: 4rem;
     }
+
     .card-image-2 {
         width: 100%;
         border-radius: 0.5rem;
         order: 1;
     }
+
     .card-image-2 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-2 {
         width: 90%;
         order: 2;
     }
+
     .card-text-2 h2 {
         font-size: 1.8rem;
     }
+
     .card-text-2 p {
-        font-size: 0.8rem;
+        font-size: 18px;
     }
+
     /*even position*/
 }
 
@@ -681,39 +810,49 @@ body {
         text-align: center;
         padding: 0 3rem 0 3rem;
     }
+
     .header h1 {
         font-size: 2.6rem;
     }
+
     .header p {
-        font-size: 0.7rem;
+        font-size: 18px;
     }
+
     .card-container {
         width: 80%;
     }
+
     /*odd position*/
     .card-1 {
         display: flex;
         flex-direction: column;
         margin-top: 3rem;
     }
+
     .card-image-1 {
         width: 100%;
         border-radius: 0.5rem;
     }
+
     .card-image-1 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-1 {
         width: 90%;
     }
+
     .card-text-1 h2 {
         font-size: 1.5rem;
     }
+
     .card-text-1 p {
-        font-size: 0.7rem;
+        font-size: 18px;
     }
+
     /*odd position*/
     /*even position*/
     .card-2 {
@@ -721,26 +860,32 @@ body {
         flex-direction: column;
         margin-top: 3rem;
     }
+
     .card-image-2 {
         width: 100%;
         border-radius: 0.5rem;
         order: 1;
     }
+
     .card-image-2 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-2 {
         width: 90%;
         order: 2;
     }
+
     .card-text-2 h2 {
         font-size: 1.5rem;
     }
+
     .card-text-2 p {
-        font-size: 0.7rem;
+        font-size: 18px;
     }
+
     /*even position*/
 }
 
@@ -749,39 +894,49 @@ body {
         text-align: center;
         padding: 0 3rem 0 3rem;
     }
+
     .header h1 {
         font-size: 2.5rem;
     }
+
     .header p {
-        font-size: 0.6rem;
+        font-size: 18px;
     }
+
     .card-container {
         width: 80%;
     }
+
     /*odd position*/
     .card-1 {
         display: flex;
         flex-direction: column;
         margin-top: 3rem;
     }
+
     .card-image-1 {
         width: 100%;
         border-radius: 0.5rem;
     }
+
     .card-image-1 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-1 {
         width: 90%;
     }
+
     .card-text-1 h2 {
         font-size: 1.4rem;
     }
+
     .card-text-1 p {
-        font-size: 0.6rem;
+        font-size: 18px;
     }
+
     /*odd position*/
     /*even position*/
     .card-2 {
@@ -789,25 +944,31 @@ body {
         flex-direction: column;
         margin-top: 3rem;
     }
+
     .card-image-2 {
         width: 100%;
         border-radius: 0.5rem;
         order: 1;
     }
+
     .card-image-2 img {
         width: 100%;
         min-height: 100%;
         border-radius: 0.5rem;
     }
+
     .card-text-2 {
         width: 90%;
         order: 2;
     }
+
     .card-text-2 h2 {
         font-size: 1.4rem;
     }
+
     .card-text-2 p {
-        font-size: 0.6rem;
+        font-size: 18px;
     }
+
     /*even position*/
 }

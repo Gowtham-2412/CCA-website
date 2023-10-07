@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@700&display=swap');
+
 .maincontainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     box-sizing: border-box;
     /* background-color: #bb9e37; */
     font-family: 'Inter', sans-serif;
@@ -24,6 +26,7 @@
 
 .btnsection {
     display: flex;
+
 }
 
 .herosectiondata .heroheading {
@@ -61,7 +64,9 @@
     border: none;
     outline: none;
     background: #9ddb5e;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow:
+        0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .btn1:hover {
@@ -69,6 +74,7 @@
     background: #84B950;
     box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
 }
+
 
 .btn2 {
     border: 2px solid #252525;
@@ -91,6 +97,9 @@
     color: #F9F9F9;
 }
 
+
+
+
 @media (max-width: 1230px) {
     .btnsection {
         width: 100%;
@@ -99,9 +108,11 @@
         justify-content: start;
         /* gap: 2rem; */
     }
+
     .btn1 .btn2 {
         font-size: 5px;
     }
+
     .heropara {
         padding-top: 3rem;
         padding-bottom: 4rem;
@@ -114,13 +125,15 @@
         display: flex;
         flex-direction: column;
     }
+
     .herosectiondata {
         width: 100%;
         padding-bottom: 1.5rem;
         padding: 3rem;
     }
+
     .herosectiondata .heropara {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
         font-style: normal;
         font-weight: 500;
         line-height: 50px;
@@ -128,6 +141,7 @@
         padding-top: 0.5rem;
         letter-spacing: -0.36px;
     }
+
     .herosectiondata .heroheading {
         font-size: 80px;
         font-style: normal;
@@ -137,20 +151,25 @@
         /* padding-bottom: 64px; */
         letter-spacing: 0.63px;
     }
+
     .btnsection {
         width: 100%;
         display: flex;
         /* justify-content: start; */
+
     }
+
     .herosectionimg {
         width: 100%;
         display: flex;
         justify-content: center;
         padding: 1rem;
     }
+
     .mainimg {
         width: 100%;
     }
+
 }
 
 @media (max-width: 750px) {
@@ -160,13 +179,16 @@
         justify-content: center;
         padding: 2rem;
     }
+
     .mainimg {
         width: 100%;
     }
+
     .herosectiondata .heropara {
-        font-size: 24px;
+        font-size: 20px;
         padding-bottom: 5rem;
     }
+
     .herosectiondata .heroheading {
         font-size: 60px;
         font-style: normal;
@@ -177,6 +199,7 @@
         line-height: 4.5rem;
         padding-bottom: 2rem;
     }
+
     .btn1,
     .btn2 {
         font-size: 1.5rem;
@@ -184,18 +207,24 @@
 }
 
 @media (max-width: 480px) {
+
+
+
     .herosectiondata {
         padding: 1.5rem;
     }
+
     .btnsection {
         width: 100%;
         display: flex;
         /* flex-direction: column; */
+
         /* flex-direction: column; */
         justify-content: center;
         align-items: center;
         box-sizing: border-box;
     }
+
     .herosectiondata .heroheading {
         font-size: 3rem;
         font-style: normal;
@@ -205,29 +234,35 @@
         line-height: 3.4rem;
         padding-bottom: 1.5rem;
     }
+
     .herosectiondata .heropara {
-        font-size: 1.4rem;
+        font-size: 18px;
         font-style: normal;
         font-weight: 500;
         line-height: 36px;
         padding-bottom: 2rem;
         letter-spacing: -0.36px;
     }
+
     .btn1,
     .btn2 {
         font-size: 1rem;
         width: 10rem;
         height: 4rem;
+
     }
+
     .btn2 {
         margin-top: 3px;
         margin-left: 1rem;
         /* margin-top: 2rem; */
     }
+
     .herosectionimg {
         /* margin-top: 0rem; */
         display: none;
     }
+
     .herosectiondata {
         margin-top: 1rem;
     }
