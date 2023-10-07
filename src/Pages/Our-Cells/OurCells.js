@@ -9,10 +9,10 @@ import wdctimg from '../../Assets/Images/wdct.jpg';
 export default function OurCells() {
     const cellData = [
         { herf: "/core", title: "Core Cell", class: CellsCss.corecell, img: coreimg },
-        { herf: "/ecell", title: "E Cell", class: CellsCss.ecell, img: ecellimg },
-        { herf: "/rnd", title: "R&D Cell", class: CellsCss.rdcell, img: rndimg },
-        { herf: "/robo", title: "Robo Cell", class: CellsCss.robocell, img: robocellimg },
         { herf: "/wdct", title: "WDCT", class: CellsCss.wdct, img: wdctimg },
+        { herf: "/robo", title: "Robo-Cell", class: CellsCss.robocell, img: robocellimg },
+        { herf: "/ecell", title: "E-Cell", class: CellsCss.ecell, img: ecellimg },
+        { herf: "/rnd", title: "R&D Cell", class: CellsCss.rdcell, img: rndimg },
     ];
 
     return (

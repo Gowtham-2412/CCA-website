@@ -22,11 +22,12 @@
 }
 
 .CellImg {
-    width: 35vw;
+    width: 36vw;
     border-radius: 0.5rem;
 }
 
 img {
+    height: 100%;
     object-fit: cover;
     border-radius: 0.5rem;
 }
@@ -38,6 +39,7 @@ img {
     color: #000000;
     padding-top: 0.5rem;
     margin-bottom: 2.5rem;
+    line-height: 2rem;
 }
 
 .line {
@@ -53,6 +55,7 @@ img {
     line-height: auto;
     color: #000000;
     display: inline-block;
+    margin-bottom: 2rem;
 }
 
 .CellInfo {
@@ -61,6 +64,7 @@ img {
 
 .heading {
     margin-bottom: 1rem;
+    line-height: 5rem;
 }
 
 .CellWork {
@@ -78,7 +82,7 @@ img {
 
 .CellWork p {
     font-weight: 500;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: #000000;
     margin-bottom: 1.5rem;
     display: inline-block;
@@ -100,6 +104,7 @@ img {
     .CellImg {
         width: 36vw;
         display: flex;
+
     }
 
     .img {
@@ -109,7 +114,7 @@ img {
 
 @media(max-width:1024px) {
     html {
-        font-size: 75%;
+        font-size: 70%;
     }
 
     .CellImg {
@@ -119,28 +124,42 @@ img {
     }
 
     .img {
+        height: 80%;
         object-fit: cover;
     }
 }
 
 @media(max-width:886px) {
 
+    html {
+        font-size: 70%;
+    }
+
     .CellImg {
-        width: 37vw;
+        width: 36vw;
         display: flex;
 
     }
 
+    .heading {
+        line-height: 5rem;
+    }
+
     .line {
-        width: 75%;
+        width: 80%;
     }
 
     .img {
         object-fit: cover;
     }
+
+    .great {
+        line-height: 2rem;
+    }
 }
 
 @media(max-width:768px) {
+
     .detailWrap {
         display: block;
     }
@@ -181,12 +200,18 @@ img {
 
     .line {
         margin: auto;
-        margin-bottom: 3.5rem;
+        margin-bottom: 3rem;
     }
 }
 
 @media(max-width:425px) {
     html {
         font-size: 60%;
+    }
+}
+
+@media(max-width:360px) {
+    .heading {
+        font-size: 3.2rem;
     }
 }
