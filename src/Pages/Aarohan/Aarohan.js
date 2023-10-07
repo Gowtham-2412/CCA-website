@@ -3,11 +3,12 @@ import './Aarohan.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y } from 'swiper/modules';
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import 'swiper/css/autoplay'
 import { WdctCornar,
     decathalon,
     GOR,
@@ -72,12 +73,12 @@ const Aarohan = () => {
         <h3>PHOTO GALLERY</h3>
 
         <Swiper
-            modules={[Navigation, Pagination, A11y]}
+            modules={[Navigation, Pagination, A11y, Autoplay]}
             spaceBetween={50}
             slidesPerView={1.5}
             centeredSlides={true}
             loop={true}
-            autoplay={true}
+            autoplay={{delay: 1500}}
             keyboard={true}
             freeMode={true}
             onSwiper={(swiper) => console.log(swiper)}
@@ -136,6 +137,8 @@ const Aarohan = () => {
             draggable={true}
             infinite={true}
             keyBoardControl={true}
+            autoPlay={true}
+            autoPlaySpeed={1000}
             responsive={responsive}
         >
                 <div class="card1">
