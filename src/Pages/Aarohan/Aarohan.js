@@ -78,7 +78,7 @@ const Aarohan = () => {
             slidesPerView={1.5}
             centeredSlides={true}
             loop={true}
-            autoplay={{delay: 1500}}
+            autoplay={{delay: 1500, disableOnInteraction: false}}
             keyboard={true}
             freeMode={true}
             onSwiper={(swiper) => console.log(swiper)}
