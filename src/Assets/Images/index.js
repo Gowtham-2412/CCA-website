@@ -18,6 +18,7 @@ import ARHN5 from './ARHN5.JPG'
 import ARHN6 from './ARHN6.jpeg'
 import ARHN7 from './ARHN7.jpeg'
 import ARHN8 from './ARHN8.jpeg'
+import core from './core-cell.png'
 
 export {
     logo,
@@ -40,4 +41,5 @@ export {
     ARHN6,
     ARHN7,
     ARHN8,
+    core
 }
