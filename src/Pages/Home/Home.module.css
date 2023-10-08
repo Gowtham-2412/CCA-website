@@ -133,7 +133,7 @@
     }
 
     .herosectiondata .heropara {
-        font-size: 1.25rem;
+        font-size: 20px;
         font-style: normal;
         font-weight: 500;
         line-height: 50px;
@@ -172,6 +172,13 @@
 
 }
 
+/* @media(max-width:861px){
+    .herosectiondata .heropara{
+        font-size: 1.8rem;
+    }
+
+} */
+
 @media (max-width: 750px) {
     .herosectionimg {
         width: 100%;
@@ -190,7 +197,7 @@
     }
 
     .herosectiondata .heroheading {
-        font-size: 60px;
+        font-size: 5rem;
         font-style: normal;
         font-weight: 700;
         line-height: 100px;
@@ -226,9 +233,9 @@
     }
 
     .herosectiondata .heroheading {
-        font-size: 3rem;
+        font-size: 4rem;
         font-style: normal;
-        font-weight: 550;
+        font-weight: 600;
         letter-spacing: -0.14px;
         padding-bottom: 1rem;
         line-height: 3.4rem;
@@ -246,7 +253,7 @@
 
     .btn1,
     .btn2 {
-        font-size: 1rem;
+        font-size: 1.35rem;
         width: 10rem;
         height: 4rem;
 
