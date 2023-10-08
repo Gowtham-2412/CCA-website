@@ -19,7 +19,7 @@ const Navbar = () => {
           <img src={logo} alt="Nike" width={89} height={35} />
         </a>
         <ul
-          className={`link-style1 top-0 max-lg:pl-15 lg:opacity-100 max-lg:visibility-hidden max-lg:border-2 max-lg:drop-shadow-xl max-sm:grid max-sm:place-content-center ease duration-75 max-sm:gap-4 max-lg:mb-13px
+          className={`link-style1 top-0 max-lg:pl-15 lg:opacity-100 max-lg:visibility-hidden max-lg:border-2 max-lg:drop-shadow-xl max-sm:grid max-sm:place-content-center ease duration-1000 max-sm:gap-4 max-lg:mb-13px
             ${open ? 'right-0' : 'right-[-100%]'} ${open ? 'z-10' : 'z-[9]'}`}
           id="header"
         >
