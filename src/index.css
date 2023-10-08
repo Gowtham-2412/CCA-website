@@ -47,7 +47,7 @@
         @apply font-montserrat text-slate-gray text-lg leading-7;
     }
     .link-style1 {
-        @apply lg:flex-1 lg:flex lg:justify-center lg:items-center gap-16 max-lg:absolute max-lg:bg-[#F2EFE4]  max-lg:w-2/5 max-lg:min-h-[100vh] ease-in-out duration-500 max-sm:w-full max-sm:min-h-[100vh] max-lg:justify-center ;
+        @apply lg:flex-1 lg:flex lg:justify-center lg:items-center gap-16 max-lg:absolute max-lg:bg-[#F2EFE4]  max-lg:w-2/5 max-lg:min-h-[100vh] max-sm:w-full max-sm:min-h-[100vh] max-lg:justify-center ;
     }
     .effect::after{
         @apply content-[''] bg-nav-black absolute h-[2.5px] w-[85%] left-0 bottom-0 rounded-xl scale-x-0 origin-left duration-0 ;
