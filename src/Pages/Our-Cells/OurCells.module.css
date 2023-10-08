@@ -197,6 +197,12 @@ a:hover {
     .para {
         font-size: 1.5rem;
     }
+    .cell:hover~.cell {
+        filter: blur(0px);
+    }
+    .cellcontainer:hover .cell:not(:hover) {
+        filter: blur(0px);
+    }
 }
 
 @media (max-width:425px) {
