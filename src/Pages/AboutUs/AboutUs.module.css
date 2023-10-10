@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Bungee+Shade&family=Cinzel:wght@500;800&family=Comic+Neue:wght@400;700&family=DM+Serif+Display:ital@1&family=Dongle:wght@300&family=Frijole&family=Inter:wght@700&family=Kalam&family=Kanit:wght@300&family=Lora:ital,wght@1,700&family=Marcellus&family=Monoton&family=Nunito&family=Poppins:wght@100;400&family=Roboto:wght@700&family=Rowdies:wght@300&family=Rubik+Moonrocks&family=Rubik+Vinyl&family=Rubik+Wet+Paint&family=Rye&family=Tapestry&family=Tillana:wght@700&family=Tilt+Prism&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.aboutuspage {
+    padding: 5rem;
+    padding-bottom: 0;
+    background: #F2EFE4;
+}
+
+.mainh {
+    font-family: "Inter";
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: -0.015em;
+    text-align: left;
+    text-align: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.abtpara {
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: -0.015em;
+    text-align: left;
+    padding-bottom: 1rem;
+}
+
+.expbutton {
+    width: 163px;
+    height: 56px;
+    border-width: 0;
+    border-radius: 6px;
+    background: #8EC15C;
+    color: white;
+    font-family: "Inter";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: -0.005em;
+}
+
+.abtimage {
+    background: #3E3D3A;
+    width: auto;
+    height: 561px;
+    border: 2px solid #303030;
+    border-radius: 6px;
+}
+
+.arrowicon {
+    height: 12.38px;
+    width: 12.33px;
+    display: inline;
+    background: #8EC15C;
+    margin-left: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+@media (max-width : 496px) {
+    .aboutuspage {
+        padding: 2.5rem;
+    }
+
+    .abtimage {
+        height: 300px;
+    }
+
+    .mainh {
+        font-size: 38px;
+        margin-top: 1rem;
+    }
+
+    .abtpara {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .expbutton {
+        width: 140px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width:991px) and (min-width: 496px) {
+    .abtimage {
+        height: 400px;
+    }
+
+    .aboutuspage {
+        padding: 2.8rem;
+    }
+
+    .mainh {
+        font-size: 40px;
+        margin-top: 1rem;
+    }
+
+    .abtpara {
+        font-size: 20px;
+        text-align: center;
+    }
+
+
+}
+
+@media (max-width:1186px) and (min-width: 992px) {
+    .abtimage {
+        height: 600px;
+    }
+}

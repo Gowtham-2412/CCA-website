@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@500;700;900&display=swap');
+
+.aarohan {
+    background-color: #f2efe4;
+    font-family: 'Inter';
+    margin-bottom: 3rem;
+}
+
+.header {
+    text-align: center;
+    padding: 0 3rem 0 3rem;
+}
+
+.header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 3.7rem;
+    line-height: 84px;
+    color: #303030;
+}
+
+.header p {
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0 10rem 0 10rem;
+    line-height: 36px;
+}
+
+.aftermovie {
+    margin: 5rem;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 1.5625rem;
+}
+
+.aftermovie iframe {
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.gallery {
+    margin-top: 9rem;
+    text-align: center;
+    padding: 0 3rem 0 3rem;
+}
+
+.gallery h3 {
+    font-weight: 700;
+    color: #303030;
+    font-size: 3.7rem;
+    margin-bottom: 4rem;
+}
+
+.card {
+    width: 20rem;
+    height: 40rem;
+    border-radius: 1rem;
+}
+
+.card img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.event {
+    margin-top: 9rem;
+    text-align: center;
+    padding: 0 3rem 0 3rem;
+}
+
+.event h4 {
+    font-weight: 700;
+    line-height: 84px;
+    color: #303030;
+    font-size: 3.7rem;
+    margin-bottom: 4rem;
+}
+
+.card1 {
+    width: 15rem;
+    height: 20rem;
+    border: 1px;
+    border-radius: 0.5rem;
+    margin: auto;
+}
+
+.card1 img {
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 0.312rem;
+}
+
+.card-content {
+    width: 100%;
+    height: auto;
+}
+
+.card-content h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 0.3rem;
+}
+
+.card-content p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 0rem;
+    color: #303030;
+}
+
+.swiper-pagination {
+    margin: 1.25rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: white;
+    background-position: center;
+    background-size: 32px;
+    background-repeat: no-repeat;
+    padding: 6px 12px;
+    border-radius: 100%;
+    color: red;
+}
+
+.event .swiper-button-prev {
+    transform: translateX(30%);
+}
+
+.event .swiper-button-prev {
+    background-color: #b8d474;
+}
+
+.event .swiper-button-next {
+    background-color: #b8d474;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    color: black;
+    transform: scale(50%);
+}
+
+.btn {
+    background-color: #b8d474;
+}
+
+
+/* Responsive */
+
+@media(max-width:2770px) {
+    .card {
+        width: 60vw;
+        height: 90vh;
+        border-radius: 1rem;
+    }
+
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1rem;
+    }
+
+    .aftermovie {
+        margin: 6rem 9rem 0 9rem;
+    }
+
+    .card1 {
+        width: 13vw;
+        height: 50vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+}
+
+@media(max-width:1600px) {
+    .header {
+        text-align: center;
+        padding: 0 3rem 0 3rem;
+    }
+
+    .header h1 {
+        font-size: 4rem;
+    }
+
+    .header p {
+        font-size: 1.4rem;
+        padding: 0 7rem 0 7rem;
+    }
+
+    .gallery {
+        margin-top: 9rem;
+        text-align: center;
+        padding: 0 3rem 0 3rem;
+    }
+
+    .gallery h3 {
+        font-size: 4rem;
+    }
+
+    .event {
+        margin-top: 9rem;
+        text-align: center;
+        padding: 0 3rem 0 3rem;
+    }
+
+    .event h4 {
+        font-size: 4rem;
+    }
+
+    .aftermovie {
+        margin: 5rem 7rem 0 7rem;
+    }
+
+    .card1 {
+        width: 21vw;
+        height: 60vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+}
+
+@media(max-width:1024px) {
+    .aftermovie {
+        margin: 4rem 4rem 0 4rem;
+    }
+
+    .card1 {
+        width: 26vw;
+        height: 50vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+}
+
+@media(max-width:861px) {
+    .aftermovie {
+        margin: 2rem 3rem 0 3rem;
+    }
+
+    .card {
+        width: 55vw;
+        height: 60vh;
+        border-radius: 1rem;
+    }
+}
+
+@media(max-width:769px) {
+    .aftermovie {
+        margin: 2rem 2rem 0 2rem;
+    }
+
+    .card1 {
+        width: 26.5vw;
+        height: 40vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+
+    .header p {
+        font-size: 1.4rem;
+        padding: 0 7rem 0 7rem;
+        line-height: 2.6rem;
+    }
+}
+
+@media(max-width:680px) {
+    .card1 {
+        width: 41vw;
+        height: 40vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+
+    .event h4 {
+        line-height: 5rem;
+    }
+}
+
+@media(max-width:521px) {
+    .aftermovie {
+        margin: 2rem 1rem 0 1rem;
+    }
+
+    .card {
+        width: 60vw;
+        height: 40vh;
+    }
+
+    .header p {
+        font-size: 1.3rem;
+        padding: 0 4rem 0 4rem;
+        line-height: 2.6rem;
+    }
+}
+
+@media(max-width: 500px) {
+    .card1 {
+        width: 70vw;
+        height: 45vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+
+    .galary h3 {
+        line-height: 4rem;
+    }
+
+}
+
+@media(max-width: 426px) {
+    .aftermovie {
+        margin: 2rem 0.5rem 0 0.5rem;
+    }
+}
+
+@media(max-width: 376px) {
+    .aftermovie {
+        margin: 2rem 0.3rem 0 0.3rem;
+    }
+
+    .aftermovie iframe {
+        position: absolute;
+    }
+
+    .card {
+        width: 60vw;
+        height: 35vh;
+    }
+}
+
+@media(max-width: 328px) {
+    .aftermovie {
+        margin: 2rem 0.1rem 0 0.1rem;
+    }
+
+    .header p {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+}

@@ -1,0 +1,211 @@
+.wrap {
+  background-color: #f2efe4;
+  font-family: 'Roboto';
+  margin-top: 3rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.heading {
+  font-weight: 700;
+  font-size: 3.7rem;
+  text-decoration: none;
+  line-height: 84px;
+  letter-spacing: 1px;
+  color: #303030;
+}
+
+.detailWrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.CellImg {
+  width: 36vw;
+  border-radius: 0.5rem;
+}
+
+img {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.great {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 4px;
+  color: #000000;
+  padding-top: 0.5rem;
+  margin-bottom: 2.5rem;
+  line-height: 2rem;
+}
+
+.line {
+  background-color: #000000;
+  height: 1px;
+  width: 65%;
+  margin-bottom: 3.5rem;
+}
+
+.slogo {
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: auto;
+  color: #000000;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.CellInfo {
+  width: 50vw;
+}
+
+.heading {
+  margin-bottom: 1rem;
+  line-height: 5rem;
+}
+
+.CellWork {
+  width: 60vw;
+}
+
+.CellWork h1 {
+  font-weight: 600;
+  font-size: 2.2rem;
+  font-family: 'Roboto';
+  color: #000000;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+.CellWork p {
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  line-height: 2rem;
+}
+
+@media (max-width: 1300px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 80%;
+  }
+
+  .CellImg {
+    width: 36vw;
+    display: flex;
+  }
+
+  .img {
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 70%;
+  }
+
+  .CellImg {
+    width: 36vw;
+    display: flex;
+  }
+
+  .img {
+    height: 80%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 886px) {
+  html {
+    font-size: 70%;
+  }
+
+  .CellImg {
+    width: 36vw;
+    display: flex;
+  }
+
+  .heading {
+    line-height: 5rem;
+  }
+
+  .line {
+    width: 80%;
+  }
+
+  .img {
+    object-fit: cover;
+  }
+
+  .great {
+    line-height: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .detailWrap {
+    display: block;
+  }
+
+  .CellInfo {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .slogo {
+    margin-bottom: 1rem;
+  }
+
+  .CellWork {
+    width: 100%;
+  }
+
+  .CellWork h1 {
+    text-align: center;
+  }
+
+  .CellWork p {
+    line-height: 2rem;
+    padding: 0.5rem;
+  }
+
+  .CellImg {
+    width: 100%;
+    padding: 1.5rem;
+    margin: auto;
+  }
+
+  .img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .line {
+    margin: auto;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 425px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media (max-width: 360px) {
+  .heading {
+    font-size: 3.2rem;
+  }
+}

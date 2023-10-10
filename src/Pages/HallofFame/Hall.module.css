@@ -1,0 +1,254 @@
+.Heading {
+    color: #303030;
+    text-align: center;
+    font-size: 4rem;
+    font-style: normal;
+    margin-top: 2.18rem;
+    margin-bottom: 1.87rem;
+    font-weight: 700;
+    line-height: 5.25rem;
+    letter-spacing: -0.03rem;
+}
+
+.Tabbar {
+    margin: auto;
+    display: flex;
+    width: 1050px;
+    height: 70px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #8EC15C;
+    justify-content: space-around;
+}
+
+.Tabbar button {
+    position: relative;
+    display: inline-block;
+    font-size: 19px;
+    color: #fff;
+    height: 40px;
+    margin: auto;
+    font-weight: 550;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.Tabbar button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 5px;
+    background: rgb(255, 255, 255);
+    bottom: 0px;
+    border-radius: 20px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+
+}
+
+.Tabbar button:hover::after,
+.Tabbar button:focus::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.Tabbar button:focus {
+    outline: none;
+
+}
+
+.batchheading {
+    color: #303030;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 84px;
+    margin: 30px;
+
+}
+
+#cardcontainer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10rem;
+    margin-top: 1rem;
+}
+
+.Cardbody {
+    margin: 2rem;
+    width: 200px;
+    height: 306px;
+    overflow: hidden;
+}
+
+.Cardbody img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+.cardcontent{
+    background-color: #8EC15C;
+    position:relative;
+    bottom: 90px;
+    padding-top:21px ;
+    padding-bottom: 21px;
+    text-align: center;
+    transition: 0.4s;
+    line-height: 40px;
+    z-index: 5;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    
+    }
+.cardcontent h1{
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+}
+.cardcontent p{
+    color: #fff;
+    text-transform: uppercase;
+}
+.cardback{
+    background-color: #ffffff;
+    padding:90px;
+    position: relative;
+    bottom: 285px;
+    transition: 0.2s ease;
+    z-index: 0;
+    clip-path: polygon(100% 53%, 100% 52%, 100% 100%, 100% 100%);
+}
+
+.Cardbody:hover .cardback{
+    clip-path: polygon(0 53%, 100% 54%, 100% 100%, 0% 100%);
+}
+.Cardbody:hover .cardcontent{
+    clip-path: polygon(14% 0, 100% 0%, 86% 100%, 0% 100%);    
+    }
+.cardsocial{
+    display: flex;
+    justify-content:flex-end;
+    background-color: #ffffff;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    bottom: 588px;
+    transition: 0.2s ease;
+    z-index: 8;
+    clip-path: circle(0.0% at 100% 0); 
+}
+.Cardbody:hover .cardsocial{
+    clip-path: circle(53% at 100% 0);
+}
+.cardsocial img{
+    height:35px;
+    margin-top: 20px;
+    padding: 5px;
+    position: relative;
+    left: 120px;
+    transition: 0.5s;
+}
+.Cardbody:hover .cardsocial img{
+    left: 0;
+}    
+@media(max-width:1245px){
+
+    .Heading{
+        font-size: 60px;
+    
+    }
+    .batchheading{
+        font-size: 35px;
+    }
+    .Tabbar{
+        width: 900px;
+        }
+        .Cardbody{
+            width: 200px;
+            height: 290px;
+            margin: 1.5rem;
+            margin-top: 1rem;
+        }
+    
+    }
+    @media(max-width:1075px){
+        .cardback{
+            bottom: 281px;
+        }
+        .cardsocial{
+            bottom: 570px
+        }
+        .cardcontent h1{
+            font-size:15px;
+        }
+        .cardcontent p{
+            font-size: 12px;
+        }
+    }
+    @media(max-width:992px){
+        .Tabbar{
+            width: 800px;
+        }
+    }
+    @media(max-width:840px){
+        .Tabbar{
+            width: 700px;
+        }
+    }
+    
+    @media(max-width:720px){
+        .Tabbar{
+            width: 500px;
+    
+        }
+    
+    }
+    @media(max-width:502px){
+        .Tabbar{
+            width: 400px;
+    
+        }
+        .Tabbar button{
+            height:69px;
+            width: 70px;
+        }
+    }
+    @media(max-width:565px){
+        .Tabbar{
+            width: 400px;
+    
+        }
+        .Tabbar button{
+            height:69px;
+            width: 70px;
+        }
+        #cardcontainer{
+            margin: 3rem;
+        }
+        .cardsocial img{
+            margin-top: 25px;
+        }
+    }
+    @media(max-width:413px){
+        .Heading{
+            font-size:40px;
+        }
+        .batchheading{
+            font-size: 25px;
+        }
+        .Tabbar{
+            width: 350px;
+        }
+        .tabswitch{
+            font-size: 15px;
+        }
+        .cardsocial{
+            bottom: 575px;
+        }
+    }
