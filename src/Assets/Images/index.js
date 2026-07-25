@@ -19,6 +19,8 @@ import ARHN6 from './ARHN6.jpeg'
 import ARHN7 from './ARHN7.jpeg'
 import ARHN8 from './ARHN8.jpeg'
 import core from './core-img.png'
+import ccawb from './CCAwh.png'
+import ccawb1 from './CCAwh1.png'
 
 export {
     logo,
@@ -41,5 +43,7 @@ export {
     ARHN6,
     ARHN7,
     ARHN8,
-    core
+    core,
+    ccawb,
+    ccawb1
 }

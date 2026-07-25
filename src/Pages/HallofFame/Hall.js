@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import Hallcss from './Hall.module.css';
 import ImgLib from '../../Components/ImgLink/ImageLib';
-import instagram from '../../Assets/Icons/instagram.svg'
-import linkedin from '../../Assets/Icons/linkedin.svg'
+import instagram from '../../Assets/Icons/instagram.svg';
+import linkedin from '../../Assets/Icons/linkedin.svg';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Hall = () => {
   const [items, setItems] = useState(ImgLib);
@@ -11,6 +13,10 @@ const Hall = () => {
   useEffect(() => {
     activebtn.current.click();
     activebtn.current.focus();
+    Aos.init({
+      duration: 600,
+      easing: 'ease-in-out-cubic',
+    });
   }, []);
 
   const filterItem = (categItem) => {
@@ -22,10 +28,10 @@ const Hall = () => {
   };
   return (
     <div>
-      <div className={Hallcss.Heading}>
+      <div className={Hallcss.Heading} data-aos='fade'>
         <h1>Hall of Fame</h1>
       </div>
-      <div className={Hallcss.Tabbar}>
+      <div className={Hallcss.Tabbar} data-aos='fade'>
         <button
           ref={activebtn}
           className="tab-switch active"
@@ -56,9 +62,9 @@ const Hall = () => {
           const { name, image } = elem;
 
           return (
-            <div className={Hallcss.Cardbody}>
-                <img src={image} alt={name}></img>
-                {console.log(image)}
+            <div className={Hallcss.Cardbody} data-aos='fade-up'>
+              <img src={image} alt={name}></img>
+              {console.log(image)}
               <div className={Hallcss.cardcontent}>
                 <h1>SOMEONE NAME</h1>
                 <p>SENIOR Member</p>
@@ -66,10 +72,10 @@ const Hall = () => {
               <div className={Hallcss.cardback}>
               </div>
               <div className={Hallcss.cardsocial}>
-                <a href='#'><img className = {Hallcss.socialicon} src={instagram}></img></a>
-                <a href='#'><img className = {Hallcss.socialicon} src={linkedin}></img></a>
+                <a href='#'><img className={Hallcss.socialicon} src={instagram}></img></a>
+                <a href='#'><img className={Hallcss.socialicon} src={linkedin}></img></a>
               </div>
-              </div>
+            </div>
           );
         })}
       </main>

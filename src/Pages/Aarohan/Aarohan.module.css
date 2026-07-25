@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@500;700;900&display=swap');
+
+.aarohan {
+    background-color: rgba(0, 0, 0, 0.65);
+    font-family: 'Inter';
+    /* margin-bottom: 3rem; */
+    position: relative;
+    padding-top: 8.18rem;
+}
+
+.header {
+    text-align: center;
+    padding: 0 3rem 0 3rem;
+    margin-top: 1rem;
+    height: 100vh;
+}
+
+.header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 84px;
+    letter-spacing: 7px;
+    color: #fff;
+    margin-bottom: 6rem;
+}
+
+.content {
+    position: relative;
+}
+
+.content h1::before {
+    content: "AAROHAN";
+    position: absolute;
+    color: black;
+    top: -6px;
+    transform: scaleX(-6px);
+    -webkit-text-stroke: 4px black;
+    z-index: -1;
+}
+
+.header p {
+    font-weight: 500;
+    font-size: 1.7rem;
+    padding: 0 10rem 0 10rem;
+    line-height: 36px;
+    color: #fff;
+    text-shadow: 2px 2px 2px rgb(46, 5, 5);
+    text-align: justify;
+}
+
+.back {
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    position: fixed;
+    overflow: hidden;
+}
+
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1000;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.gallery {
+    margin-top: 9rem;
+    text-align: center;
+    padding: 0 3rem 0 3rem;
+}
+
+.gallery h3 {
+    font-weight: 700;
+    color: #000;
+    font-size: 3.7rem;
+    margin-bottom: 4rem;
+}
+
+.card {
+    width: 20rem;
+    height: 40rem;
+    border-radius: 1rem;
+}
+
+.card img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.event {
+    margin-top: 9rem;
+    text-align: center;
+    padding: 0 3rem 0 3rem;
+}
+
+.event h4 {
+    font-weight: 700;
+    line-height: 84px;
+    color: #000;
+    font-size: 3.7rem;
+    margin-bottom: 4rem;
+}
+
+.card1 {
+    width: 15rem;
+    height: 20rem;
+    border: 1px;
+    border-radius: 0.5rem;
+    margin: auto;
+    margin-bottom: 0;
+}
+
+.card1 img {
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 0.312rem;
+}
+
+.card-content {
+    width: 100%;
+    height: auto;
+}
+
+.card_content h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    margin-top: 0.3rem;
+    color: #000;
+    padding-top: 0.8rem;
+}
+
+.card_content p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 0rem;
+    line-height: 20px;
+    color: #000;
+}
+
+.swiper-pagination {
+    margin: 1.25rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: white;
+    background-position: center;
+    background-size: 32px;
+    background-repeat: no-repeat;
+    padding: 6px 12px;
+    border-radius: 100%;
+    color: red;
+}
+
+.event .swiper-button-prev {
+    transform: translateX(30%);
+}
+
+.event .swiper-button-prev {
+    background-color: #b8d474;
+}
+
+.event .swiper-button-next {
+    background-color: #b8d474;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    color: black;
+    transform: scale(50%);
+}
+
+.btn {
+    background-color: #b8d474;
+}
+
+.event .react-multi-carousel-item--active {
+    overflow: auto;
+}
+
+
+/* Responsive */
+
+@media(max-width:2770px) {
+    .card {
+        width: 60vw;
+        height: 90vh;
+        border-radius: 1rem;
+    }
+
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1rem;
+    }
+
+    .card1 {
+        width: 13vw;
+        height: 50vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+}
+
+@media(max-width:1600px) {
+    .header {
+        text-align: center;
+        padding: 0 3rem 0 3rem;
+    }
+
+    .header h1 {
+        font-size: 4rem;
+    }
+
+    .header p {
+        font-size: 1.4rem;
+        padding: 0 7rem 0 7rem;
+    }
+
+    .gallery {
+        margin-top: 9rem;
+        text-align: center;
+        padding: 0 3rem 0 3rem;
+    }
+
+    .gallery h3 {
+        font-size: 4rem;
+    }
+
+    .event {
+        margin-top: 9rem;
+        text-align: center;
+        padding: 0 3rem 0 3rem;
+    }
+
+    .event h4 {
+        font-size: 4rem;
+    }
+
+    .card1 {
+        width: 21vw;
+        height: 60vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+}
+
+@media(max-width:1024px) {
+    .aarohan {
+        padding-top: 10rem;
+    }
+
+    .card1 {
+        width: 26vw;
+        height: 50vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+}
+
+@media(max-width:861px) {
+    .card {
+        width: 55vw;
+        height: 60vh;
+        border-radius: 1rem;
+    }
+}
+
+@media(max-width:769px) {
+    .card1 {
+        width: 26.5vw;
+        height: 40vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+
+    .header p {
+        font-size: 1.4rem;
+        padding: 0 4rem 0 4rem;
+        line-height: 2.6rem;
+    }
+}
+
+@media(max-width:680px) {
+    .card1 {
+        width: 41vw;
+        height: 40vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+
+    .event h4 {
+        line-height: 5rem;
+    }
+}
+
+@media(max-width:521px) {
+    .card {
+        width: 60vw;
+        height: 40vh;
+    }
+
+    .header p {
+        font-size: 1.3rem;
+        padding: 0 3rem 0 3rem;
+        line-height: 2.6rem;
+    }
+}
+
+@media(max-width: 500px) {
+    .card1 {
+        width: 70vw;
+        height: 45vh;
+        border: 1px;
+        border-radius: 0.5rem;
+        margin: auto;
+    }
+
+    .galary h3 {
+        line-height: 4rem;
+    }
+
+    .aarohan {
+        padding-top: 15rem;
+    }
+}
+
+@media(max-width: 376px) {
+    .card {
+        width: 60vw;
+        height: 35vh;
+    }
+}
+
+@media(max-width: 328px) {
+    .header p {
+        font-size: 1.2rem;
+        line-height: 2rem;
+        padding: 1rem;
+    }
+}

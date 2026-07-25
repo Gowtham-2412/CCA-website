@@ -1,7 +1,7 @@
 .wrap {
+  padding: 9rem 1rem 0 1rem;
   background-color: #f2efe4;
   font-family: 'Roboto';
-  margin-top: 3rem;
   margin-left: 2rem;
   margin-right: 2rem;
 }
@@ -35,13 +35,13 @@ img {
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 4px;
-  color: #000000;
+  color: #4a4a4a;
   padding-top: 0.5rem;
   margin-bottom: 2.5rem;
 }
 
 .line {
-  background-color: #000000;
+  background-color: #303030;
   height: 1px;
   width: 65%;
   margin-bottom: 3.5rem;
@@ -51,7 +51,7 @@ img {
   font-weight: 500;
   font-size: 1.5rem;
   line-height: auto;
-  color: #000000;
+  color: #4a4a4a;
   display: inline-block;
 }
 
@@ -71,7 +71,7 @@ img {
   font-weight: 600;
   font-size: 2.2rem;
   font-family: 'Roboto';
-  color: #000000;
+  color: #303030;
   margin-bottom: 0.5rem;
   margin-top: 1rem;
 }
@@ -79,16 +79,145 @@ img {
 .CellWork p {
   font-weight: 500;
   font-size: 1.3rem;
-  color: #000000;
+  color: #4a4a4a;
   margin-bottom: 1.5rem;
   display: inline-block;
   line-height: 2rem;
+}
+.Heading {
+  color: #303030;
+  text-align: center;
+  font-size: 3rem;
+  font-style: normal;
+  padding-top: 2rem;
+  margin-bottom: 1.87rem;
+  font-weight: 700;
+  line-height: 5.25rem;
+  letter-spacing: -0.03rem;
+}
+#cardcontainer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin:5rem;
+  margin-top: 1rem;
+}
+
+.Cardbody {
+  margin: 2.5rem;
+  width: 200px;
+  height: 306px;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: Cardbody-load 300ms ease-in;
+
+}
+
+.Cardbody img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.cardcontent {
+  background-color: #8EC15C;
+  position: relative;
+  bottom: 78px;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  text-align: center;
+  transition: 0.4s;
+  line-height: 40px;
+  z-index: 5;
+  clip-path: polygon(0 14%, 0 14%, 0 100%, 0% 100%);
+
+}
+
+.cardcontent h1 {
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  font-size: 15px;
+}
+
+.cardcontent p {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.cardback {
+  background-color: #ffffff;
+  padding: 90px;
+  position: relative;
+  bottom: 258px;
+  transition: 0.2s ease;
+  z-index: 0;
+  clip-path: polygon(100% 53%, 100% 52%, 100% 100%, 100% 100%);
+}
+.Cardbody:hover{
+  -webkit-box-shadow: 2px 2px 33px 4px rgba(142,193,92,0.87);
+  -moz-box-shadow: 2px 2px 33px 4px rgba(142,193,92,0.87);
+  box-shadow: 2px 2px 33px 4px rgba(142,193,92,0.87);
+}
+
+.Cardbody:hover .cardback {
+  clip-path: polygon(0 53%, 100% 54%, 100% 100%, 0% 100%);
+}
+
+.Cardbody:hover .cardcontent {
+  clip-path: polygon(14% 14%, 100% 14%, 86% 100%, 0% 100%);
+}
+
+.cardsocial {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #ffffff;
+  height: 200px;
+  width: 200px;
+  position: relative;
+  bottom: 588px;
+  transition: 0.2s ease;
+  z-index: 8;
+  clip-path: circle(0.0% at 100% 0);
+}
+
+.Cardbody:hover .cardsocial {
+  clip-path: circle(45% at 100% 0);
+}
+
+.cardsocial img {
+  height: 35px;
+  margin-top: 20px;
+  padding: 5px;
+  position: relative;
+  left: 120px;
+  transition: 0.5s;
+}
+
+.Cardbody:hover .cardsocial img {
+  left: 0;
 }
 
 @media (max-width: 1300px) {
   html {
     font-size: 90%;
   }
+  .Heading {
+    font-size: 60px;
+
+}
+.Cardbody {
+    width: 200px;
+    height: 290px;
+    margin: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
 }
 
 @media (max-width: 1200px) {
@@ -119,6 +248,17 @@ img {
   .img {
     object-fit: cover;
   }
+  .cardsocial {
+    bottom: 575px
+}
+
+.cardcontent h1 {
+    font-size: 15px;
+}
+
+.cardcontent p {
+    font-size: 12px;
+}
 }
 
 @media (max-width: 886px) {
@@ -180,9 +320,24 @@ img {
     margin-bottom: 3.5rem;
   }
 }
+@media(max-width:565px){
+  #cardcontainer {
+    margin: 3rem;
+}
+
+.cardsocial img {
+    margin-top: 25px;
+}
+}
 
 @media (max-width: 425px) {
   html {
     font-size: 60%;
   }
+  .Heading {
+    font-size: 40px;
+}
+.cardsocial {
+  bottom: 575px;
+}
 }

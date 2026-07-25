@@ -5,6 +5,9 @@ import rndimg from '../../Assets/Images/rnd.jpg';
 import robocellimg from '../../Assets/Images/robo-cell.jpg';
 import ecellimg from '../../Assets/Images/e-cell.jpg';
 import wdctimg from '../../Assets/Images/wdct.jpg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 export default function OurCells() {
     const cellData = [
@@ -15,11 +18,18 @@ export default function OurCells() {
         { herf: "/rnd", title: "R&D Cell", class: CellsCss.rdcell, img: rndimg },
     ];
 
+    useEffect(() => {
+        AOS.init({
+            duration: 1200,
+            easing: 'ease-in-out-cubic',
+        })
+    }, [])
+
     return (
-        <div className={CellsCss.ourcellspage}>
-            <h1 className={CellsCss.mainheading}>Our Cells</h1>
-            <p className={CellsCss.para}>CCA is divided into five cells which work together in collaboration with each other. We believe in the fact that togetherness yields excellent results. These cells basically function to cover every aspect required for the success of an organisation.</p>
-            <div className={CellsCss.cellcontainer}>
+        <div className={CellsCss.ourcellspage} >
+            <h1 className={CellsCss.mainheading} data-aos="fade">Our Cells</h1>
+            <p className={CellsCss.para} data-aos="fade">CCA is divided into five cells which work together in collaboration with each other. We believe in the fact that togetherness yields excellent results. These cells basically function to cover every aspect required for the success of an organisation.</p>
+            <div className={CellsCss.cellcontainer} data-aos="fade-up">
                 {cellData.map((cell, index) => (
                     <a href={cell.herf}>
                         <div className={`${CellsCss.cell} ${cell.class}`} style={{ backgroundImage: `url(${cell.img})` }} key={index}>

@@ -4,6 +4,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * {
     margin: 0;
     padding: 0;
@@ -11,13 +12,43 @@
     scroll-behavior: smooth;
 }
 
+.cursor {
+    background-color: #e84e1b;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    pointer-events: none;
+    cursor: none;
+}
+
+.cursor_blur {
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -5;
+    pointer-events: none;
+    filter: blur(50px);
+}
+
+LInk:hover {
+    color: aliceblue;
+}
+
 @layer components {
     .max-container {
         max-width: 1440px;
         margin: 0 auto;
     }
+
     .int-style {
-        cursor: pointer;
+        cursor: none;
     }
 }
 
@@ -25,34 +56,44 @@
     .padding {
         @apply sm:px-16 px-8 sm:py-24 py-12;
     }
+
     .padding-x {
         @apply sm:px-8 px-4;
     }
+
     .padding-y {
         @apply sm:py-24 py-12;
     }
+
     .padding-l {
         @apply sm:pl-16 pl-8;
     }
+
     .padding-r {
         @apply sm:pr-16 pr-8;
     }
+
     .padding-t {
         @apply sm:pt-24 pt-12;
     }
+
     .padding-b {
         @apply sm:pb-24 pb-12;
     }
+
     .info-text {
         @apply font-montserrat text-slate-gray text-lg leading-7;
     }
+
     .link-style1 {
-        @apply lg:flex-1 lg:flex lg:justify-center lg:items-center gap-16 max-lg:absolute max-lg:bg-[#F2EFE4]  max-lg:w-2/5 max-lg:min-h-[100vh] max-sm:w-full max-sm:min-h-[100vh] max-lg:justify-center ;
+        @apply lg:flex-1 lg:flex lg:justify-center lg:items-center gap-16 max-lg:absolute max-lg:bg-[#F2EFE4] max-lg:w-2/5 max-lg:min-h-[100vh] max-sm:w-full max-sm:min-h-[100vh] max-lg:justify-center;
     }
-    .effect::after{
-        @apply content-[''] bg-nav-black absolute h-[2.5px] w-[85%] left-0 bottom-0 rounded-xl scale-x-0 origin-left duration-0 ;
+
+    .effect::after {
+        @apply content-[''] bg-white absolute h-[2.5px] w-[85%] left-0 bottom-0 rounded-xl scale-x-0 origin-left duration-0;
     }
-    .effect:hover::after{
+
+    .effect:hover::after {
         @apply origin-left scale-x-100 duration-500;
     }
 }

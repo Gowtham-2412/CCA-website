@@ -5,6 +5,13 @@
     margin: 0;
 }
 
+.carouselContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
 .aboutuspage {
     padding: 5rem;
     padding-bottom: 0;
@@ -14,63 +21,68 @@
 .mainh {
     font-family: "Inter";
     font-size: 48px;
-    font-weight: 600;
-    line-height: 36px;
+    font-weight: 700;
+    line-height: 40px;
     letter-spacing: -0.015em;
-    text-align: left;
     text-align: center;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     padding-top: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .abtpara {
     font-family: "Inter";
     font-size: 20px;
     font-weight: 500;
-    line-height: 36px;
-    letter-spacing: -0.015em;
-    text-align: left;
+    text-align: justify;
     padding-bottom: 1rem;
+    width: 100vw;
+    padding: 0rem 8rem;
 }
 
-.expbutton {
-    width: 163px;
-    height: 56px;
-    border-width: 0;
-    border-radius: 6px;
-    background: #8EC15C;
+.content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     color: white;
-    font-family: "Inter";
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 48px;
-    letter-spacing: -0.005em;
+    text-shadow: 55px 55px 55px rgba(0, 0, 0, 0.5);
 }
 
-.abtimage {
-    background: #3E3D3A;
-    width: auto;
-    height: 561px;
-    border: 2px solid #303030;
-    border-radius: 6px;
+.carouselImage {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    filter: brightness(0.3);
+    object-fit: cover;
+    border-radius: 0 !important;
 }
 
-.arrowicon {
-    height: 12.38px;
-    width: 12.33px;
-    display: inline;
-    background: #8EC15C;
-    margin-left: 1rem;
-    margin-bottom: 0.2rem;
-}
+
 
 @media (max-width : 496px) {
     .aboutuspage {
         padding: 2.5rem;
     }
 
+    .content {
+        margin-top: 7rem;
+        position: absolute;
+        left: 20%;
+        top: 20%;
+        transform: translate(-20%, -20%);
+        color: white;
+        text-shadow: 55px 55px 55px rgba(0, 0, 0, 0.5);
+    }
+
+    .carouselImage {
+        height: 100vh;
+        border-radius: 0 !important;
+    }
+
     .abtimage {
         height: 300px;
+
     }
 
     .mainh {
@@ -79,13 +91,34 @@
     }
 
     .abtpara {
-        font-size: 18px;
+        font-size: 16px;
         text-align: center;
+        padding-left: 2.2rem;
+        padding-right: 2.2rem;
+        padding-bottom: 2rem;
     }
+
 
     .expbutton {
         width: 140px;
         font-size: 20px;
+    }
+
+    .image {
+        margin-top: 8rem;
+        height: 250px;
+        width: 100%;
+    }
+}
+
+@media (max-width : 420px) and (min-width:300px) {
+    .mainh {
+        font-size: 35px;
+        padding-bottom: 1rem;
+    }
+
+    .abtpara {
+        font-size: 15px;
     }
 }
 
@@ -98,6 +131,12 @@
         padding: 2.8rem;
     }
 
+    .image {
+        height: 350px;
+        margin-top: 8rem;
+        width: 100%;
+    }
+
     .mainh {
         font-size: 40px;
         margin-top: 1rem;
@@ -106,13 +145,38 @@
     .abtpara {
         font-size: 20px;
         text-align: center;
+        padding: 0.5rem 2rem;
+        padding-bottom: 2rem;
     }
 
 
 }
 
-@media (max-width:1186px) and (min-width: 992px) {
-    .abtimage {
-        height: 600px;
+@media (max-width:990px) and (min-width: 608px) {
+    .image {
+        height: 450px;
+        margin-top: 8rem;
+    }
+}
+
+@media (min-width:1023px) {
+    .textnav {
+        color: white !important;
+
+    }
+
+    img {
+        border-radius: 0 !important;
+    }
+
+    .mainh::before {
+        content: "About CCA!";
+        position: absolute;
+        color: black;
+        top: 11px;
+        transform: scaleX(-6px);
+        -webkit-text-stroke: 4px black;
+        z-index: -1;
+
     }
 }

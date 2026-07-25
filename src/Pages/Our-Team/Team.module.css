@@ -3,7 +3,8 @@
     text-align: center;
     font-size: 4rem;
     font-style: normal;
-    margin-top: 2.18rem;
+    /* margin-top: 2.18rem; */
+    padding-top: 7.5rem;
     margin-bottom: 1.87rem;
     font-weight: 700;
     line-height: 5.25rem;
@@ -13,7 +14,7 @@
 .teamtab {
     margin: auto;
     display: flex;
-    width: 1050px;
+    width: 1150px;
     height: 70px;
     flex-shrink: 0;
     border-radius: 10px;
@@ -24,7 +25,7 @@
 .teamtab button {
     position: relative;
     display: inline-block;
-    font-size: 19px;
+    font-size: 21px; 
     color: #fff;
     height: 40px;
     margin: auto;
@@ -47,7 +48,6 @@
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s;
-
 }
 
 .teamtab button:hover::after,
@@ -58,7 +58,6 @@
 
 .teamtab button:focus {
     outline: none;
-
 }
 
 .secheading {
@@ -68,7 +67,6 @@
     font-weight: 700;
     line-height: 84px;
     margin: 30px;
-
 }
 
 #facontent {
@@ -81,11 +79,12 @@
 }
 
 .cardbody {
-    width: 210px;
+    width: 200px;
     height: 306px;
     margin: 2rem;
     margin-top: 1rem;
     overflow: hidden;
+    border-radius: 40px;
 }
 
 .cardbody img {
@@ -93,8 +92,91 @@
     height: 100%;
 }
 
-@media(max-width:1245px) {
+.cardcontent {
+    background-color: transparent;
+    position: relative;
+    bottom: 78px;
+    padding: 15px 0;
+    text-align: center;
+    transition: 0.4s;
+    line-height: 40px;
+    z-index: 5;
+    clip-path: polygon(0 14%, 0 14%, 0 100%, 0% 100%);
 
+
+}
+
+.cardcontent h1 {
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+}
+
+.cardcontent p {
+    color: white;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.cardback {
+    background-color: transparent;
+    padding: 90px;
+    position: relative;
+    bottom: 258px;
+    transition: 0.2s ease;
+    z-index: 0;
+
+
+}
+
+.cardbody:hover {
+    -webkit-box-shadow: 2px 2px 33px 4px rgba(185, 193, 92, 0.87);
+    -moz-box-shadow: 2px 2px 33px 4px rgba(185, 193, 92, 0.87);
+    box-shadow: 2px 2px 33px 4px rgba(185, 193, 92, 0.87);
+}
+
+.cardbody:hover .cardback {
+    clip-path: polygon(0 53%, 100% 54%, 100% 100%, 0% 100%);
+}
+
+.cardbody:hover .cardcontent {
+    clip-path: polygon(14% 14%, 100% 14%, 86% 100%, 0% 100%);
+}
+
+.cardsocial {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #ffffff;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    bottom: 588px;
+    transition: 0.2s ease;
+    z-index: 8;
+    clip-path: circle(0.0% at 100% 0);
+}
+
+.cardbody:hover .cardsocial {
+    clip-path: circle(45% at 100% 0);
+}
+
+.cardsocial img {
+    height: 35px;
+    margin-top: 20px;
+    padding: 5px;
+    position: relative;
+    left: 120px;
+    transition: 0.5s;
+}
+
+.cardbody:hover .cardsocial img {
+    left: 0;
+}
+
+@media(max-width:1245px) {
     .heading {
         font-size: 60px;
     }
@@ -113,10 +195,35 @@
         margin: 1.5rem;
         margin-top: 1rem;
     }
-
 }
 
-@media(max-width:1075px) {}
+@media(max-width:1075px) {
+    .teamtab button {
+        font-size: 19px;
+    }
+
+    .cardsocial {
+        bottom: 570px;
+    }
+
+    .cardcontent h1 {
+        font-size: 15px;
+    }
+
+    .cardcontent p {
+        font-size: 12px;
+    }
+
+    .cardbody {
+        margin-bottom: 3rem;
+    }
+}
+
+@media(max-width:1024px) {
+    .heading h1 {
+        padding-top: 7rem;
+    }
+}
 
 @media(max-width:992px) {
     .teamtab {
@@ -133,20 +240,21 @@
 @media(max-width:720px) {
     .teamtab {
         width: 500px;
-
     }
-
 }
 
 @media(max-width:502px) {
     .teamtab {
         width: 400px;
-
     }
 
     .teamtab button {
         height: 69px;
         width: 70px;
+    }
+
+    #facontent {
+        margin: 3rem;
     }
 }
 
@@ -163,7 +271,7 @@
         width: 350px;
     }
 
-    tab-switch {
-        font-size: 15px;
+    .teamtab button {
+        font-size: 18px;
     }
 }
