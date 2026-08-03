@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Hallcss from './Hall.module.css';
 import ImgLib from '../../Components/ImgLink/ImageLib';
 import instagram from '../../Assets/Icons/instagram.svg';
@@ -10,9 +9,12 @@ import 'aos/dist/aos.css';
 const Hall = () => {
   const [items, setItems] = useState(ImgLib);
   const activebtn = useRef(null);
+
   useEffect(() => {
-    activebtn.current.click();
-    activebtn.current.focus();
+    if (activebtn.current) {
+      activebtn.current.click();
+      activebtn.current.focus();
+    }
     Aos.init({
       duration: 600,
       easing: 'ease-in-out-cubic',
@@ -26,6 +28,7 @@ const Hall = () => {
 
     setItems(updatedItems);
   };
+
   return (
     <div>
       <div className={Hallcss.Heading} data-aos='fade'>
@@ -49,31 +52,30 @@ const Hall = () => {
           Batch 2023
         </button>
       </div>
-      {items.slice(0, 1).map((elem) => {
-        const { category } = elem;
-        return (
-          <div className={Hallcss.batchheading}>
-            <h2>{category}</h2>
-          </div>
-        );
-      })}
+      {items.slice(0, 1).map((elem, idx) => (
+        <div key={idx} className={Hallcss.batchheading}>
+          <h2>{elem.category}</h2>
+        </div>
+      ))}
       <main id={Hallcss.cardcontainer}>
-        {items.map((elem) => {
+        {items.map((elem, idx) => {
           const { name, image } = elem;
 
           return (
-            <div className={Hallcss.Cardbody} data-aos='fade-up'>
-              <img src={image} alt={name}></img>
-              {console.log(image)}
+            <div key={idx} className={Hallcss.Cardbody} data-aos='fade-up'>
+              <img src={image} alt={name || "Hall of Fame Member"} />
               <div className={Hallcss.cardcontent}>
-                <h1>SOMEONE NAME</h1>
-                <p>SENIOR Member</p>
+                <h1>{name || "Senior Member"}</h1>
+                <p>Senior Member</p>
               </div>
-              <div className={Hallcss.cardback}>
-              </div>
+              <div className={Hallcss.cardback}></div>
               <div className={Hallcss.cardsocial}>
-                <a href='#'><img className={Hallcss.socialicon} src={instagram}></img></a>
-                <a href='#'><img className={Hallcss.socialicon} src={linkedin}></img></a>
+                <a href="https://www.instagram.com/cca.nitd/" target="_blank" rel="noreferrer">
+                  <img className={Hallcss.socialicon} src={instagram} alt="Instagram profile" />
+                </a>
+                <a href="https://www.linkedin.com/company/center-for-cognitive-activities-nit-durgapur/" target="_blank" rel="noreferrer">
+                  <img className={Hallcss.socialicon} src={linkedin} alt="LinkedIn profile" />
+                </a>
               </div>
             </div>
           );

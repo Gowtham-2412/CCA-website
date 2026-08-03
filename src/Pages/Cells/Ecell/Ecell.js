@@ -1,79 +1,121 @@
-import React from 'react'
-import EcellCss from './Ecell.module.css'
-import ecell from '../../../Assets/Images/e-cell.png'
+import React, { useEffect, useState } from 'react';
+import EcellCss from './Ecell.module.css';
+import ecell from '../../../Assets/Images/e-cell.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect, useState } from 'react';
-import instagram from '../../../Assets/Icons/instagram.svg';
-import linkedin from '../../../Assets/Icons/linkedin.svg';
 import EcellImg from '../../../Components/ImgLink/EcellImg';
+import TiltedCard from '../../../Components/UI/TiltedCard';
+import SpotlightCard from '../../../Components/UI/SpotlightCard';
+import MemberCard from '../../../Components/UI/MemberCard';
+import { Target, Rocket, CalendarCheck, Users, Quote } from 'lucide-react';
 
 const Ecell = () => {
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out-cubic',
-    })
-  }, [])
+    });
+  }, []);
 
-  const [items, setItem] = useState(EcellImg);
+  const [items] = useState(EcellImg);
 
   return (
     <div className={EcellCss.wrap}>
-      <div className='cell-detail'>
+      <div className={EcellCss.container}>
+        {/* Cell Hero */}
         <div className={EcellCss.detailWrap}>
-          <div className={EcellCss.CellInfo} data-AOS="fade-up">
-            <h1 className={EcellCss.heading} data-AOS="fade-right">Entrepreneurship Cell</h1>
-            <h3 className={EcellCss.great}>Welcome To The Entrepreneurship Cell Of The Club</h3>
-            <hr className={EcellCss.line} />
-            <p className={EcellCss.slogo}>"Logic will get you from A to B. Imagination will get you everywhere else." - Albert Einstein.
-              Rules and norms are there, meant to be followed, for the smooth pliability of social wagons. And then there is imagination. Imagination is a strange thing. It is wild, it is silly. It is the fuel to all great revolutionaries that have taken place in the history of the world.</p>
-          </div>
-          <div className={EcellCss.CellImg}>
-            <img src={ecell} alt="" className={EcellCss.img} data-AOS="zoom-in" />
-          </div>
-        </div>
-        <div className={EcellCss.CellWork} >
-          <h1 data-AOS="fade-up">AIM</h1>
-          <p data-AOS="fade-up">We at Entrepreneurship and Innovation Cell, NIT Durgapur, are a bunch of people who believe in the potent power of imagination and dreams. We strive to nourish the spirit of entrepreneurship among our members from the student community and faculty, inspire and encourage them to take on entrepreneurial challenges, and assist them in their efforts to launch and run business. We will also try to foster technical innovation within our campus, and would help them in proper incubations of the same.</p>
-          <h1 data-AOS="fade-up">OBJECTIVE</h1>
-          <p data-AOS="fade-up">
-            Inculcating the spirit of entrepreneurship in students. Developing leadership qualities among students. Motivating the students to come up with feasible and practical business plans. Helping bridge the gap between the industry and academics. Developing a strong network of entrepreneurs, venture capitalists, corporate executives, EXECUTIVE professionals and individuals who are directly or indirectly related to Entrepreneurship. To help NITD students and alumni leverage from this network.</p>
-          <h1 data-AOS="fade-up">ACTIVITIES</h1>
-          <p data-AOS="fade-up">
-            Inviting eminent entrepreneurs and NITD alumni from various industry to deliver lectures on entrepreneurship. Organizing inter college business plan competitions and have the CEOs of reputed organizations and entrepreneurs judging the event. Organizing brainstorming sessions to foster entrepreneurship and technical innovation Organizing a series of events related to entrepreneurship, business, economics and technical innovation in techno-management fest ‘Aarohan’, of our college.
+          <div className={EcellCss.CellInfo} data-aos="fade-right">
+            <h1 className={EcellCss.heading}>E-Cell</h1>
+            <h3 className={EcellCss.great}>Welcome to the Entrepreneurship Cell of the Club</h3>
 
-          </p>
-        </div>
-        <div className={EcellCss.Heading} data-aos='fade'>
-          <h1>Our Members</h1>
-        </div>
-        <main id={EcellCss.cardcontainer}>
-          {items.map((elem) => {
-            const { name, image } = elem;
+            <div className={EcellCss.quoteCard}>
+              <Quote className={EcellCss.quoteIcon} size={28} />
+              <p className={EcellCss.slogo}>
+                "Logic will get you from A to B. Imagination will get you everywhere else." - Albert Einstein
+              </p>
+              <p className={EcellCss.quoteSub}>
+                Imagination is the fuel for all great technological and business revolutions.
+                At E-Cell, we foster the spirit of enterprise, startup vision, and creative disruption.
+              </p>
+            </div>
+          </div>
 
-            return (
-              <div className={EcellCss.Cardbody} data-aos='fade-up'>
-                <img src={image} alt={name}></img>
-                {console.log(image)}
-                <div className={EcellCss.cardcontent}>
-                  <h1>SOMEONE NAME</h1>
-                  <p>SENIOR Member</p>
+          <div className={EcellCss.CellImg} data-aos="zoom-in">
+            <TiltedCard maxTilt={8} scale={1.02}>
+              <img src={ecell} alt="E-Cell" className={EcellCss.img} />
+            </TiltedCard>
+          </div>
+        </div>
+
+        {/* AIM, OBJECTIVES & ACTIVITIES Bento Grid */}
+        <div className={EcellCss.bentoSection}>
+          <h2 className={EcellCss.sectionTitle} data-aos="fade-up">Cell Initiatives</h2>
+
+          <div className={EcellCss.bentoGrid}>
+            <SpotlightCard className={EcellCss.bentoCard} data-aos="fade-up">
+              <div className={EcellCss.bentoHeader}>
+                <div className={EcellCss.iconPill}>
+                  <Target size={22} className="text-[#303030]" />
                 </div>
-                <div className={EcellCss.cardback}>
-                </div>
-                <div className={EcellCss.cardsocial}>
-                  <a href='#'><img className={EcellCss.socialicon} src={instagram}></img></a>
-                  <a href='#'><img className={EcellCss.socialicon} src={linkedin}></img></a>
-                </div>
+                <h3>OUR AIM</h3>
               </div>
-            );
-          })}
-        </main>
+              <p>
+                We strive to nourish the spirit of entrepreneurship among students and faculty, inspire members to tackle
+                real-world business challenges, and assist them in launching and running ventures with incubation support.
+              </p>
+            </SpotlightCard>
+
+            <SpotlightCard className={EcellCss.bentoCard} data-aos="fade-up" data-aos-delay="100">
+              <div className={EcellCss.bentoHeader}>
+                <div className={EcellCss.iconPill}>
+                  <Rocket size={22} className="text-[#303030]" />
+                </div>
+                <h3>OBJECTIVES</h3>
+              </div>
+              <p>
+                Developing leadership qualities, motivating feasible business plans, bridging the gap between industry and academia,
+                and building a robust network of founders, investors, and industry executives.
+              </p>
+            </SpotlightCard>
+
+            <SpotlightCard className={`${EcellCss.bentoCard} ${EcellCss.fullWidthCard}`} data-aos="fade-up" data-aos-delay="200">
+              <div className={EcellCss.bentoHeader}>
+                <div className={EcellCss.iconPill}>
+                  <CalendarCheck size={22} className="text-[#303030]" />
+                </div>
+                <h3>KEY ACTIVITIES & EVENTS</h3>
+              </div>
+              <ul className={EcellCss.respList}>
+                <li>Inviting eminent entrepreneurs and NITD alumni for guest lectures and fireside chats.</li>
+                <li>Organizing inter-college business plan competitions judged by CEOs and venture capitalists.</li>
+                <li>Hosting Youth Parliament and flagship business events during Aarohan.</li>
+              </ul>
+            </SpotlightCard>
+          </div>
+        </div>
+
+        {/* Members Section */}
+        <div className={EcellCss.membersSection} data-aos="fade">
+          <div className={EcellCss.membersHeader}>
+            <Users size={28} className="text-[#303030] inline mr-2" />
+            <h2 className="inline font-bold">Our Team Members</h2>
+          </div>
+
+          <div className={EcellCss.membersGrid}>
+            {items.map((elem, index) => (
+              <MemberCard
+                key={index}
+                name={elem.name || "E-CELL MEMBER"}
+                role="Senior Member"
+                image={elem.image}
+                accentColor="#8EC15C"
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Ecell
+export default Ecell;

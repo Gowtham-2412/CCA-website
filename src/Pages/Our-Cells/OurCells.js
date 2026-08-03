@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CellsCss from './OurCells.module.css';
 import coreimg from '../../Assets/Images/core-cell.png';
 import rndimg from '../../Assets/Images/rnd.jpg';
@@ -7,38 +7,68 @@ import ecellimg from '../../Assets/Images/e-cell.jpg';
 import wdctimg from '../../Assets/Images/wdct.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import InterfaceCraftDeck from '../../Components/UI/InterfaceCraftDeck';
 
 export default function OurCells() {
-    const cellData = [
-        { herf: "/core", title: "Core Cell", class: CellsCss.corecell, img: coreimg },
-        { herf: "/wdct", title: "WDCT", class: CellsCss.wdct, img: wdctimg },
-        { herf: "/robo", title: "Robo-Cell", class: CellsCss.robocell, img: robocellimg },
-        { herf: "/ecell", title: "E-Cell", class: CellsCss.ecell, img: ecellimg },
-        { herf: "/rnd", title: "R&D Cell", class: CellsCss.rdcell, img: rndimg },
-    ];
+  const cellData = [
+    {
+      herf: "/ecell",
+      title: "E-Cell",
+      subtitle: "Innovation",
+      desc: "Nurtures entrepreneurial mindsets, business plan competitions, and Youth Parliament.",
+      img: ecellimg
+    },
+    {
+      herf: "/rnd",
+      title: "R&D Cell",
+      subtitle: "Research",
+      desc: "Explores cutting-edge technologies, IoT workshops, and scientific research initiatives.",
+      img: rndimg
+    },
+    {
+      herf: "/wdct",
+      title: "WDCT",
+      subtitle: "Web & Design",
+      desc: "Powers the web platforms, UI/UX designs, motion graphics, and digital identity of CCA.",
+      img: wdctimg
+    },
+    {
+      herf: "/robo",
+      title: "Robo-Cell",
+      subtitle: "Robotics",
+      desc: "Drives autonomous robotics workshops, mechanical bot design, and Robocity events.",
+      img: robocellimg
+    },
+    {
+      herf: "/core",
+      title: "Core Cell",
+      subtitle: "Operations",
+      desc: "Oversees club activities, arranges sponsorships, and leads the overall organization of CCA.",
+      img: coreimg
+    }
+  ];
 
-    useEffect(() => {
-        AOS.init({
-            duration: 1200,
-            easing: 'ease-in-out-cubic',
-        })
-    }, [])
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out-cubic',
+    });
+  }, []);
 
-    return (
-        <div className={CellsCss.ourcellspage} >
-            <h1 className={CellsCss.mainheading} data-aos="fade">Our Cells</h1>
-            <p className={CellsCss.para} data-aos="fade">CCA is divided into five cells which work together in collaboration with each other. We believe in the fact that togetherness yields excellent results. These cells basically function to cover every aspect required for the success of an organisation.</p>
-            <div className={CellsCss.cellcontainer} data-aos="fade-up">
-                {cellData.map((cell, index) => (
-                    <a href={cell.herf}>
-                        <div className={`${CellsCss.cell} ${cell.class}`} style={{ backgroundImage: `url(${cell.img})` }} key={index}>
-                            <hr className={CellsCss.hr} />
-                            <h3 className={CellsCss.cellheading}>{cell.title}</h3>
-                        </div>
-                    </a>
-                ))}
-            </div>
-        </div>
-    );
+  return (
+    <div className={CellsCss.ourcellspage}>
+      <div className={CellsCss.headerSection} data-aos="fade-down">
+        <h1 className={CellsCss.mainheading}>Our Cells</h1>
+        <p className={CellsCss.para}>
+          CCA is structured into five distinct cells working synergistically.
+          Together, they cover every technical, creative, and managerial dimension needed for organizational excellence.
+        </p>
+      </div>
+
+      {/* Interface Craft Fanned Cards Deck */}
+      <div data-aos="fade-up">
+        <InterfaceCraftDeck cells={cellData} />
+      </div>
+    </div>
+  );
 }

@@ -1,91 +1,117 @@
-import React from 'react'
-import RoboCss from './RoboCell.module.css'
-import robo from '../../../Assets/Images/robo.png'
+import React, { useEffect, useState } from 'react';
+import RoboCss from './RoboCell.module.css';
+import robo from '../../../Assets/Images/robo.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect, useState } from 'react';
-import instagram from '../../../Assets/Icons/instagram.svg';
-import linkedin from '../../../Assets/Icons/linkedin.svg';
 import RoboCellImg from '../../../Components/ImgLink/RoboCellImg';
+import TiltedCard from '../../../Components/UI/TiltedCard';
+import SpotlightCard from '../../../Components/UI/SpotlightCard';
+import MemberCard from '../../../Components/UI/MemberCard';
+import { Cpu, Wrench, Trophy, Users, Quote } from 'lucide-react';
 
 const RoboCell = () => {
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out-cubic',
-    })
-  }, [])
+    });
+  }, []);
 
-  const [items, setItem] = useState(RoboCellImg);
+  const [items] = useState(RoboCellImg);
 
   return (
     <div className={RoboCss.wrap}>
-      <div className='cell-detail'>
+      <div className={RoboCss.container}>
+        {/* Cell Hero */}
         <div className={RoboCss.detailWrap}>
-          <div className={RoboCss.CellInfo} data-AOS="fade-up">
-            <h1 className={RoboCss.heading} data-AOS="fade-right">ROBO-CELL</h1>
-            <h3 className={RoboCss.great}>Welcome to the Robotics Cell of the club</h3>
-            <hr className={RoboCss.line} />
-            <p className={RoboCss.slogo}>"First they ignore you, then they laugh at you, then they fight you, then you win." - Gandhi. Creation of automated machines which mimic and reproduce human
-              behaviour, has been the topic of enthusiastic research for ages.
-              With the recent ground-breaking advances in electronics science
-              and programming technology, research and development in the field
-              of producing high- precision, highly efficient robots is the
-              latest trend.</p>
-          </div>
-          <div className={RoboCss.CellImg}>
-            <img src={robo} alt="" className={RoboCss.img} data-AOS="zoom-in" />
-          </div>
-        </div>
-        <div className={RoboCss.CellWork}>
-          <h1 data-AOS="fade-up">WORKSHOPS</h1>
-          <p data-AOS="fade-up">Workshops on mechanical/wired robots for beginners wherein
-            complete robotics kits are provided and participants are taught
-            the art of compiling a bot. A pre-Aarohan autonomous robotics
-            workshop, generally in collaboration with professionals from the
-            field of robotics is held.</p>
-          <h1 data-AOS="fade-up">ROBOCITY</h1>
-          <p data-AOS="fade-up">Stand-alone events (which take place in the odd semester) that
-            test your prowess in robotics, based on application skills of the
-            workshop knowledge that is held before the event, generally in
-            collaboration with professionals.This is generally done to
-            enlighten the 1st years about robotics.</p>
-          <h1 data-AOS="fade-up">AAROHAN WORKSHOPS</h1>
-          <p data-AOS="fade-up">Basic robotic events that are aimed to attract the participation
-            of 1st and 2nd year students in order to develop there basic
-            skills in making bots. Autonomous robotics events to test your
-            skills and knowledge about your bot. Advanced level
-            wired/mechanical robotics events.</p>
-        </div>
-        <div className={RoboCss.Heading} data-aos='fade'>
-          <h1>Our Members</h1>
-        </div>
-        <main id={RoboCss.cardcontainer}>
-          {items.map((elem) => {
-            const { name, image } = elem;
+          <div className={RoboCss.CellInfo} data-aos="fade-right">
+            <h1 className={RoboCss.heading}>Robo-Cell</h1>
+            <h3 className={RoboCss.great}>Welcome to the Robotics Cell of the Club</h3>
 
-            return (
-              <div className={RoboCss.Cardbody} data-aos='fade-up'>
-                <img src={image} alt={name}></img>
-                {console.log(image)}
-                <div className={RoboCss.cardcontent}>
-                  <h1>SOMEONE NAME</h1>
-                  <p>SENIOR Member</p>
+            <div className={RoboCss.quoteCard}>
+              <Quote className={RoboCss.quoteIcon} size={28} />
+              <p className={RoboCss.slogo}>
+                "First they ignore you, then they laugh at you, then they fight you, then you win." - Mahatma Gandhi
+              </p>
+              <p className={RoboCss.quoteSub}>
+                Automated machines mimicking human precision drive the latest frontier of engineering.
+                Robo-Cell brings high-efficiency autonomous and manual robotics to life through intense research and construction.
+              </p>
+            </div>
+          </div>
+
+          <div className={RoboCss.CellImg} data-aos="zoom-in">
+            <TiltedCard maxTilt={8} scale={1.02}>
+              <img src={robo} alt="Robo-Cell" className={RoboCss.img} />
+            </TiltedCard>
+          </div>
+        </div>
+
+        {/* WORKSHOPS, ROBOCITY & AAROHAN WORKSHOPS Bento Grid */}
+        <div className={RoboCss.bentoSection}>
+          <h2 className={RoboCss.sectionTitle} data-aos="fade-up">Robotics Training & Competitions</h2>
+
+          <div className={RoboCss.bentoGrid}>
+            <SpotlightCard className={RoboCss.bentoCard} data-aos="fade-up">
+              <div className={RoboCss.bentoHeader}>
+                <div className={RoboCss.iconPill}>
+                  <Wrench size={22} className="text-[#303030]" />
                 </div>
-                <div className={RoboCss.cardback}>
-                </div>
-                <div className={RoboCss.cardsocial}>
-                  <a href='#'><img className={RoboCss.socialicon} src={instagram}></img></a>
-                  <a href='#'><img className={RoboCss.socialicon} src={linkedin}></img></a>
-                </div>
+                <h3>BEGINNER WORKSHOPS</h3>
               </div>
-            );
-          })}
-        </main>
+              <p>
+                Workshops on mechanical and wired robots for beginners. Complete robotics kits are provided, and participants learn hands-on assembly, circuitry, and control mechanics.
+              </p>
+            </SpotlightCard>
+
+            <SpotlightCard className={RoboCss.bentoCard} data-aos="fade-up" data-aos-delay="100">
+              <div className={RoboCss.bentoHeader}>
+                <div className={RoboCss.iconPill}>
+                  <Cpu size={22} className="text-[#303030]" />
+                </div>
+                <h3>ROBOCITY COMPETITION</h3>
+              </div>
+              <p>
+                Stand-alone odd-semester events testing robotics prowess and practical application skills, enlightening first-year students on bot programming and arena navigation.
+              </p>
+            </SpotlightCard>
+
+            <SpotlightCard className={`${RoboCss.bentoCard} ${RoboCss.fullWidthCard}`} data-aos="fade-up" data-aos-delay="200">
+              <div className={RoboCss.bentoHeader}>
+                <div className={RoboCss.iconPill}>
+                  <Trophy size={22} className="text-[#303030]" />
+                </div>
+                <h3>AAROHAN ROBOTICS EVENTS</h3>
+              </div>
+              <p>
+                Flagship autonomous and advanced wired/mechanical robotics events during Aarohan, challenging teams across obstacle courses, maze solvers, and custom bot battles.
+              </p>
+            </SpotlightCard>
+          </div>
+        </div>
+
+        {/* Members Section */}
+        <div className={RoboCss.membersSection} data-aos="fade">
+          <div className={RoboCss.membersHeader}>
+            <Users size={28} className="text-[#303030] inline mr-2" />
+            <h2 className="inline font-bold">Our Team Members</h2>
+          </div>
+
+          <div className={RoboCss.membersGrid}>
+            {items.map((elem, index) => (
+              <MemberCard
+                key={index}
+                name={elem.name || "ROBO MEMBER"}
+                role="Senior Member"
+                image={elem.image}
+                accentColor="#8EC15C"
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RoboCell
+export default RoboCell;

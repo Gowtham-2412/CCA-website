@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import AboutCss from './AboutUs.module.css';
 import 'animate.css';
-// import Footer from '../../Components/Footer/Footer';
 import img1 from '../../Assets/Images/carouselimg1.JPG';
 import img2 from '../../Assets/Images/carouselimg2.JPG';
 import img3 from '../../Assets/Images/carouselimg3.jpeg';
 
+const images = [img1, img2, img3];
+
 export default function AboutUs() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const images = [img1, img2, img3];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,7 +31,7 @@ export default function AboutUs() {
                 className={`carousel-item ${index === activeIndex ? 'active' : ''}`}
                 style={{ opacity: index === activeIndex ? 1 : 0, transition: 'opacity 1s ease-in-out' }}
               >
-                <img src={image} className={AboutCss.carouselImage} alt="..." />
+                <img src={image} className={AboutCss.carouselImage} alt="CCA Campus" />
                 <div className={`${AboutCss.content}`}>
                   <h5 className={`${AboutCss.mainh}`}>About CCA!</h5>
                   <p className={AboutCss.abtpara}>
@@ -56,7 +56,7 @@ export default function AboutUs() {
               className={`carousel-item ${index === activeIndex ? 'active' : ''}`}
               style={{ opacity: index === activeIndex ? 1 : 0, transition: 'opacity 1s ease-in-out' }}
             >
-              <img src={image} className={AboutCss.image} alt="..." />
+              <img src={image} className={AboutCss.image} alt="CCA Campus" />
             </div>
           ))}
         </div>

@@ -1,158 +1,147 @@
-import React, { useEffect, useState } from 'react';
-import { useRef } from 'react'
-import Teamcss from './Team.module.css'
-import ImgLib from '../../Components/ImgLink/ImageLib'
-import instagram from '../../Assets/Icons/instagram.svg';
-import linkedin from '../../Assets/Icons/linkedin.svg';
-import Aos from 'aos'
-import 'aos/dist/aos.css'
+import React, { useEffect, useState, useRef } from 'react';
+import Teamcss from './Team.module.css';
+import ImgLib from '../../Components/ImgLink/ImageLib';
+import MemberCard from '../../Components/UI/MemberCard';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import { GraduationCap, Award, UserCheck } from 'lucide-react';
 
 const Team = () => {
-    const [items] = useState(ImgLib);
-    const FacLib = [
-        {
-            id: 1,
-            image: require("../../Assets/Images/Gojo.jpeg"),
-            name: "Sample1",
-            category: "Faculty",
-        },
-        {
-            id: 2,
-            image: require("../../Assets/Images/Gojo.jpeg"),
-            name: "Sample2",
-            category: "Faculty",
-        },
-        {
-            id: 3,
-            image: require("../../Assets/Images/Gojo.jpeg"),
-            name: "Sample3",
-            category: "Faculty",
-        },
-    ]
-    useEffect(() => {
-        Aos.init({
-            duration: 600,
-            easing: 'ease-in-out-cubic',
-        });
-    }, []);
+  const [items] = useState(ImgLib);
 
-    const faculty = useRef(null);
-    const office = useRef(null);
-    const senior = useRef(null);
+  const FacLib = [
+    {
+      id: 1,
+      image: require("../../Assets/Images/Gojo.jpeg"),
+      name: "Dr. G. Praphul Chandra",
+      category: "Faculty Adviser",
+      role: "Faculty Adviser"
+    },
+    {
+      id: 2,
+      image: require("../../Assets/Images/Gojo.jpeg"),
+      name: "Dr. Faculty Member 2",
+      category: "Faculty Adviser",
+      role: "Faculty Adviser"
+    },
+    {
+      id: 3,
+      image: require("../../Assets/Images/Gojo.jpeg"),
+      name: "Dr. Faculty Member 3",
+      category: "Faculty Adviser",
+      role: "Faculty Adviser"
+    },
+  ];
 
-    const scrollToSection = (elementRef) => {
-        window.scrollTo({
-            top: elementRef.current.offsetTop,
-            behavior: 'smooth'
-        })
+  useEffect(() => {
+    Aos.init({
+      duration: 600,
+      easing: 'ease-in-out-cubic',
+    });
+  }, []);
+
+  const facultyRef = useRef(null);
+  const officeRef = useRef(null);
+  const seniorRef = useRef(null);
+  const [activeTab, setActiveTab] = useState('faculty');
+
+  const scrollToSection = (elementRef, tabName) => {
+    setActiveTab(tabName);
+    if (elementRef.current) {
+      elementRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  };
 
-    return (
-        <div>
-            <div className={Teamcss.heading} data-aos='fade'>
-                <h1>Our Team</h1>
-            </div>
-            <div className={Teamcss.teamtab} data-aos='fade'>
-                <button className={Teamcss.tabswitch} onClick={() => scrollToSection(faculty)}>Faculty Advisers</button>
-                <button className={Teamcss.tabswitch} onClick={() => scrollToSection(office)}>Office Bearers</button>
-                <button className={Teamcss.tabswitch} onClick={() => scrollToSection(senior)}>Senior Members</button>
+  return (
+    <div className={Teamcss.pageWrapper}>
+      {/* Header Section */}
+      <div className={Teamcss.headerSection} data-aos="fade">
+        <h1 className={Teamcss.mainHeading}>Our Team</h1>
+        <p className={Teamcss.leadPara}>
+          The passionate minds and dedicated leaders driving CCA forward across technical innovation, event execution, and strategic management.
+        </p>
+      </div>
 
-            </div>
-            <div className={Teamcss.fasection}>
-                <div ref={faculty} className={Teamcss.secheading}>
-                    <h3 data-aos='fade-up'>Faculty Advisers</h3>
-                </div>
-                <main id={Teamcss.facontent}>
-                    {
-                        FacLib.map((elem) => {
-                            const { name, image } = elem;
+      {/* Tab Switcher */}
+      <div className={Teamcss.tabContainer} data-aos="fade">
+        <button
+          className={`${Teamcss.tabBtn} ${activeTab === 'faculty' ? Teamcss.activeTabBtn : ''}`}
+          onClick={() => scrollToSection(facultyRef, 'faculty')}
+        >
+          <GraduationCap size={16} className="inline mr-2" />
+          Faculty Advisers
+        </button>
+        <button
+          className={`${Teamcss.tabBtn} ${activeTab === 'office' ? Teamcss.activeTabBtn : ''}`}
+          onClick={() => scrollToSection(officeRef, 'office')}
+        >
+          <Award size={16} className="inline mr-2" />
+          Office Bearers
+        </button>
+        <button
+          className={`${Teamcss.tabBtn} ${activeTab === 'senior' ? Teamcss.activeTabBtn : ''}`}
+          onClick={() => scrollToSection(seniorRef, 'senior')}
+        >
+          <UserCheck size={16} className="inline mr-2" />
+          Senior Members
+        </button>
+      </div>
 
-                            return (
-
-                                <div className={Teamcss.cardbody} data-aos='fade-up'>
-                                    <img src={image} alt={name}></img>
-                                    <div className={Teamcss.cardcontent}>
-                                        <h1>ganapathri praphul chandra</h1>
-                                        <p>Faculty Advisers</p>
-                                    </div>
-                                    <div className={Teamcss.cardback}>
-                                    </div>
-                                    <div className={Teamcss.cardsocial}>
-                                        <a href='#'><img className={Teamcss.socialicon} src={instagram}></img></a>
-                                        <a href='#'><img className={Teamcss.socialicon} src={linkedin}></img></a>
-                                    </div>
-                                </div>
-
-                            )
-                        })
-                    }
-                </main>
-            </div>
-            <div className={Teamcss.obsection}>
-                <div ref={office} className={Teamcss.secheading}>
-                    <h3 data-aos='fade-up'>Office Bearers</h3>
-                </div>
-                <main id={Teamcss.facontent}>
-                    {
-                        items.slice(21, 31).map((elem) => {
-                            const { name, image } = elem;
-
-                            return (
-
-                                <div className={Teamcss.cardbody} data-aos='fade-up'>
-                                    <img src={image} alt={name}></img>
-                                    <div className={Teamcss.cardcontent}>
-                                        <h1>SOMEONE NAME</h1>
-                                        <p>SENIOR Member</p>
-                                    </div>
-                                    <div className={Teamcss.cardback}>
-                                    </div>
-                                    <div className={Teamcss.cardsocial}>
-                                        <a href='#'><img className={Teamcss.socialicon} src={instagram}></img></a>
-                                        <a href='#'><img className={Teamcss.socialicon} src={linkedin}></img></a>
-                                    </div>
-                                </div>
-
-                            )
-                        })
-                    }
-                </main>
-            </div>
-            <div className={Teamcss.smsection}>
-                <div ref={senior} className={Teamcss.secheading}>
-                    <h3 data-aos='fade-up'>Senior Members</h3>
-                </div>
-                <main id={Teamcss.facontent}>
-                    {
-                        items.slice(32,).map((elem) => {
-                            const { name, image } = elem;
-
-                            return (
-
-                                <div className={Teamcss.cardbody} data-aos='fade-up'>
-                                    <img src={image} alt={name}></img>
-                                    {console.log(items.categoty)}
-                                    <div className={Teamcss.cardcontent}>
-                                        <h1>SOMEONE NAME</h1>
-                                        <p>SENIOR Member</p>
-                                    </div>
-                                    <div className={Teamcss.cardback}>
-                                    </div>
-                                    <div className={Teamcss.cardsocial}>
-                                        <a href='#'><img className={Teamcss.socialicon} src={instagram}></img></a>
-                                        <a href='#'><img className={Teamcss.socialicon} src={linkedin}></img></a>
-                                    </div>
-                                </div>
-
-                            )
-                        })
-                    }
-                </main>
-            </div>
-
-
+      {/* Faculty Section */}
+      <div ref={facultyRef} className={Teamcss.sectionWrapper}>
+        <div className={Teamcss.sectionHeader} data-aos="fade-up">
+          <h2>Faculty Advisers</h2>
         </div>
-    )
-}
+        <div className={Teamcss.membersGrid} data-aos="fade-up">
+          {FacLib.map((elem) => (
+            <MemberCard
+              key={elem.id}
+              name={elem.name}
+              role={elem.role}
+              image={elem.image}
+              accentColor="#8EC15C"
+            />
+          ))}
+        </div>
+      </div>
 
-export default Team
+      {/* Office Bearers Section */}
+      <div ref={officeRef} className={Teamcss.sectionWrapper}>
+        <div className={Teamcss.sectionHeader} data-aos="fade-up">
+          <h2>Office Bearers</h2>
+        </div>
+        <div className={Teamcss.membersGrid} data-aos="fade-up">
+          {items.slice(21, 31).map((elem, index) => (
+            <MemberCard
+              key={index}
+              name={elem.name || `OFFICE BEARER ${index + 1}`}
+              role="Office Bearer"
+              image={elem.image}
+              accentColor="#8EC15C"
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Senior Members Section */}
+      <div ref={seniorRef} className={Teamcss.sectionWrapper}>
+        <div className={Teamcss.sectionHeader} data-aos="fade-up">
+          <h2>Senior Members</h2>
+        </div>
+        <div className={Teamcss.membersGrid} data-aos="fade-up">
+          {items.slice(32).map((elem, index) => (
+            <MemberCard
+              key={index}
+              name={elem.name || `SENIOR MEMBER ${index + 1}`}
+              role="Senior Member"
+              image={elem.image}
+              accentColor="#8EC15C"
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Team;

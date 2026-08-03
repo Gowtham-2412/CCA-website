@@ -14,7 +14,7 @@ import Ecell from './Pages/Cells/Ecell/Ecell';
 import RnD from './Pages/Cells/RnD/RnD.js';
 import RoboCell from './Pages/Cells/RoboCell/RoboCell.js';
 import WDCT from './Pages/Cells/WDCT/WDCT.js';
-
+import ScrollToTop from './Components/UI/ScrollToTop';
 
 function App() {
   return (
@@ -35,6 +35,7 @@ function App() {
         <Route path="/wdct" element={<WDCT />} />
       </Routes>
       <Footer />
+      <ScrollToTop />
     </BrowserRouter>
   );
 }

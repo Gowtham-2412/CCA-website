@@ -1,74 +1,105 @@
-import React from 'react'
-import WdctCss from './WDCT.module.css'
-import wdct from '../../../Assets/Images/wdct.png'
+import React, { useEffect, useState } from 'react';
+import WdctCss from './WDCT.module.css';
+import wdct from '../../../Assets/Images/wdct.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect, useState } from 'react';
-import instagram from '../../../Assets/Icons/instagram.svg';
-import linkedin from '../../../Assets/Icons/linkedin.svg';
 import WDCTImg from '../../../Components/ImgLink/WDCTImg';
-
+import TiltedCard from '../../../Components/UI/TiltedCard';
+import SpotlightCard from '../../../Components/UI/SpotlightCard';
+import MemberCard from '../../../Components/UI/MemberCard';
+import { Code2, Palette, Users, Quote } from 'lucide-react';
 
 const WDCT = () => {
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out-cubic',
-    })
-  }, [])
+    });
+  }, []);
 
-  const [items, setItem] = useState(WDCTImg);
+  const [items] = useState(WDCTImg);
 
   return (
     <div className={WdctCss.wrap}>
-      <div className='cell-detail'>
+      <div className={WdctCss.container}>
+        {/* Cell Hero */}
         <div className={WdctCss.detailWrap}>
-          <div className={WdctCss.CellInfo} data-AOS="fade-up">
-            <h1 className={WdctCss.heading} data-AOS="fade-right">Web, Design & Creative Team</h1>
-            <h3 className={WdctCss.great}>Welcome to the Technical Cell of the club</h3>
-            <hr className={WdctCss.line} />
-            <p className={WdctCss.slogo}>A congregation of enthusiastic techno-crats, we manage the technical aspects of the club, to keep it up and running in the cyber front. From designing websites for fests to organising workshops for amateurs, we nurture the creative spurt in the club.</p>
-          </div>
-          <div className={WdctCss.CellImg}>
-            <img src={wdct} alt="" className={WdctCss.img} data-AOS="zoom-in" />
-          </div>
-        </div>
-        <div className={WdctCss.CellWork} >
-          <h1 data-AOS="fade-up">Web Development Team</h1>
-          <p data-AOS="fade-up">This team is responsible for the development, design of the various websites associated with CCA, the Aarohan official website and various online publication and propaganda of the events of the club. It also devises interactive online events, which see about 3000 online participants, for Aarohan, the Annual Techno-Management Fest of CCA.</p>
-          <h1 data-AOS="fade-up">Design Team</h1>
-          <p data-AOS="fade-up">
-            This creative team is entrusted with the development and designing of the various offline propaganda means for CCA as well as for Aarohan-The Annual Techno Management Fest of NIT Durgapur. It designs the sponsorship and talk show brochures for Aarohan, flyers, pamphlets, event posters and flexes for Aarohan.</p>
-        </div>
-        <div className={WdctCss.Heading} data-aos='fade'>
-          <h1>Our Members</h1>
-        </div>
-        <main id={WdctCss.cardcontainer}>
-          {items.map((elem) => {
-            const { name, image } = elem;
+          <div className={WdctCss.CellInfo} data-aos="fade-right">
+            <h1 className={WdctCss.heading}>WDCT</h1>
+            <h3 className={WdctCss.great}>Welcome to the Web, Design & Creative Team</h3>
 
-            return (
-              <div className={WdctCss.Cardbody} data-aos='fade-up'>
-                <img src={image} alt={name}></img>
-                {console.log(image)}
-                <div className={WdctCss.cardcontent}>
-                  <h1>SOMEONE NAME</h1>
-                  <p>SENIOR Member</p>
+            <div className={WdctCss.quoteCard}>
+              <Quote className={WdctCss.quoteIcon} size={28} />
+              <p className={WdctCss.slogo}>
+                "A congregation of enthusiastic technocrats, managing the digital and creative frontiers of CCA."
+              </p>
+              <p className={WdctCss.quoteSub}>
+                From designing websites for high-capacity fests to organizing design and dev workshops for beginners,
+                WDCT nurtures the creative spurt and technical excellence across the campus.
+              </p>
+            </div>
+          </div>
+
+          <div className={WdctCss.CellImg} data-aos="zoom-in">
+            <TiltedCard maxTilt={8} scale={1.02}>
+              <img src={wdct} alt="WDCT" className={WdctCss.img} />
+            </TiltedCard>
+          </div>
+        </div>
+
+        {/* WEB DEV & DESIGN TEAM Bento Grid */}
+        <div className={WdctCss.bentoSection}>
+          <h2 className={WdctCss.sectionTitle} data-aos="fade-up">Core Technical Wings</h2>
+
+          <div className={WdctCss.bentoGrid}>
+            <SpotlightCard className={WdctCss.bentoCard} data-aos="fade-up">
+              <div className={WdctCss.bentoHeader}>
+                <div className={WdctCss.iconPill}>
+                  <Code2 size={22} className="text-[#303030]" />
                 </div>
-                <div className={WdctCss.cardback}>
-                </div>
-                <div className={WdctCss.cardsocial}>
-                  <a href='#'><img className={WdctCss.socialicon} src={instagram}></img></a>
-                  <a href='#'><img className={WdctCss.socialicon} src={linkedin}></img></a>
-                </div>
+                <h3>WEB DEVELOPMENT TEAM</h3>
               </div>
-            );
-          })}
-        </main>
+              <p>
+                Responsible for the development and architecture of all CCA websites, the official Aarohan portal, and interactive online events that engage over 3,000 global participants.
+              </p>
+            </SpotlightCard>
+
+            <SpotlightCard className={WdctCss.bentoCard} data-aos="fade-up" data-aos-delay="100">
+              <div className={WdctCss.bentoHeader}>
+                <div className={WdctCss.iconPill}>
+                  <Palette size={22} className="text-[#303030]" />
+                </div>
+                <h3>DESIGN & CREATIVE TEAM</h3>
+              </div>
+              <p>
+                Entrusted with developing the visual language, sponsorship brochures, banners, motion graphics, flyers, and offline media for CCA and Aarohan - NIT Durgapur.
+              </p>
+            </SpotlightCard>
+          </div>
+        </div>
+
+        {/* Members Section */}
+        <div className={WdctCss.membersSection} data-aos="fade">
+          <div className={WdctCss.membersHeader}>
+            <Users size={28} className="text-[#303030] inline mr-2" />
+            <h2 className="inline font-bold">Our Team Members</h2>
+          </div>
+
+          <div className={WdctCss.membersGrid}>
+            {items.map((elem, index) => (
+              <MemberCard
+                key={index}
+                name={elem.name || "WDCT MEMBER"}
+                role="Senior Member"
+                image={elem.image}
+                accentColor="#8EC15C"
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default WDCT
+export default WDCT;

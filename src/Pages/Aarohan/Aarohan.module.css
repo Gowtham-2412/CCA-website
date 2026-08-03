@@ -1,362 +1,252 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@500;700;900&display=swap');
-
-.aarohan {
-    background-color: rgba(0, 0, 0, 0.65);
-    font-family: 'Inter';
-    /* margin-bottom: 3rem; */
-    position: relative;
-    padding-top: 8.18rem;
-}
-
-.header {
-    text-align: center;
-    padding: 0 3rem 0 3rem;
-    margin-top: 1rem;
-    height: 100vh;
-}
-
-.header h1 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 50px;
-    line-height: 84px;
-    letter-spacing: 7px;
-    color: #fff;
-    margin-bottom: 6rem;
-}
-
-.content {
-    position: relative;
-}
-
-.content h1::before {
-    content: "AAROHAN";
-    position: absolute;
-    color: black;
-    top: -6px;
-    transform: scaleX(-6px);
-    -webkit-text-stroke: 4px black;
-    z-index: -1;
-}
-
-.header p {
-    font-weight: 500;
-    font-size: 1.7rem;
-    padding: 0 10rem 0 10rem;
-    line-height: 36px;
-    color: #fff;
-    text-shadow: 2px 2px 2px rgb(46, 5, 5);
-    text-align: justify;
+.main {
+  position: relative;
+  width: 100%;
 }
 
 .back {
-    height: 100vh;
-    width: 100vw;
-    z-index: -1;
-    position: fixed;
-    overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
 
-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1000;
-    overflow: hidden;
-    object-fit: cover;
+.back video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+.aarohan {
+  position: relative;
+  padding-top: 8rem;
+  min-height: 100vh;
+  transition: background-color 0.5s ease;
+}
+
+.header {
+  text-align: center;
+  padding: 2rem 2rem 4rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.festTitle {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 5rem;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  line-height: 1.05;
+}
+
+.heroLead {
+  color: #ffffff;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+}
+
+.statsBar {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 850px;
+}
+
+.statCard {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.2);
+  padding: 1.25rem 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statVal {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.statLab {
+  font-size: 0.825rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  margin-top: 0.2rem;
 }
 
 .gallery {
-    margin-top: 9rem;
-    text-align: center;
-    padding: 0 3rem 0 3rem;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.gallery h3 {
-    font-weight: 700;
-    color: #000;
-    font-size: 3.7rem;
-    margin-bottom: 4rem;
+.sectionHeader {
+  margin-bottom: 2.5rem;
 }
 
-.card {
-    width: 20rem;
-    height: 40rem;
-    border-radius: 1rem;
+.sectionHeader h3,
+.sectionHeader h4 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #303030;
+  line-height: 1.2;
 }
 
-.card img {
-    width: 100%;
-    height: 60%;
-    object-fit: cover;
-    border-radius: 1rem;
+.swiperWrap {
+  padding-bottom: 3rem;
+}
+
+.galleryCard {
+  width: 100%;
+  height: 420px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.galleryCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .event {
-    margin-top: 9rem;
-    text-align: center;
-    padding: 0 3rem 0 3rem;
+  padding: 4rem 2rem 6rem 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.event h4 {
-    font-weight: 700;
-    line-height: 84px;
-    color: #000;
-    font-size: 3.7rem;
-    margin-bottom: 4rem;
+.carouselContainer {
+  margin-top: 2rem;
 }
 
-.card1 {
-    width: 15rem;
-    height: 20rem;
-    border: 1px;
-    border-radius: 0.5rem;
-    margin: auto;
-    margin-bottom: 0;
+.eventSlideCard {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin: 0.5rem;
 }
 
-.card1 img {
-    width: 100%;
-    height: 75%;
-    object-fit: cover;
-    border-radius: 0.312rem;
+.slideImgWrap {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
 }
 
-.card-content {
-    width: 100%;
-    height: auto;
+.slideImgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-.card_content h3 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 25px;
-    margin-top: 0.3rem;
-    color: #000;
-    padding-top: 0.8rem;
+.eventSlideCard:hover .slideImgWrap img {
+  transform: scale(1.06);
 }
 
-.card_content p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    margin-top: 0rem;
-    line-height: 20px;
-    color: #000;
+.slideTag {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: #b8d474;
+  color: #303030;
+  padding: 0.25rem 0.65rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
-.swiper-pagination {
-    margin: 1.25rem;
+.slideContent {
+  padding: 1.25rem;
+  text-align: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-    background-color: white;
-    background-position: center;
-    background-size: 32px;
-    background-repeat: no-repeat;
-    padding: 6px 12px;
-    border-radius: 100%;
-    color: red;
+.slideContent h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #303030;
+  margin-bottom: 0.5rem;
 }
 
-.event .swiper-button-prev {
-    transform: translateX(30%);
+.slideContent p {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #4a4a4a;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.event .swiper-button-prev {
-    background-color: #b8d474;
-}
+@media (max-width: 900px) {
+  .festTitle {
+    font-size: 3.5rem;
+  }
 
-.event .swiper-button-next {
-    background-color: #b8d474;
-}
+  .statsBar {
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    color: black;
-    transform: scale(50%);
-}
-
-.btn {
-    background-color: #b8d474;
-}
-
-.event .react-multi-carousel-item--active {
-    overflow: auto;
-}
-
-
-/* Responsive */
-
-@media(max-width:2770px) {
-    .card {
-        width: 60vw;
-        height: 90vh;
-        border-radius: 1rem;
-    }
-
-    .card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 1rem;
-    }
-
-    .card1 {
-        width: 13vw;
-        height: 50vh;
-        border: 1px;
-        border-radius: 0.5rem;
-        margin: auto;
-    }
-}
-
-@media(max-width:1600px) {
-    .header {
-        text-align: center;
-        padding: 0 3rem 0 3rem;
-    }
-
-    .header h1 {
-        font-size: 4rem;
-    }
-
-    .header p {
-        font-size: 1.4rem;
-        padding: 0 7rem 0 7rem;
-    }
-
-    .gallery {
-        margin-top: 9rem;
-        text-align: center;
-        padding: 0 3rem 0 3rem;
-    }
-
-    .gallery h3 {
-        font-size: 4rem;
-    }
-
-    .event {
-        margin-top: 9rem;
-        text-align: center;
-        padding: 0 3rem 0 3rem;
-    }
-
-    .event h4 {
-        font-size: 4rem;
-    }
-
-    .card1 {
-        width: 21vw;
-        height: 60vh;
-        border: 1px;
-        border-radius: 0.5rem;
-        margin: auto;
-    }
-}
-
-@media(max-width:1024px) {
-    .aarohan {
-        padding-top: 10rem;
-    }
-
-    .card1 {
-        width: 26vw;
-        height: 50vh;
-        border: 1px;
-        border-radius: 0.5rem;
-        margin: auto;
-    }
-}
-
-@media(max-width:861px) {
-    .card {
-        width: 55vw;
-        height: 60vh;
-        border-radius: 1rem;
-    }
-}
-
-@media(max-width:769px) {
-    .card1 {
-        width: 26.5vw;
-        height: 40vh;
-        border: 1px;
-        border-radius: 0.5rem;
-        margin: auto;
-    }
-
-    .header p {
-        font-size: 1.4rem;
-        padding: 0 4rem 0 4rem;
-        line-height: 2.6rem;
-    }
-}
-
-@media(max-width:680px) {
-    .card1 {
-        width: 41vw;
-        height: 40vh;
-        border: 1px;
-        border-radius: 0.5rem;
-        margin: auto;
-    }
-
-    .event h4 {
-        line-height: 5rem;
-    }
-}
-
-@media(max-width:521px) {
-    .card {
-        width: 60vw;
-        height: 40vh;
-    }
-
-    .header p {
-        font-size: 1.3rem;
-        padding: 0 3rem 0 3rem;
-        line-height: 2.6rem;
-    }
-}
-
-@media(max-width: 500px) {
-    .card1 {
-        width: 70vw;
-        height: 45vh;
-        border: 1px;
-        border-radius: 0.5rem;
-        margin: auto;
-    }
-
-    .galary h3 {
-        line-height: 4rem;
-    }
-
-    .aarohan {
-        padding-top: 15rem;
-    }
-}
-
-@media(max-width: 376px) {
-    .card {
-        width: 60vw;
-        height: 35vh;
-    }
-}
-
-@media(max-width: 328px) {
-    .header p {
-        font-size: 1.2rem;
-        line-height: 2rem;
-        padding: 1rem;
-    }
+  .galleryCard {
+    height: 280px;
+  }
 }
