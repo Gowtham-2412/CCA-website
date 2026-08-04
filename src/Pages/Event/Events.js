@@ -58,10 +58,10 @@ const eventData = [
   }
 ];
 
-const categories = ["All", "Technical", "Workshops", "Debate", "Creative"];
+const cellFilters = ["All", "CCA Team", "Robo-Cell", "E-Cell", "WDCT", "R&D Cell"];
 
 function Events() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCell, setActiveCell] = useState("All");
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   useEffect(() => {
@@ -71,9 +71,9 @@ function Events() {
     });
   }, []);
 
-  const filteredEvents = activeCategory === "All"
+  const filteredEvents = activeCell === "All"
     ? eventData
-    : eventData.filter(item => item.category === activeCategory);
+    : eventData.filter(item => item.cell === activeCell);
 
   return (
     <div className={EventsCSS.pageWrapper}>
@@ -85,15 +85,15 @@ function Events() {
           Join us to experience hands-on learning at every turn.
         </p>
 
-        {/* Filter Category Pills */}
+        {/* Cell-Wise Filter Pills */}
         <div className={EventsCSS.filterContainer}>
-          {categories.map((cat) => (
+          {cellFilters.map((cell) => (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`${EventsCSS.filterBtn} ${activeCategory === cat ? EventsCSS.activeFilterBtn : ''}`}
+              key={cell}
+              onClick={() => setActiveCell(cell)}
+              className={`${EventsCSS.filterBtn} ${activeCell === cell ? EventsCSS.activeFilterBtn : ''}`}
             >
-              {cat}
+              {cell}
             </button>
           ))}
         </div>

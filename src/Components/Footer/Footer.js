@@ -99,8 +99,8 @@ const Footer = () => {
 
         {/* Bottom Section: Copyright & Credits */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10 text-xs text-slate-400 font-medium">
-          <div className="flex items-center gap-1.5 text-slate-300 mx-auto text-xl">
-            <span>Crafted with</span>
+          <div className="flex items-center gap-1.5 text-slate-300 mx-auto lg:text-xl md:text-lg">
+            <span className='text-center'>Crafted with</span>
             <Heart size={18} className="text-[#8EC15C] fill-[#8EC15C] inline animate-pulse" />
             <span>by Web, Design & Creative Team (WDCT)</span>
           </div>

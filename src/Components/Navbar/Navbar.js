@@ -1,16 +1,14 @@
 // Navbar.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { logo, ccawb1 } from '../../Assets/Images';
 import { ChevronRight } from '../../Assets/Icons';
 import { navLinks } from '../../Utility/Constant';
 import { Link, useLocation } from 'react-router-dom';
 import useWindowDimensions from './useWindowDimensions';
 import gsap from 'gsap';
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect } from 'react';
 import './Nav.css';
-import AboutCss from '../../Pages/AboutUs/AboutUs.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,87 +20,67 @@ const Navbar = () => {
   const { width } = useWindowDimensions();
 
   if (width <= 1024) {
-    open ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto");
+    open ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'auto');
   }
 
-  const [MousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0
-  });
+  // Optimized high-performance GPU motion values (Zero React Re-renders on mousemove)
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
 
-  const [cursorVariant, setCursorVariant] = useState("default");
+  // Fast, instant spring for primary cursor dot
+  const springConfig = { damping: 26, stiffness: 500 };
+  const cursorXSpring = useSpring(cursorX, springConfig);
+  const cursorYSpring = useSpring(cursorY, springConfig);
+
+  // Smooth, fluid spring for background blur follower
+  const blurSpringConfig = { damping: 32, stiffness: 220 };
+  const blurXSpring = useSpring(cursorX, blurSpringConfig);
+  const blurYSpring = useSpring(cursorY, blurSpringConfig);
 
   useEffect(() => {
-    const mouseMove = (e) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      });
+    if (width <= 1024) return;
+
+    const handleMouseMove = (e) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
     };
-    window.addEventListener("mousemove", mouseMove);
 
-    return () => {
-      window.removeEventListener("mousemove", mouseMove);
-    };
-  }, []);
-
-  const variants = {
-    default: {
-      x: MousePosition.x - 12,
-      y: MousePosition.y - 12
-    },
-    text: {
-      height: 80,
-      width: 80,
-      x: MousePosition.x - 40,
-      y: MousePosition.y - 40,
-      backgroundColor: "#150900",
-      mixBlendMode: "difference"
-    }
-  };
-
-  const variants2 = {
-    default: {
-      x: MousePosition.x - 150,
-      y: MousePosition.y - 150
-    },
-    text: {
-      height: 80,
-      width: 80,
-      x: MousePosition.x - 40,
-      y: MousePosition.y - 40,
-      backgroundColor: "#e2cb004b",
-      mixBlendMode: "difference"
-    }
-  };
-
-  const textEnter = () => setCursorVariant("text");
-  const textLeave = () => setCursorVariant("default");
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [width, cursorX, cursorY]);
 
   return (
     <header
       className={`navbar absolute lg:bg-opacity-[0.65] ${
         open ? 'overflow-visible' : 'overflow-hidden'
-      } z-[100] h-[65px] sm:h-[70px] w-full flex items-center`}
+      } z-[100] h-[75px] sm:h-[85px] md:h-[92px] w-full flex items-center`}
     >
-      <motion.div
-        className='cursor pointer-events-none'
-        style={{ visibility: width <= 1024 ? 'hidden' : 'visible' }}
-        variants={variants}
-        animate={cursorVariant}
-      />
-      <motion.div
-        className='cursor_blur pointer-events-none'
-        style={{ visibility: width <= 1024 ? 'hidden' : 'visible' }}
-        variants={variants2}
-        animate={cursorVariant}
-      />
+      {/* High-Performance Smooth GPU Mouse Followers */}
+      {width > 1024 && (
+        <>
+          <motion.div
+            className="cursor pointer-events-none fixed top-0 left-0 -mt-3 -ml-3 z-[110]"
+            style={{
+              x: cursorXSpring,
+              y: cursorYSpring
+            }}
+          />
+          <motion.div
+            className="cursor_blur pointer-events-none fixed top-0 left-0 -mt-16 -ml-16 z-[105]"
+            style={{
+              x: blurXSpring,
+              y: blurYSpring
+            }}
+          />
+        </>
+      )}
+
       <nav className="max-container mx-auto px-4 sm:px-6 w-full flex justify-between items-center transition-all">
-        <a href="./" className="max-sm:mx-0 pl-4 pr-6">
-          {(isAboutUsPage || isAarohanPage) ? (
-            <img src={ccawb1} alt="Logo" width={100} height={50} />
+        <a href="./" className="flex items-center pl-2 sm:pl-4 pr-4 shrink-0 z-20">
+          {isAboutUsPage || isAarohanPage ? (
+            <img src={ccawb1} alt="Logo" width={180} height={90} className="h-24 sm:h-28 md:h-32 w-auto object-contain transition-transform duration-300 hover:scale-105" />
           ) : (
-            <img src={logo} alt="Logo" width={89} height={35} />
+            <img src={logo} alt="Logo" width={160} height={70} className="h-24 sm:h-28 md:h-32 w-auto object-contain transition-transform duration-300 hover:scale-105" />
           )}
         </a>
         <ul
@@ -119,10 +97,8 @@ const Navbar = () => {
             >
               <Link
                 to={item.href}
-                onMouseEnter={textEnter}
-                onMouseLeave={textLeave}
-                className={`lg:effect lg:overflow-hidden font-inter font-semibold leading-normal text-lg ${
-                  (isAboutUsPage || isAarohanPage) ? `${AboutCss.textnav}` : ''
+                className={`lg:effect lg:overflow-hidden font-inter font-semibold leading-normal text-lg max-lg:text-[#303030] ${
+                  isAboutUsPage || isAarohanPage ? 'lg:text-white' : 'lg:text-[#303030]'
                 } max-lg:hover:drop-shadow-lg max-lg:hover:font-bold max-sm:text-[1.8em] max-lg:text-[1.5rem]`}
                 style={{ textDecoration: 'none' }}
                 id="link"
@@ -142,7 +118,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <div
             id="navicon"
-            className={`${(isAboutUsPage || isAarohanPage) ? 'whiteIcon' : ''} ${open ? 'open' : 'menu'}`}
+            className={`${isAboutUsPage || isAarohanPage ? 'whiteIcon' : ''} ${open ? 'open' : 'menu'}`}
             onClick={() => setOpen(!open)}
             name={open ? 'open' : 'menu'}
           >

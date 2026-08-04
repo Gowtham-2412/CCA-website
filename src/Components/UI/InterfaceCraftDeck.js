@@ -5,13 +5,13 @@ import { ArrowRight } from 'lucide-react';
 export default function InterfaceCraftDeck({ cells = [] }) {
   const [hoveredIdx, setHoveredIdx] = useState(null);
 
-  // Colors matching the exact screenshot style
+  // Curated color palette: Terracotta Red, Cerulean Blue, Warm Gold, Emerald Green, Royal Violet
   const cardStyles = [
-    { bg: 'bg-[#ea580c]', text: 'text-white', innerBg: 'bg-black/20' },  // Vibrant Orange
-    { bg: 'bg-[#e5e7eb]', text: 'text-[#1f2937]', innerBg: 'bg-black/10' }, // Silver Gray
-    { bg: 'bg-[#2563eb]', text: 'text-white', innerBg: 'bg-black/20' },  // Blue
-    { bg: 'bg-[#9333ea]', text: 'text-white', innerBg: 'bg-black/20' },  // Purple
-    { bg: 'bg-[#18181b]', text: 'text-white', innerBg: 'bg-white/10' }   // Sleek Dark Onyx
+    { bg: 'bg-[#D14836]', text: 'text-white', innerBg: 'bg-black/20' },   // Terracotta Red
+    { bg: 'bg-[#2779a7]', text: 'text-white', innerBg: 'bg-black/20' },   // Cerulean Blue
+    { bg: 'bg-[#ECD06F]', text: 'text-[#18181b]', innerBg: 'bg-black/10' }, // Warm Gold
+    { bg: 'bg-[#2D8A62]', text: 'text-white', innerBg: 'bg-black/20' },   // Emerald Green
+    { bg: 'bg-[#7B4B94]', text: 'text-white', innerBg: 'bg-black/20' }    // Royal Violet
   ];
 
   const rotations = [-12, -6, -1, 5, 10];
@@ -41,8 +41,8 @@ export default function InterfaceCraftDeck({ cells = [] }) {
                 }}
                 transition={{
                   type: 'spring',
-                  stiffness: 350,
-                  damping: 22
+                  stiffness: 140,
+                  damping: 20
                 }}
                 className={`relative w-[280px] lg:w-[310px] h-[410px] lg:h-[430px] rounded-xl p-5 ${style.bg} ${style.text} shadow-2xl border border-white/20 cursor-pointer flex flex-col justify-between overflow-hidden group shrink-0 transition-shadow duration-300`}
                 style={{

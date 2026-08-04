@@ -40,8 +40,8 @@ export default function InterfaceCraftCard({ cell = {}, isFeatured = false }) {
         onMouseLeave={() => setIsHovered(false)}
         onClick={() => setIsOpen(true)}
         whileHover={{ y: -8, scale: 1.02 }}
-        transition={{ type: 'spring', stiffness: 320, damping: 24 }}
-        className={`relative rounded-xl bg-white p-6 shadow-lg border border-black/10 cursor-pointer overflow-hidden flex flex-col justify-between group transition-shadow duration-300 ${
+        transition={{ type: 'spring', stiffness: 140, damping: 20 }}
+        className={`relative rounded-xl bg-white p-6 shadow-lg border border-black/10 cursor-pointer overflow-hidden flex flex-col justify-between group transition-shadow duration-500 ${
           isFeatured ? 'lg:col-span-2 min-h-[420px]' : 'col-span-1 min-h-[390px]'
         }`}
       >

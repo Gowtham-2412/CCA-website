@@ -29,7 +29,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import SpotlightCard from '../../Components/UI/SpotlightCard';
 import CircularGallery from '../../Components/UI/CircularGallery';
-import { Trophy, Users, Calendar, Sparkles, Award } from 'lucide-react';
+import { Trophy, Users, Award } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -152,6 +152,19 @@ const Aarohan = () => {
         scrub: 1.5
       }
     });
+
+    gsap.to([`.${arhncss.festTitle}`, `.${arhncss.heroLead}`], {
+      color: "#303030",
+      textShadow: "none",
+      duration: 1,
+      scrollTrigger: {
+        trigger: el,
+        scroller: "body",
+        start: "top -20%",
+        end: "top -70%",
+        scrub: 1.5
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -205,11 +218,6 @@ const Aarohan = () => {
 
         {/* Photo Gallery Section using exact prompt Circular Gallery component */}
         <div className={arhncss.gallery} data-aos="fade-up">
-          <div className={arhncss.sectionHeader}>
-            <Sparkles size={24} className="text-[#303030] inline mr-2" />
-            <h3 className="inline">Photo Gallery</h3>
-          </div>
-
           <div className="py-2">
             <CircularGallery items={galleryData} radius={520} autoRotateSpeed={0.08} />
           </div>
@@ -218,7 +226,6 @@ const Aarohan = () => {
         {/* Fest Events Carousel Section */}
         <div className={arhncss.event} data-aos="fade-up">
           <div className={arhncss.sectionHeader}>
-            <Calendar size={24} className="text-[#303030] inline mr-2" />
             <h4 className="inline">Our Events in Aarohan</h4>
           </div>
 
