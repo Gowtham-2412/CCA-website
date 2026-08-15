@@ -11,7 +11,6 @@
 }
 
 .mainHeading {
-  font-family: 'Inter', sans-serif;
   font-size: 3.5rem;
   font-weight: 800;
   color: #303030;
@@ -20,7 +19,6 @@
 }
 
 .leadPara {
-  font-family: 'Inter', sans-serif;
   font-size: 1.15rem;
   color: #4a4a4a;
   line-height: 1.6;

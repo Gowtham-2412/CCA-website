@@ -138,6 +138,8 @@ const Aarohan = () => {
   };
 
   const mainRef = useRef(null);
+  const titleRef = useRef(null);
+  const leadRef = useRef(null);
 
   useEffect(() => {
     const el = mainRef.current;
@@ -153,7 +155,7 @@ const Aarohan = () => {
       }
     });
 
-    gsap.to([`.${arhncss.festTitle}`, `.${arhncss.heroLead}`], {
+    gsap.to([titleRef.current, leadRef.current], {
       color: "#303030",
       textShadow: "none",
       duration: 1,
@@ -185,11 +187,11 @@ const Aarohan = () => {
       <div className={arhncss.aarohan} ref={mainRef}>
         {/* Fest Hero Header */}
         <div className={arhncss.header}>
-          <h1 className={arhncss.festTitle} data-aos="fade-up">
+          <h1 ref={titleRef} className={arhncss.festTitle} data-aos="fade-up">
             AAROHAN
           </h1>
 
-          <p className={arhncss.heroLead} data-aos="fade-up" data-aos-delay="100">
+          <p ref={leadRef} className={arhncss.heroLead} data-aos="fade-up" data-aos-delay="100">
             Aarohan means to conquer greater heights. As the annual Techno-Management festival of NIT Durgapur,
             it dares youth to elevate their limits and defy standard boundaries. Celebrate technology, innovation, and perfection.
           </p>

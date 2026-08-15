@@ -80,7 +80,7 @@ export default function CellStack({ cells = [] }) {
                   <span className="text-[10px] font-bold uppercase tracking-widest text-white/70 block mb-1">
                     {cell.subtitle}
                   </span>
-                  <h4 className="text-xl font-bold font-['Roboto']">{cell.title}</h4>
+                  <h4 className="text-xl">{cell.title}</h4>
                 </div>
               </motion.div>
             );

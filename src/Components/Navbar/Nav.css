@@ -74,8 +74,47 @@
   background: #ffff;
 }
 
+
+.cursor {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #000;
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.cursor_blur {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  /*
+   * This creates the inverted-color effect
+   * underneath the cursor bubble.
+   */
+  mix-blend-mode: difference;
+
+  pointer-events: none;
+  transform-origin: center;
+}
+
 @media(max-width:1024px) {
   #navicon {
     display: flex;
   }
+    .link-style1 {
+    position: static !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+a{
+  text-decoration: none !important;
 }

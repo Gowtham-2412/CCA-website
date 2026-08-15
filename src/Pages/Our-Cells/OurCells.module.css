@@ -24,7 +24,6 @@
 }
 
 .mainheading {
-  font-family: 'Inter', sans-serif;
   font-size: 3.5rem;
   font-weight: 800;
   text-align: center;
@@ -34,7 +33,6 @@
 }
 
 .para {
-  font-family: 'Inter', sans-serif;
   font-size: 1.15rem;
   font-weight: 400;
   text-align: center;
@@ -102,7 +100,6 @@
 }
 
 .cellheading {
-  font-family: 'Roboto', sans-serif;
   font-size: 1.85rem;
   font-weight: 800;
   color: #ffffff;

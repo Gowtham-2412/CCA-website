@@ -47,11 +47,6 @@ export default {
             '8xl': ['96px', '106px']
         },
         extend: {
-            fontFamily: {
-                palanquin: ['Palanquin', 'sans-serif'],
-                montserrat: ['Montserrat', 'sans-serif'],
-                inter: ['Inter', 'sens-serif'],
-            },
             colors: {
                 'primary': "#ECEEFF",
                 "coral-red": "#FF6452",

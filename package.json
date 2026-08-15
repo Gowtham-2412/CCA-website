@@ -9,10 +9,10 @@
     "animate.css": "^4.1.1",
     "aos": "^3.0.0-beta.6",
     "framer-motion": "^10.16.4",
-    "gsap": "^3.12.2",
+    "gsap": "^3.15.0",
     "lucide-react": "^1.28.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-multi-carousel": "^2.8.4",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
@@ -27,8 +27,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -45,7 +44,13 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "autoprefixer": "^10.5.4",
+    "eslint-plugin-jest": "^27.9.0",
+    "postcss": "^8.5.26",
     "prettier": "3.0.2",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.4.19",
+    "typescript": "^7.0.2"
   }
 }
