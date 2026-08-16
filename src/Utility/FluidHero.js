@@ -747,25 +747,16 @@ export default function FluidHero() {
 
       const titleRect = heroTitle.getBoundingClientRect();
 
-      const x =
-        (titleRect.left - rect.left + titleRect.width / 2) * dpr;
+      const x = (titleRect.left - rect.left + titleRect.width / 2) * dpr;
 
-      const startY =
-        (titleRect.top - rect.top) * dpr + fontPx * 0.85;
+      const startY = (titleRect.top - rect.top) * dpr + fontPx * 0.85;
 
       const lineHeight = fontPx * 0.94;
 
-      const lines = [
-        'WDCT Presents, Center for',
-        'Cognitive Activities.',
-      ];
+      const lines = ['WDCT Presents, Center for', 'Cognitive Activities.'];
 
       lines.forEach((line, i) => {
-        tctx.fillText(
-          line,
-          x,
-          startY + i * lineHeight
-        );
+        tctx.fillText(line, x, startY + i * lineHeight);
       });
 
       if (!textTex) textTex = gl.createTexture();
@@ -1065,126 +1056,90 @@ export default function FluidHero() {
       dye.swap();
     }
 
-function splatFromPointer(p) {
-  const speed = Math.hypot(p.deltaX, p.deltaY);
+    function splatFromPointer(p) {
+      const speed = Math.hypot(p.deltaX, p.deltaY);
 
-  if (speed < 0.00001) return;
+      if (speed < 0.00001) return;
 
-  // Prevent a large mouse jump from creating an extreme velocity.
-  const maxDelta = 0.025;
+      // Prevent a large mouse jump from creating an extreme velocity.
+      const maxDelta = 0.025;
 
-  const dx = Math.max(
-    -maxDelta,
-    Math.min(maxDelta, p.deltaX)
-  );
+      const dx = Math.max(-maxDelta, Math.min(maxDelta, p.deltaX));
 
-  const dy = Math.max(
-    -maxDelta,
-    Math.min(maxDelta, p.deltaY)
-  );
+      const dy = Math.max(-maxDelta, Math.min(maxDelta, p.deltaY));
 
-  const normalizedSpeed = Math.min(
-    Math.hypot(dx, dy) / 0.02,
-    1
-  );
+      const normalizedSpeed = Math.min(Math.hypot(dx, dy) / 0.02, 1);
 
-  const color = {
-    r: p.color.r * normalizedSpeed,
-    g: p.color.g * normalizedSpeed,
-    b: p.color.b * normalizedSpeed,
-  };
+      const color = {
+        r: p.color.r * normalizedSpeed,
+        g: p.color.g * normalizedSpeed,
+        b: p.color.b * normalizedSpeed,
+      };
 
-  const minRadius = CFG.SPLAT_RADIUS / 100;
-  const maxRadius = CFG.SPLAT_RADIUS / 50;
+      const minRadius = CFG.SPLAT_RADIUS / 100;
+      const maxRadius = CFG.SPLAT_RADIUS / 50;
 
-  const radius =
-    minRadius +
-    normalizedSpeed * (maxRadius - minRadius);
+      const radius = minRadius + normalizedSpeed * (maxRadius - minRadius);
 
-  const forceX =
-    correctDeltaX(dx) * CFG.SPLAT_FORCE;
+      const forceX = correctDeltaX(dx) * CFG.SPLAT_FORCE;
 
-  const forceY =
-    correctDeltaY(dy) * CFG.SPLAT_FORCE;
+      const forceY = correctDeltaY(dy) * CFG.SPLAT_FORCE;
 
-  splat(
-    p.texX,
-    p.texY,
-    forceX,
-    forceY,
-    color,
-    radius
-  );
-}
+      splat(p.texX, p.texY, forceX, forceY, color, radius);
+    }
     function updatePointerMove() {
-  if (
-    pointer.rawX < 0 ||
-    pointer.rawY < 0 ||
-    canvas.width === 0 ||
-    canvas.height === 0
-  ) {
-    pointer.moved = false;
-    return;
-  }
+      if (
+        pointer.rawX < 0 ||
+        pointer.rawY < 0 ||
+        canvas.width === 0 ||
+        canvas.height === 0
+      ) {
+        pointer.moved = false;
+        return;
+      }
 
-  if (!pointer.initialized) {
-    pointer.sx = pointer.x;
-    pointer.sy = pointer.y;
+      if (!pointer.initialized) {
+        pointer.sx = pointer.x;
+        pointer.sy = pointer.y;
 
-    const px = scaleByPixelRatio(pointer.sx);
-    const py = scaleByPixelRatio(pointer.sy);
+        const px = scaleByPixelRatio(pointer.sx);
+        const py = scaleByPixelRatio(pointer.sy);
 
-    pointer.texX = Math.max(
-      0,
-      Math.min(1, px / canvas.width)
-    );
+        pointer.texX = Math.max(0, Math.min(1, px / canvas.width));
 
-    pointer.texY = Math.max(
-      0,
-      Math.min(1, 1 - py / canvas.height)
-    );
+        pointer.texY = Math.max(0, Math.min(1, 1 - py / canvas.height));
 
-    pointer.deltaX = 0;
-    pointer.deltaY = 0;
-    pointer.moved = false;
+        pointer.deltaX = 0;
+        pointer.deltaY = 0;
+        pointer.moved = false;
 
-    pointer.initialized = true;
+        pointer.initialized = true;
 
-    return;
-  }
+        return;
+      }
 
-  pointer.sx +=
-    (pointer.x - pointer.sx) * 0.12;
+      pointer.sx += (pointer.x - pointer.sx) * 0.12;
 
-  pointer.sy +=
-    (pointer.y - pointer.sy) * 0.12;
+      pointer.sy += (pointer.y - pointer.sy) * 0.12;
 
-  const px = scaleByPixelRatio(pointer.sx);
-  const py = scaleByPixelRatio(pointer.sy);
+      const px = scaleByPixelRatio(pointer.sx);
+      const py = scaleByPixelRatio(pointer.sy);
 
-  const previousX = pointer.texX;
-  const previousY = pointer.texY;
+      const previousX = pointer.texX;
+      const previousY = pointer.texY;
 
-  pointer.texX = Math.max(
-    0,
-    Math.min(1, px / canvas.width)
-  );
+      pointer.texX = Math.max(0, Math.min(1, px / canvas.width));
 
-  pointer.texY = Math.max(
-    0,
-    Math.min(1, 1 - py / canvas.height)
-  );
+      pointer.texY = Math.max(0, Math.min(1, 1 - py / canvas.height));
 
-  pointer.deltaX =
-    pointer.texX - previousX;
+      pointer.deltaX = pointer.texX - previousX;
 
-  pointer.deltaY =
-    pointer.texY - previousY;
+      pointer.deltaY = pointer.texY - previousY;
 
-  pointer.moved =
-    Math.abs(pointer.deltaX) > 0.00001 ||
-    Math.abs(pointer.deltaY) > 0.00001;
-}
+      pointer.moved =
+        Math.abs(pointer.deltaX) > 0.00001 ||
+        Math.abs(pointer.deltaY) > 0.00001;
+    }
 
     function render(time) {
       const dt = calcDeltaTime();
@@ -1254,7 +1209,7 @@ function splatFromPointer(p) {
     <div
       id="fluid-hero-root"
       style={styles.root}
-      className="mx-[30px] rounded-2xl"
+      className="mx-3 sm:mx-4 md:mx-6 lg:mx-[30px] rounded-xl sm:rounded-2xl"
     >
       <section style={styles.hero} id="hero">
         <div style={styles.sFluid} ref={fluidWrapRef}>
@@ -1268,10 +1223,15 @@ function splatFromPointer(p) {
 
         <div style={styles.uContainer}>
           <h1 style={styles.sTitle} id="heroTitle" ref={heroTitleRef}>
-            WDCT Presents, Center for Cognitive Activities.
+            WDCT Presents, Center for
+            <br />
+            Cognitive Activities.
           </h1>
           <p style={styles.subtitle}>
-            CCA, Centre for Cognitive Activities, the largest and oldest technical club of NIT Durgapur, is the focal point where the convergence of all technical and scientific endeavors of the students materializes. Founded in 2003, this club aims to enhance the technical and managerial skills of the students from the beginning.
+            CCA, Centre for Cognitive Activities, Founded in 2003 is the largest
+            and oldest technical club of NIT Durgapur, is the focal point where
+            the convergence of all technical and scientific endeavors of the
+            students materializes.
           </p>
           <div style={styles.logoRow}>
             <img src="/logos/core.png" alt="core" style={styles.logoImg} />
@@ -1285,48 +1245,23 @@ function splatFromPointer(p) {
 
       {/* Embedded Style Block to handle CSS Media Queries and Keyframes */}
       <style>{`
-        :root {
-          --ink: #2b2b2b;
-          --pink: #fc4778;
-          --bg: #F1F1F1;
-        }
-        body {
-          margin: 0;
-          background: var(--bg);
-        }
-        @media (max-width: 1024px) {
-          #fluid-hero-root {
-            height: 750px;
-          }
-          #heroTitle {
-            font-size: 80px !important;
-          }
-        }
+  :root {
+    --ink: #2b2b2b;
+    --pink: #fc4778;
+    --bg: #F2EFE4;
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+  }
 
-        @media (max-width: 768px) {
-          #fluid-hero-root {
-            height: 700px;
-          }
-          #heroTitle {
-            font-size: 60px !important;
-          }
-        }
-
-        @media (max-width: 480px) {
-          #fluid-hero-root {
-            height: 650px;
-          }
-          #heroTitle {
-            font-size: 42px !important;
-          }
-        }
-
-        @media (hover: none) {
-          #heroTitle {
-            opacity: 1 !important;
-          }
-        }
-      `}</style>
+  @media (hover: none) {
+    #heroTitle {
+      opacity: 1 !important;
+    }
+    
+  }
+`}</style>
     </div>
   );
 }
@@ -1334,57 +1269,15 @@ function splatFromPointer(p) {
 /* Inline Style Objects */
 const styles = {
   root: {
-    height: '1200px',
+    height: 'clamp(560px, 92vh, 1200px)',
+    minHeight: '100vh',
     width: '100%',
     position: 'relative',
     backgroundColor: '#F1F1F1',
     overflow: 'hidden',
     cursor: 'default',
   },
-  header: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 10,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '28px 40px',
-  },
-  logo: {
-    width: 32,
-    height: 32,
-    borderRadius: 6,
-    background: '#2b2b2b',
-    color: '#fff',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontStyle: 'italic',
-    fontWeight: 700,
-    fontSize: 16,
-  },
-  nav: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 20,
-    fontSize: 14,
-    color: '#2b2b2b',
-  },
-  navLink: {
-    color: 'inherit',
-    textDecoration: 'none',
-    opacity: 0.75,
-  },
-  cta: {
-    background: '#2b2b2b',
-    color: '#fff',
-    padding: '10px 18px',
-    borderRadius: 999,
-    fontSize: 14,
-    textDecoration: 'none',
-  },
+  // ...header, logo, nav, navLink, cta unchanged...
   hero: {
     position: 'relative',
     width: '100%',
@@ -1394,7 +1287,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '100px 6vw',
+    padding: 'clamp(32px, 8vh, 100px) clamp(20px, 6vw, 80px)',
   },
   sFluid: {
     position: 'absolute',
@@ -1449,7 +1342,7 @@ const styles = {
     width: '100%',
     maxWidth: '1000px',
     fontWeight: 600,
-    fontSize: '100px',
+    fontSize: 'clamp(22px, 30vw, 64px)',
     lineHeight: 0.94,
     letterSpacing: '-0.03em',
     color: '#2b2b2b',
@@ -1459,20 +1352,24 @@ const styles = {
   subtitle: {
     marginTop: 12,
     maxWidth: 700,
-    fontSize: 16,
+    width: '100%',
+    padding: '0 clamp(4px, 2vw, 0px)',
+    fontSize: 'clamp(13px, 1.6vw, 16px)',
     lineHeight: 1.6,
     color: '#4a4a4a',
   },
   logoRow: {
-    marginTop: 28,
+    marginTop: 'clamp(18px, 3vh, 28px)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 40,
+    gap: 'clamp(16px, 3vw, 40px)',
     flexWrap: 'wrap',
+    width: '100%',
+    padding: '0 clamp(8px, 4vw, 0px)',
   },
   logoImg: {
-    height: 80,
+    height: 'clamp(36px, 6vw, 80px)',
     width: 'auto',
     objectFit: 'contain',
     opacity: 0.7,

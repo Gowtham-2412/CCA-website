@@ -125,7 +125,7 @@ export default function CardsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden bg-[#f1f1f1]"
+      className="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden bg-[#F2EFE4]"
     >
       <ImageTrailCursor images={TRAIL_IMAGES} containerRef={sectionRef} />
 

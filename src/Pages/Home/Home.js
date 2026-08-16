@@ -73,7 +73,7 @@ return (
   <>
     <section
       id="hero-section"
-      className="sticky top-5 z-0 w-full flex items-center justify-center overflow-hidden rounded-b-[40px]"
+      className="sticky top-4 z-0 w-full flex items-center justify-center overflow-hidden rounded-b-[40px]"
     >
       <div className="absolute top-0 left-0 w-full bg-[radial-gradient(circle_at_50%_0%,rgba(165,205,5,0.06),transparent_70%)] pointer-events-none" />
       <FluidHero />
