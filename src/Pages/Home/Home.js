@@ -1,12 +1,9 @@
-import ccaModel from "../../Assets/models/vera_textured.glb";
 import { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import FluidHero from "../../Utility/FluidHero";
 import CardsSection from "../../Utility/CardsSection";
 
 export default function Home() {
   const modelRef = useRef(null);
-  const wrapperRef = useRef(null);
 
   // 1. Force Alpha-Blend to Opaque for crisp model rendering
   useEffect(() => {

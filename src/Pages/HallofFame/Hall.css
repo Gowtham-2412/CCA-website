@@ -1,0 +1,132 @@
+.hall-page__hero {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+.hall-page__archive {
+  display: grid;
+  grid-template-columns: .5fr 1.5fr;
+  column-gap: 6vw;
+  border-top: 1px solid var(--line);
+}
+
+.hall-page__archive nav {
+  padding-top: .8rem;
+}
+
+.hall-page__archive nav button {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: .65rem 0;
+  background: none;
+  border: 0;
+  color: #777;
+  text-align: left;
+  cursor: pointer;
+  font: 600 clamp(1.4rem, 2.5vw, 2.6rem)/1 'PP Frama', sans-serif;
+  letter-spacing: -.04em;
+  transition: color 0.2s ease;
+}
+
+.hall-page__archive nav button:hover,
+.hall-page__archive nav button.is-active {
+  color: var(--signal);
+}
+
+.hall-page__archive nav span {
+  padding-top: .25rem;
+  font: .68rem 'SupplyMono', monospace;
+}
+
+.hall-page__batch {
+  grid-column: 2;
+  padding: 5rem 0 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.hall-page__batch h2 {
+  margin: .4rem 0;
+  font: 600 clamp(3.2rem, 14vw, 15rem)/.8 'PP Frama', sans-serif;
+  letter-spacing: -.07em;
+}
+
+.hall-page__batch p:last-child {
+  margin: 1.5rem 0 0;
+  color: #666;
+  font: .72rem 'SupplyMono', monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.hall-page__roster {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 0;
+}
+
+.hall-page__roster .member-card:nth-child(3n) {
+  border-right: 0;
+}
+
+@media(max-width: 800px) {
+  .hall-page__hero {
+    min-height: 40vh;
+  }
+
+  .hall-page__archive {
+    grid-template-columns: 1fr;
+  }
+
+  .hall-page__archive nav {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hall-page__archive nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hall-page__archive nav button {
+    width: auto;
+    flex: none;
+    padding: 0.25rem 0;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+  }
+
+  .hall-page__batch,
+  .hall-page__roster {
+    grid-column: 1;
+  }
+
+  .hall-page__batch {
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  .hall-page__roster {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hall-page__roster .member-card:nth-child(3n) {
+    border-right: 1px solid var(--line);
+  }
+
+  .hall-page__roster .member-card:nth-child(2n) {
+    border-right: 0;
+  }
+}
+
+@media(max-width: 480px) {
+  .hall-page__roster {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

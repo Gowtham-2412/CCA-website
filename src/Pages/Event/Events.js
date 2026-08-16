@@ -1,166 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import assisteque from "../../Assets/Images/assisteque.jpeg";
-import parichay from "../../Assets/Images/parichay.jpeg";
-import designworkshop from "../../Assets/Images/design workshop.jpeg";
-import robozido from "../../Assets/Images/robozido.jpeg";
-import youthparliament from "../../Assets/Images/youth parliament.jpeg";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import EventsCSS from "./Events.module.css";
-import SpotlightCard from "../../Components/UI/SpotlightCard";
-import { Calendar, ChevronRight } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
+import { ChevronRight } from '../../Assets/Icons';
+import './Events.css';
+import '../Editorial.css';
+import assisteque from '../../Assets/Images/assisteque.jpeg';
+import parichay from '../../Assets/Images/parichay.jpeg';
+import designworkshop from '../../Assets/Images/design workshop.jpeg';
+import robozido from '../../Assets/Images/robozido.jpeg';
+import youthparliament from '../../Assets/Images/youth parliament.jpeg';
 
-const eventData = [
-  {
-    id: 1,
-    title: "Parichay",
-    category: "Technical",
-    cell: "CCA Team",
-    image: parichay,
-    date: "Annual Advent",
-    description: "CCA presents PARICHAY, an evening full of technology and innovation, marking the advent of the technical extravaganza of the forthcoming academic year and giving you a peek at the different co-curricular events held throughout the year."
-  },
-  {
-    id: 2,
-    title: "Robozido",
-    category: "Workshops",
-    cell: "Robo-Cell",
-    image: robozido,
-    date: "Odd Semester",
-    description: "Robocell, CCA brings to you its first workshop of the season. Robozido - The autonomous and manual robotics workshop aims to furnish a one-of-a-kind opportunity to showcase your inventive & creative skills in Robotics."
-  },
-  {
-    id: 3,
-    title: "Youth Parliament",
-    category: "Debate",
-    cell: "E-Cell",
-    image: youthparliament,
-    date: "Ninth Edition",
-    description: "Entrepreneurship Cell, CCA, NIT Durgapur brings you the perfect platform to hone your debating skills, be a part of something bigger than yourself, and express yourself in Defending Democracies."
-  },
-  {
-    id: 4,
-    title: "Design Workshop",
-    category: "Creative",
-    cell: "WDCT",
-    image: designworkshop,
-    date: "Annual Workshop",
-    description: "Web, Design and Creative Team, CCA guides you throughout the graphic design, video editing, and animation process. Learn the basics of Adobe Illustrator and After Effects with us."
-  },
-  {
-    id: 5,
-    title: "Assisteque",
-    category: "Technical",
-    cell: "R&D Cell",
-    image: assisteque,
-    date: "Two-Day Event",
-    description: "The Research and Development Cell, CCA organises a two-day workshop on the Internet of Things, where you learn how to implement IoT in devices using simple sensors and a bit of code!"
-  }
+const events = [
+  { title: 'Parichay', category: 'Technical', cell: 'CCA Team', date: 'Annual advent', image: parichay, description: 'A first look at a year of ideas, events and opportunities to get involved with CCA.' },
+  { title: 'Robozido', category: 'Workshop', cell: 'Robo-Cell', date: 'Odd semester', image: robozido, description: 'A practical introduction to autonomous and manual robotics for builders at every level.' },
+  { title: 'Youth Parliament', category: 'Debate', cell: 'E-Cell', date: 'Ninth edition', image: youthparliament, description: 'A platform to examine ideas, articulate a position and defend it with intent.' },
+  { title: 'Design Workshop', category: 'Creative', cell: 'WDCT', date: 'Annual workshop', image: designworkshop, description: 'A hands-on starting point for graphics, motion and digital visual craft.' },
+  { title: 'Assisteque', category: 'Technical', cell: 'R&D Cell', date: 'Two-day workshop', image: assisteque, description: 'An introduction to Internet of Things systems through sensors, microcontrollers and code.' }
 ];
 
-const cellFilters = ["All", "CCA Team", "Robo-Cell", "E-Cell", "WDCT", "R&D Cell"];
-
-function Events() {
-  const [activeCell, setActiveCell] = useState("All");
-  const [selectedEvent, setSelectedEvent] = useState(null);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out-cubic',
-    });
-  }, []);
-
-  const filteredEvents = activeCell === "All"
-    ? eventData
-    : eventData.filter(item => item.cell === activeCell);
-
-  return (
-    <div className={EventsCSS.pageWrapper}>
-      {/* Header Section */}
-      <div className={EventsCSS.header} data-aos="fade-down">
-        <h1>Campus Events</h1>
-        <p className={EventsCSS.headerLead}>
-          Team CCA curates a multitude of campus events synonymous with excitement, innovation, and creativity.
-          Join us to experience hands-on learning at every turn.
-        </p>
-
-        {/* Cell-Wise Filter Pills */}
-        <div className={EventsCSS.filterContainer}>
-          {cellFilters.map((cell) => (
-            <button
-              key={cell}
-              onClick={() => setActiveCell(cell)}
-              className={`${EventsCSS.filterBtn} ${activeCell === cell ? EventsCSS.activeFilterBtn : ''}`}
-            >
-              {cell}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Events Grid */}
-      <div className={EventsCSS.cardcontainer}>
-        {filteredEvents.map((evt, idx) => (
-          <div key={evt.id} className={EventsCSS.eventRow} data-aos="fade-up">
-            <SpotlightCard
-              className={EventsCSS.eventCard}
-              spotlightColor="rgba(255, 255, 255, 0.4)"
-              borderColor="rgba(48, 48, 48, 0.1)"
-            >
-              <div className={`${EventsCSS.cardFlex} ${idx % 2 === 1 ? EventsCSS.cardReverse : ''}`}>
-                {/* Event Image */}
-                <div className={EventsCSS.cardImgWrap}>
-                  <img src={evt.image} alt={evt.title} className={EventsCSS.cardImage} />
-                </div>
-
-                {/* Event Content */}
-                <div className={EventsCSS.cardTxtWrap}>
-                  <div className={EventsCSS.metaRow}>
-                    <span className={EventsCSS.dateMeta}>
-                      <Calendar size={13} className="mr-1 inline text-slate-500" /> {evt.date}
-                    </span>
-                  </div>
-
-                  <h2>{evt.title}</h2>
-                  <p>{evt.description}</p>
-
-                  <button
-                    className={EventsCSS.detailsBtn}
-                    onClick={() => setSelectedEvent(evt)}
-                  >
-                    <span>Event Details</span>
-                    <ChevronRight size={16} />
-                  </button>
-                </div>
-              </div>
-            </SpotlightCard>
-          </div>
-        ))}
-      </div>
-
-      {/* Event Details Modal */}
-      {selectedEvent && (
-        <div className={EventsCSS.modalOverlay} onClick={() => setSelectedEvent(null)}>
-          <div className={EventsCSS.modalContent} onClick={(e) => e.stopPropagation()}>
-            <div className={EventsCSS.modalHeader}>
-              <div>
-                <span className={EventsCSS.categoryBadge}>{selectedEvent.category}</span>
-                <h2 className="text-2xl font-bold text-[#303030] mt-1">{selectedEvent.title}</h2>
-              </div>
-              <button className={EventsCSS.closeBtn} onClick={() => setSelectedEvent(null)}>✕</button>
-            </div>
-            <img src={selectedEvent.image} alt={selectedEvent.title} className={EventsCSS.modalImg} />
-            <p className={EventsCSS.modalDesc}>{selectedEvent.description}</p>
-            <div className={EventsCSS.modalMeta}>
-              <div><strong>Organized by:</strong> {selectedEvent.cell}</div>
-              <div><strong>Timing/Schedule:</strong> {selectedEvent.date}</div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+export default function Events() {
+  const [filter, setFilter] = useState('All');
+  const [selected, setSelected] = useState(null);
+  const filters = ['All', ...new Set(events.map(event => event.cell))];
+  const visibleEvents = useMemo(() => filter === 'All' ? events : events.filter(event => event.cell === filter), [filter]);
+  return <main className="editorial-page events-page">
+    <header className="events-page__hero"><p className="editorial-kicker">CCA / Event index</p><h1 className="editorial-title">Things worth showing up for.</h1><p className="editorial-lead">A running record of CCA workshops, conversations, competitions and campus experiments.</p></header>
+    <nav className="events-page__filters" aria-label="Filter events">{filters.map(item => <button key={item} className={filter === item ? 'is-active' : ''} onClick={() => setFilter(item)}>{item}</button>)}</nav>
+    <section className="events-page__list" aria-live="polite">{visibleEvents.map((event, index) => <article className="event-item" key={event.title}>
+      <span className="editorial-number">0{index + 1}</span><img src={event.image} alt="" className="image-dither" /><div className="event-item__content"><p className="editorial-meta">{event.category} / {event.cell}</p><h2>{event.title}</h2><p>{event.description}</p></div><div className="event-item__action"><span>{event.date}</span><button onClick={() => setSelected(event)} aria-label={`View ${event.title} details`}><img src={ChevronRight} alt="" /></button></div>
+    </article>)}</section>
+    {selected && <div className="event-dialog" role="dialog" aria-modal="true" aria-labelledby="event-dialog-title" onClick={() => setSelected(null)}><article onClick={event => event.stopPropagation()}><button className="event-dialog__close" onClick={() => setSelected(null)} aria-label="Close details">×</button><img src={selected.image} alt="" /><p className="editorial-kicker">{selected.category} / {selected.cell}</p><h2 id="event-dialog-title">{selected.title}</h2><p>{selected.description}</p><span className="editorial-meta">{selected.date}</span></article></div>}
+  </main>;
 }
-
-export default Events;

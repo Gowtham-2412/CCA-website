@@ -1,27 +1,26 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ImageTrailCursor from './ImageTrailCursor';
-
 
 gsap.registerPlugin(ScrollTrigger);
 
 const CARDS = [
   {
-    title: 'Higher Potential',
-    text: 'Together we accomplish more. Even the most complex builds move with relentless quality.',
+    title: 'Find your people',
+    text: 'A collective for students who learn fastest when they make things together.',
   },
   {
-    title: 'Full Capacity',
-    text: 'We scale effort to match your deadline without ever cutting corners.',
+    title: 'Make it real',
+    text: 'Move from the first sketch or question to a workshop, prototype, event or launch.',
   },
   {
-    title: 'True Collaboration',
-    text: 'We plug into your existing team and workflow like an extension of it.',
+    title: 'Cross the usual lines',
+    text: 'Research meets design, robotics meets management, and ideas get a wider room to grow.',
   },
   {
-    title: 'Deep Experience',
-    text: "15+ years building for agencies who can't afford to miss.",
+    title: 'Leave a signal',
+    text: 'Build work, skills and friendships that carry forward to the next CCA cohort.',
   },
 ];
 
@@ -47,7 +46,6 @@ export default function CardsSection() {
 
     if (!section || !header || !cards.length) return;
 
-    let trigger;
     const ctx = gsap.context(() => {
       const startY = window.innerHeight * 0.6 + cards[0].offsetHeight;
 
@@ -67,10 +65,6 @@ export default function CardsSection() {
           anticipatePin: 1,
           pin: true,
           invalidateOnRefresh: true,
-
-          onInit: (self) => {
-            trigger = self;
-          },
         },
       });
 
@@ -129,15 +123,15 @@ export default function CardsSection() {
     >
       <ImageTrailCursor images={TRAIL_IMAGES} containerRef={sectionRef} />
 
-      <div ref={headerRef} className="text-center px-6 z-0">
-        <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-neutral-900">
-          What CCA can do for you, and why
+      <div ref={headerRef} className="text-center px-4 sm:px-6 z-0">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-neutral-900">
+          A place to make, learn and
           <br />
-          you can count on.
+          move ideas forward.
         </h2>
-        <p className="mt-4 max-w-md mx-auto text-neutral-500">
-          We step in on high-stakes projects where execution can't fail, from
-          rebrands and marketing campaigns to product launches.
+        <p className="mt-3 sm:mt-4 max-w-md mx-auto text-sm sm:text-base text-neutral-500">
+          Five cells, one active collective: technical, creative and managerial
+          work with room for a first attempt.
         </p>
       </div>
 
@@ -146,12 +140,12 @@ export default function CardsSection() {
           <div
             key={card.title}
             ref={(el) => (cardsRef.current[i] = el)}
-            className="absolute w-[320px] rounded-2xl bg-white shadow-xl p-8 pointer-events-auto will-change-transform"
+            className="absolute w-[88vw] max-w-[340px] rounded-2xl bg-white shadow-xl p-6 sm:p-8 pointer-events-auto will-change-transform"
           >
-            <h3 className="text-xl font-medium text-neutral-900">
+            <h3 className="text-lg sm:text-xl font-medium text-neutral-900">
               {card.title}
             </h3>
-            <p className="mt-2 text-sm text-neutral-500">{card.text}</p>
+            <p className="mt-2 text-xs sm:text-sm text-neutral-500">{card.text}</p>
           </div>
         ))}
       </div>

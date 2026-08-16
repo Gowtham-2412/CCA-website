@@ -33,17 +33,17 @@
 
 .aarohan {
   position: relative;
-  padding-top: 8rem;
+  padding-top: 6rem;
   min-height: 100vh;
   transition: background-color 0.5s ease;
 }
 
 .header {
   text-align: center;
-  padding: 2rem 2rem 4rem 2rem;
+  padding: 2rem 1.25rem 3rem 1.25rem;
   max-width: 1000px;
   margin: 0 auto;
-  min-height: 80vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,35 +68,33 @@
 
 .festTitle {
   font-weight: 900;
-  font-size: 5rem;
-  letter-spacing: 0.15em;
+  font-size: clamp(2.6rem, 7.5vw, 5.5rem);
+  letter-spacing: 0.1em;
   color: #ffffff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  line-height: 1.05;
+  line-height: 1.1;
 }
 
 .heroLead {
-  color: #ffffff;
-  font-size: 1.25rem;
-  line-height: 1.7;
   color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
+  line-height: 1.7;
   max-width: 800px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 2.5rem auto;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   font-weight: 400;
 }
 
 .statsBar {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
   width: 100%;
   max-width: 850px;
 }
 
 .statCard {
-  flex: 1;
   background-color: rgba(30, 30, 30, 0.85);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -115,7 +113,7 @@
 }
 
 .statVal {
-  font-size: 1.85rem;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1.2;
@@ -131,7 +129,7 @@
 }
 
 .gallery {
-  padding: 4rem 2rem;
+  padding: 3rem 1.25rem;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -143,32 +141,14 @@
 
 .sectionHeader h3,
 .sectionHeader h4 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 800;
   color: #303030;
   line-height: 1.2;
 }
 
-.swiperWrap {
-  padding-bottom: 3rem;
-}
-
-.galleryCard {
-  width: 100%;
-  height: 420px;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
-
-.galleryCard img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .event {
-  padding: 4rem 2rem 6rem 2rem;
+  padding: 3rem 1.25rem 5rem 1.25rem;
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
@@ -181,7 +161,7 @@
 .eventSlideCard {
   background-color: #ffffff;
   border-radius: 1rem;
-  height: 380px;
+  min-height: 360px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -190,7 +170,7 @@
 
 .slideImgWrap {
   position: relative;
-  height: 200px;
+  height: 180px;
   width: 100%;
   overflow: hidden;
 }
@@ -245,29 +225,13 @@
 }
 
 @media (max-width: 900px) {
-  .festTitle {
-    font-size: 3.25rem;
-    letter-spacing: 0.08em;
-  }
-
-  .heroLead {
-    font-size: 1.05rem;
-    padding: 0 1rem;
-    margin-bottom: 2rem;
-  }
-
   .statsBar {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.65rem;
-    width: 100%;
-    padding: 0 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.75rem;
   }
 
   .statCard {
-    min-width: 100px;
-    padding: 0.75rem 0.5rem;
+    padding: 0.85rem 0.6rem;
   }
 
   .statVal {
@@ -276,9 +240,5 @@
 
   .statLab {
     font-size: 0.7rem;
-  }
-
-  .galleryCard {
-    height: 280px;
   }
 }

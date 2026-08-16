@@ -1,0 +1,111 @@
+.team-page__hero {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+.team-page__index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.team-page__index a {
+  color: #666;
+  font: .72rem 'SupplyMono', monospace;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.team-page__index a:hover {
+  color: var(--signal);
+}
+
+.team-page__index span {
+  color: var(--signal);
+  margin-right: .6rem;
+}
+
+.team-page__group {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 6vw;
+  margin-top: 7rem;
+}
+
+.team-page__group header {
+  align-self: flex-start;
+  position: sticky;
+  top: 6rem;
+}
+
+.team-page__group h2 {
+  margin: .65rem 0 1.3rem;
+  font: 600 clamp(2.4rem, 5vw, 5rem)/.87 'PP Frama', sans-serif;
+  letter-spacing: -.06em;
+}
+
+.team-page__group header > p:last-child {
+  max-width: 19rem;
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.team-page__roster {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.team-page__roster .member-card:nth-child(3n) {
+  border-right: 0;
+}
+
+@media(max-width: 900px) {
+  .team-page__hero {
+    min-height: 40vh;
+  }
+
+  .team-page__group {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 4.5rem;
+  }
+
+  .team-page__group header {
+    position: static;
+  }
+
+  .team-page__roster {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .team-page__roster .member-card:nth-child(3n) {
+    border-right: 1px solid var(--line);
+  }
+
+  .team-page__roster .member-card:nth-child(2n) {
+    border-right: 0;
+  }
+}
+
+@media(max-width: 480px) {
+  .team-page__index {
+    gap: 0.85rem;
+  }
+
+  .team-page__group {
+    margin-top: 3.5rem;
+  }
+
+  .team-page__group h2 {
+    font-size: clamp(2rem, 7vw, 3.2rem);
+  }
+}

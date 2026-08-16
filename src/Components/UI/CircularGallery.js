@@ -12,6 +12,7 @@ const CircularGallery = React.forwardRef(
     const scrollTimeoutRef = useRef(null);
     const animationFrameRef = useRef(null);
     const containerRef = useRef(null);
+    const touchLastX = useRef(0);
 
     // Combine external ref and internal containerRef
     const setRefs = (node) => {
@@ -54,7 +55,7 @@ const CircularGallery = React.forwardRef(
       };
     }, []);
 
-    // Effect for ambient auto-rotation when not wheel-scrolling
+    // Effect for ambient auto-rotation when not wheel-scrolling or touch-dragging
     useEffect(() => {
       const autoRotate = () => {
         if (!isScrolling) {
@@ -72,19 +73,42 @@ const CircularGallery = React.forwardRef(
       };
     }, [isScrolling, autoRotateSpeed]);
 
+    const handleTouchStart = (e) => {
+      if (e.touches && e.touches.length === 1) {
+        touchLastX.current = e.touches[0].clientX;
+        setIsScrolling(true);
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (e.touches && e.touches.length === 1) {
+        const currentX = e.touches[0].clientX;
+        const deltaX = currentX - touchLastX.current;
+        touchLastX.current = currentX;
+        setRotation((prev) => prev - deltaX * 0.4);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      setIsScrolling(false);
+    };
+
     if (!items || items.length === 0) return null;
 
     const anglePerItem = 360 / items.length;
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
-    const effectiveRadius = isMobile ? Math.min(radius, 330) : radius;
+    const effectiveRadius = isMobile ? Math.min(radius, 320) : radius;
 
     return (
       <div
         ref={setRefs}
         role="region"
         aria-label="Circular 3D Gallery"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         className={cn(
-          "relative w-full h-[460px] sm:h-[580px] flex items-center justify-center overflow-hidden my-4 sm:my-6 select-none touch-none",
+          "relative w-full h-[440px] sm:h-[560px] flex items-center justify-center overflow-hidden my-3 sm:my-6 select-none touch-pan-y",
           className
         )}
         style={{ perspective: '2000px' }}
@@ -111,13 +135,13 @@ const CircularGallery = React.forwardRef(
                 key={item.photo?.url || i}
                 role="group"
                 aria-label={item.common}
-                className="absolute w-[220px] sm:w-[290px] h-[300px] sm:h-[380px]"
+                className="absolute w-[200px] sm:w-[280px] h-[280px] sm:h-[360px]"
                 style={{
                   transform: `rotateY(${itemAngle}deg) translateZ(${effectiveRadius}px)`,
                   left: '50%',
                   top: '50%',
-                  marginLeft: isMobile ? '-110px' : '-145px',
-                  marginTop: isMobile ? '-150px' : '-190px',
+                  marginLeft: isMobile ? '-100px' : '-140px',
+                  marginTop: isMobile ? '-140px' : '-180px',
                   opacity: opacity,
                   transition: 'opacity 0.3s linear',
                   backfaceVisibility: 'visible'
@@ -130,10 +154,10 @@ const CircularGallery = React.forwardRef(
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
                     style={{ objectPosition: item.photo.pos || 'center' }}
                   />
-                  <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-white text-left">
-                    <h2 className="text-lg sm:text-xl font-bold tracking-tight">{item.common}</h2>
+                  <div className="absolute bottom-0 left-0 w-full p-3 sm:p-4 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-white text-left">
+                    <h2 className="text-base sm:text-xl font-bold tracking-tight">{item.common}</h2>
                     <em className="text-xs sm:text-sm italic text-[#b8d474] block mt-0.5">{item.binomial}</em>
-                    <p className="text-[11px] mt-1.5 opacity-80 font-medium">Photo by: {item.photo.by}</p>
+                    <p className="text-[10px] sm:text-[11px] mt-1 opacity-80 font-medium">Photo by: {item.photo.by}</p>
                   </div>
                 </div>
               </div>
