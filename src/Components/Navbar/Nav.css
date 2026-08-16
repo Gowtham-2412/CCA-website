@@ -1,3 +1,5 @@
+/* Nav.css */
+
 #navicon {
   width: 32px;
   height: 24px;
@@ -6,7 +8,7 @@
   transition: 0.35s ease-in-out;
   cursor: pointer;
   display: none;
-  z-index: 100;
+  z-index: 110;
   justify-content: center;
   align-items: center;
 }
@@ -24,29 +26,19 @@
   transition: 0.25s ease-in-out;
 }
 
-#navicon span:nth-child(1) {
-  top: 0px;
-}
-
-#navicon span:nth-child(2) {
-  top: 9px;
-}
-
-#navicon span:nth-child(3) {
-  top: 18px;
-}
+#navicon span:nth-child(1) { top: 0px; }
+#navicon span:nth-child(2) { top: 9px; }
+#navicon span:nth-child(3) { top: 18px; }
 
 #navicon.open span:nth-child(1) {
   top: 9px;
   transform: rotate(135deg);
   background: #000000;
 }
-
 #navicon.open span:nth-child(2) {
   opacity: 0;
   left: -40px;
 }
-
 #navicon.open span:nth-child(3) {
   top: 9px;
   transform: rotate(-135deg);

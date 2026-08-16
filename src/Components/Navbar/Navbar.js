@@ -13,6 +13,7 @@ const Navbar = () => {
   const isAarohanPage = location.pathname === '/aarohan';
   const [navHovered, setNavHovered] = useState(false);
   const { width } = useWindowDimensions();
+  const isMobile = width <= 1024;
 
   // Close mobile drawer on route change
   useEffect(() => {
@@ -21,19 +22,15 @@ const Navbar = () => {
 
   // Lock body scroll when mobile drawer is open
   useEffect(() => {
-    if (width <= 1024) {
-      if (open) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = 'auto';
-      }
+    if (isMobile) {
+      document.body.style.overflow = open ? 'hidden' : 'auto';
     } else {
       document.body.style.overflow = 'auto';
     }
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [open, width]);
+  }, [open, isMobile]);
 
   // Optimized high-performance GPU motion values for cursor followers
   const cursorX = useMotionValue(-100);
@@ -48,7 +45,7 @@ const Navbar = () => {
   const blurYSpring = useSpring(cursorY, blurSpringConfig);
 
   useEffect(() => {
-    if (width <= 1024) return;
+    if (isMobile) return;
 
     const handleMouseMove = (e) => {
       cursorX.set(e.clientX);
@@ -57,13 +54,13 @@ const Navbar = () => {
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [width, cursorX, cursorY]);
+  }, [isMobile, cursorX, cursorY]);
 
   return (
     <>
       <header className="navbar fixed top-0 left-0 right-0 z-[100] w-full">
         {/* High-Performance Smooth GPU Mouse Followers for Desktop */}
-        {width > 1024 && (
+        {!isMobile && (
           <>
             <motion.div
               className="cursor pointer-events-none fixed top-0 left-0 z-[110]"
