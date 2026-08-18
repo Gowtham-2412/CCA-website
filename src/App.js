@@ -16,10 +16,14 @@ import RnD from './Pages/Cells/RnD/RnD.js';
 import RoboCell from './Pages/Cells/RoboCell/RoboCell.js';
 import WDCT from './Pages/Cells/WDCT/WDCT.js';
 import ScrollToTop from './Components/UI/ScrollToTop';
+import CustomCursor from './Components/UI/CustomCursor';
+import InteractiveBackground from './Components/UI/InteractiveBackground';
 
 function App() {
   return (
     <BrowserRouter>
+      <CustomCursor />
+      <InteractiveBackground />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>

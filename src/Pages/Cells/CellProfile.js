@@ -9,7 +9,6 @@ export default function CellProfile({ number, title, eyebrow, statement, image, 
     <main className="editorial-page cell-profile">
       <header className="cell-profile__hero">
         <div>
-          <p className="editorial-kicker">CCA / CELL {number}</p>
           <img className="cell-profile__logo" src={logo} alt={`${title} logo`} />
           <h1 className="editorial-title">{title}</h1>
         </div>
@@ -20,12 +19,12 @@ export default function CellProfile({ number, title, eyebrow, statement, image, 
         </div>
       </header>
 
-      <img className="cell-profile__image image-dither" src={image} alt={`${title} in action`} />
+      {/* <img className="cell-profile__image image-dither" src={image} alt={`${title} in action`} /> */}
 
       <section className="cell-profile__work" aria-labelledby={`${number}-work`}>
         <div className="cell-profile__work-title">
-          <p className="editorial-kicker">What we set in motion</p>
-          <h2 id={`${number}-work`} className="editorial-section-title">Built for curious people.</h2>
+          <p className="editorial-kicker">Core Responsibilities</p>
+          <h2 id={`${number}-work`} className="editorial-section-title">What we set in motion.</h2>
         </div>
         <div className="cell-profile__list">
           {modules.map((module, index) => (

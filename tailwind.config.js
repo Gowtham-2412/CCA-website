@@ -47,6 +47,13 @@ export default {
             '8xl': ['96px', '106px']
         },
         extend: {
+            fontFamily: {
+                sans: ["'PP Frama'", 'sans-serif'],
+                mono: ["'SupplyMono'", 'monospace'],
+                frama: ["'PP Frama'", 'sans-serif'],
+                supply: ["'SupplyMono'", 'monospace'],
+                montserrat: ["'SupplyMono'", 'monospace'],
+            },
             colors: {
                 'primary': "#ECEEFF",
                 "coral-red": "#FF6452",

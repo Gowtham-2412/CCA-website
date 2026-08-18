@@ -230,7 +230,7 @@ const GRADIENT_SUBTRACT_FS = `
       vec2(R - L, T - B);
 
     gl_FragColor =
-      vec4(velocity, 1.0);
+      vec4(velocity, 0.0, 1.0);
   }
 `;
 
