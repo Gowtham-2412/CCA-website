@@ -176,13 +176,13 @@ export default function CardsSection() {
           {SHOWCASE_CARDS.map((card) => (
             <div
               key={card.num}
-              className="showcase-card flex-shrink-0 w-[88vw] sm:w-[76vw] md:w-[68vw] lg:w-[52vw] max-w-[820px] h-[72vh] sm:h-[68vh] md:h-[65vh] lg:h-[60vh] min-h-[510px] max-h-[640px] rounded-2xl md:rounded-3xl bg-white border border-black/10 shadow-xl overflow-hidden flex flex-col lg:flex-row relative group transition-all duration-300 hover:border-black/25"
+              className="showcase-card flex-shrink-0 w-[88vw] sm:w-[76vw] md:w-[68vw] lg:w-[52vw] max-w-[820px] h-[58vh] sm:h-[66vh] md:h-[65vh] lg:h-[60vh] min-h-[400px] sm:min-h-[480px] max-h-[500px] sm:max-h-[640px] rounded-2xl md:rounded-3xl bg-white border border-black/10 shadow-xl overflow-hidden flex flex-col lg:flex-row relative group transition-all duration-300 hover:border-black/25"
               data-cursor-text="INSPECT"
             >
               {/* Left Content Side */}
-              <div className="w-full lg:w-[50%] p-4 sm:p-7 lg:p-10 flex flex-col justify-between order-2 lg:order-1 relative z-10 bg-white flex-1 min-h-0">
+              <div className="w-full lg:w-[50%] h-[48%] sm:h-[50%] lg:h-full p-4 sm:p-7 lg:p-10 flex flex-col justify-between order-2 lg:order-1 relative z-10 bg-white min-h-0">
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-2 sm:mb-3">
+                  <div className="flex items-center justify-between gap-2 mb-1.5 sm:mb-3">
                     <span className="font-mono text-[10px] sm:text-xs text-[#666666] uppercase tracking-widest">
                       {card.category}
                     </span>
@@ -191,16 +191,16 @@ export default function CardsSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl lg:text-4xl font-bold text-[#1b1b1b] tracking-tight font-['PP_Frama',sans-serif] mt-0.5 sm:mt-1 leading-[1.08]">
+                  <h3 className="text-lg sm:text-2xl lg:text-4xl font-bold text-[#1b1b1b] tracking-tight font-['PP_Frama',sans-serif] mt-0.5 sm:mt-1 leading-[1.1]">
                     {card.title}
                   </h3>
 
-                  <p className="text-[#4a4a4a] text-xs sm:text-sm lg:text-base leading-relaxed mt-2 sm:mt-3 font-normal line-clamp-3 md:line-clamp-none">
+                  <p className="text-[#4a4a4a] text-xs sm:text-sm lg:text-base leading-relaxed mt-1.5 sm:mt-3 font-normal line-clamp-3 md:line-clamp-none">
                     {card.text}
                   </p>
                 </div>
 
-                <div className="pt-3 sm:pt-4 border-t border-black/10 mt-3 sm:mt-4 flex items-center justify-between">
+                <div className="pt-2.5 sm:pt-4 border-t border-black/10 mt-2 sm:mt-4 flex items-center justify-between">
                   <Link
                     to={card.link}
                     className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#1b1b1b] hover:text-black font-semibold transition-colors group/link"
@@ -219,7 +219,7 @@ export default function CardsSection() {
               </div>
 
               {/* Right Image Side with Parallax */}
-              <div className="w-full lg:w-[50%] h-[210px] sm:h-[260px] md:h-[290px] lg:h-full flex-shrink-0 relative overflow-hidden order-1 lg:order-2 bg-[#eae7dc]">
+              <div className="w-full lg:w-[50%] h-[52%] sm:h-[50%] md:h-[290px] lg:h-full flex-shrink-0 relative overflow-hidden order-1 lg:order-2 bg-[#eae7dc]">
                 <img
                   src={card.image}
                   alt={card.title}
