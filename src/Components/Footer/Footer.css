@@ -51,8 +51,8 @@
 /* ─── Navigation Columns ─── */
 .site-footer__nav {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
   padding-top: 0.5rem;
 }
 
@@ -149,21 +149,35 @@
 }
 
 .site-footer__top-btn {
-  background: none;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #999;
-  font: .68rem 'SupplyMono', monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  color: #c5c5c5;
+  font: 500 .72rem 'SupplyMono', monospace;
   letter-spacing: .08em;
   text-transform: uppercase;
-  padding: .4rem .9rem;
+  padding: .45rem 1rem;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .site-footer__top-btn:hover {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.site-footer__top-icon {
+  transition: transform 0.25s ease;
+}
+
+.site-footer__top-btn:hover .site-footer__top-icon {
+  transform: translateY(-3px);
+  color: var(--signal);
 }
 
 /* ─── Aarohan Dark Variant ─── */
@@ -219,13 +233,21 @@
     max-width: 14ch;
   }
   .site-footer__nav {
-    gap: 2rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 640px) {
+  .site-footer__nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 420px) {
   .site-footer__nav {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 }

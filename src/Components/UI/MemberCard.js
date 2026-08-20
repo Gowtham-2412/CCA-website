@@ -77,7 +77,7 @@ export default function MemberCard({
 
       <div className="member-card__body">
         <h3 title={name} className="member-card__name">{name}</h3>
-        <p className="member-card__role" style={{ color: accentColor }}>{role}</p>
+        {role && <p className="member-card__role" style={{ color: accentColor }}>{role}</p>}
       </div>
     </article>
   );

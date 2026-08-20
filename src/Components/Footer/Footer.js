@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { ArrowUp } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../../Pages/Editorial.css';
@@ -13,12 +14,22 @@ const socials = [
   ['Facebook', 'https://www.facebook.com/ccanitd.in'],
 ];
 
-const quickLinks = [
-  ['About', '/about-us'],
+const mainLinks = [
+  ['Home', '/'],
+  ['About Us', '/about-us'],
+  ['Our Cells', '/our-cells'],
+  ['Aarohan', '/aarohan'],
   ['Events', '/events'],
   ['Our Team', '/our-team'],
-  ['Cells', '/our-cells'],
-  ['Aarohan', '/aarohan'],
+  ['Hall of Fame', '/hall'],
+];
+
+const cellLinks = [
+  ['WDCT', '/wdct'],
+  ['Core Cell', '/core-cell'],
+  ['E-Cell', '/ecell'],
+  ['R&D Cell', '/rnd-cell'],
+  ['Robo-Cell', '/robo-cell'],
 ];
 
 export default function Footer() {
@@ -51,7 +62,12 @@ export default function Footer() {
     };
   }, []);
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <footer
@@ -65,14 +81,23 @@ export default function Footer() {
       <div className="site-footer__top">
         {/* Headline */}
         <div className="site-footer__headline" ref={headlineRef}>
+          <p className="editorial-kicker mb-2">Centre For Cognitive Activities</p>
           <h2>Centre for Cognitive Activities.</h2>
         </div>
 
         {/* Navigation */}
         <nav className="site-footer__nav" aria-label="Footer navigation">
           <div className="site-footer__col">
-            <h4>Pages</h4>
-            {quickLinks.map(([label, path]) => (
+            <h4>Navigation</h4>
+            {mainLinks.map(([label, path]) => (
+              <Link key={label} to={path}>
+                {label}
+              </Link>
+            ))}
+          </div>
+          <div className="site-footer__col">
+            <h4>Cells & Wings</h4>
+            {cellLinks.map(([label, path]) => (
               <Link key={label} to={path}>
                 {label}
               </Link>
@@ -91,10 +116,16 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="site-footer__bottom">
-        <span>
-          CCA © {new Date().getFullYear()}
-        </span>
+        <span>CCA © {new Date().getFullYear()}</span>
         <span>Made with ❤️ by WDCT</span>
+        <button
+          onClick={scrollToTop}
+          className="site-footer__top-btn"
+          aria-label="Scroll to top"
+        >
+          <span>Back to top</span>
+          <ArrowUp size={14} className="site-footer__top-icon" />
+        </button>
       </div>
     </footer>
   );

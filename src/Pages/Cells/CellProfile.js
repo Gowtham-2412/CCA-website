@@ -8,13 +8,14 @@ export default function CellProfile({ number, title, eyebrow, statement, image, 
   return (
     <main className="editorial-page cell-profile">
       <header className="cell-profile__hero">
-        <div>
+        <div className="cell-profile__logo-wrapper">
+          <div className="cell-profile__logo-glow" aria-hidden="true" />
           <img className="cell-profile__logo" src={logo} alt={`${title} logo`} />
-          <h1 className="editorial-title">{title}</h1>
         </div>
-        <div className="cell-profile__intro">
+        <div className="cell-profile__content">
           <p className="editorial-meta">{eyebrow}</p>
-          <p>{statement}</p>
+          <h1 className="editorial-title cell-profile__title">{title}</h1>
+          <p className="cell-profile__statement">{statement}</p>
           <span className="cell-profile__marker">SCROLL TO EXPLORE <img src={ChevronRight} alt="" /></span>
         </div>
       </header>

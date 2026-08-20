@@ -4,7 +4,7 @@ import './Aarohan.css';
 import {
   WdctCornar, decathalon, GOR, OSH, MEC,
   conjecture, inspiratie, redode, techmela, acsc,
-  ARHN1, ARHN2, ARHN3, ARHN4, ARHN5, ARHN6, ARHN7, ARHN8,
+  ARHN1, ARHN2, ARHN3, ARHN4, ARHN5, ARHN6, ARHN8,
 } from '../../Assets/Images';
 import { arhnvd } from '../../Assets/Videos';
 import gsap from 'gsap';
@@ -137,7 +137,6 @@ const Aarohan = () => {
       gsap.set(cards[0], {
         y: 0,
         scale: 1,
-        filter: 'blur(0px)',
         opacity: 1,
         zIndex: 1,
       });
@@ -145,9 +144,8 @@ const Aarohan = () => {
       cards.forEach((card, i) => {
         if (i > 0) {
           gsap.set(card, {
-            yPercent: 120,
+            yPercent: 110,
             scale: 0.98,
-            filter: 'blur(0px)',
             opacity: 1,
             zIndex: i + 1,
           });
@@ -161,8 +159,8 @@ const Aarohan = () => {
           trigger: section,
           pin: true,
           start: 'top top',
-          end: () => `+=${totalTransitions * 175}vh`,
-          scrub: 1.2,
+          end: () => `+=${totalTransitions * 85}vh`,
+          scrub: 0.6,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
@@ -177,43 +175,40 @@ const Aarohan = () => {
         },
       });
 
-      // Animate cards sequentially with slow, gentle opacity fade (no black darkening)
+      // Animate cards sequentially with smooth, hardware-accelerated transforms
       for (let i = 1; i < cards.length; i++) {
         const currentCard = cards[i];
-        const timePos = (i - 1) * 1.4;
+        const timePos = (i - 1) * 1.2;
 
-        // Current card i rises up from below to y: 0
+        // Current card i rises up smoothly from below to y: 0
         tl.to(
           currentCard,
           {
             yPercent: 0,
             y: 0,
             scale: 1,
-            filter: 'blur(0px)',
             opacity: 1,
-            duration: 1.2,
-            ease: 'power2.inOut',
+            duration: 1.0,
+            ease: 'power1.out',
           },
           timePos
         );
 
-        // All previous cards (0 to i-1) shift up slightly, blur gently, and slowly fade opacity without turning black
+        // Previous cards shift up gently and subtly scale down
         for (let j = 0; j < i; j++) {
-          const depth = i - j; // how many cards are on top of card j
+          const depth = i - j;
           const targetY = -depth * stepOffset;
-          const blurVal = Math.min(3.5, depth * 0.7);
-          const opacityVal = Math.max(0.65, 1 - depth * 0.06);
+          const opacityVal = Math.max(0.6, 1 - depth * 0.08);
           const scaleVal = Math.max(0.92, 1 - depth * 0.015);
 
           tl.to(
             cards[j],
             {
               y: targetY,
-              filter: `blur(${blurVal}px)`,
               opacity: opacityVal,
               scale: scaleVal,
-              duration: 1.2,
-              ease: 'power2.inOut',
+              duration: 1.0,
+              ease: 'power1.out',
             },
             timePos
           );
