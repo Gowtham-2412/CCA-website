@@ -265,10 +265,10 @@ export default function AboutUs() {
             if (img) {
               gsap.fromTo(
                 img,
-                { y: '-6%', scale: 1.08 },
+                { y: '-4%', scale: 1.1 },
                 {
-                  y: '6%',
-                  scale: 1,
+                  y: '4%',
+                  scale: 1.05,
                   ease: 'none',
                   scrollTrigger: {
                     trigger: chapter,
