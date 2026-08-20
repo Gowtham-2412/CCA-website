@@ -65,8 +65,7 @@ export default function Footer() {
       <div className="site-footer__top">
         {/* Headline */}
         <div className="site-footer__headline" ref={headlineRef}>
-          <p className="editorial-kicker">Centre for Cognitive Activities / NIT Durgapur</p>
-          <h2>Keep the signal moving.</h2>
+          <h2>Centre for Cognitive Activities.</h2>
         </div>
 
         {/* Navigation */}
@@ -93,17 +92,9 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="site-footer__bottom">
         <span>
-          <span className="footer-dot" aria-hidden="true" />
           CCA © {new Date().getFullYear()}
         </span>
-        <span>Made with intent by WDCT</span>
-        <button
-          className="site-footer__top-btn"
-          onClick={scrollToTop}
-          aria-label="Scroll to top"
-        >
-          ↑ Top
-        </button>
+        <span>Made with ❤️ by WDCT</span>
       </div>
     </footer>
   );

@@ -50,8 +50,12 @@ body {
 h1,h2,h3,h4,h5,h6 {
   font-family: 'PP Frama', sans-serif;
 }
-p,span, a, li, button, ul, input, select, textarea {
+p, span, a, li, button, ul, input, select, textarea {
   font-family: 'SupplyMono', monospace;
+}
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span,
+h1 .anim-unit, h2 .anim-unit, h3 .anim-unit, h4 .anim-unit, h5 .anim-unit, h6 .anim-unit {
+  font-family: inherit;
 }
 
 * {

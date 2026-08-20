@@ -147,15 +147,16 @@ export default function CardsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-screen overflow-hidden bg-[#f1f1f1] text-[#1b1b1b] flex flex-col justify-between py-8 sm:py-12 select-none border-t border-black/10"
+      id="cards-section"
+      className="relative w-full h-screen min-h-[620px] overflow-hidden bg-[#f1f1f1] text-[#1b1b1b] flex flex-col justify-between py-4 sm:py-10 select-none border-t border-black/10 box-border"
     >
       {/* ─── Top Header & Active Step Indicator ─── */}
-      <div className="px-6 sm:px-12 lg:px-20 flex items-end justify-between gap-6 z-10">
+      <div className="px-5 sm:px-12 lg:px-20 flex items-end justify-between gap-4 z-10">
         <div>
-          <span className="font-mono text-xs text-[#666666] tracking-[0.2em] uppercase block mb-1">
+          <span className="font-mono text-[10px] sm:text-xs text-[#666666] tracking-[0.2em] uppercase block mb-1">
             Core Philosophy / 0{activeIndex + 1} of 0{SHOWCASE_CARDS.length}
           </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight font-['PP_Frama',sans-serif] text-[#1b1b1b]">
+          <h2 className="text-xl sm:text-3xl md:text-5xl font-bold tracking-tight font-['PP_Frama',sans-serif] text-[#1b1b1b] leading-tight">
             A place to make, learn and move forward.
           </h2>
         </div>
@@ -170,19 +171,19 @@ export default function CardsSection() {
       <div className="relative w-full flex-1 flex items-center overflow-visible my-auto">
         <div
           ref={trackRef}
-          className="flex items-center gap-6 sm:gap-10 pl-6 sm:pl-12 lg:pl-20 pr-32 will-change-transform"
+          className="flex items-center gap-5 sm:gap-10 pl-5 sm:pl-12 lg:pl-20 pr-24 will-change-transform"
         >
           {SHOWCASE_CARDS.map((card) => (
             <div
               key={card.num}
-              className="showcase-card flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[52vw] max-w-[820px] h-[58vh] sm:h-[62vh] min-h-[380px] max-h-[540px] rounded-2xl md:rounded-3xl bg-white border border-black/10 shadow-xl overflow-hidden flex flex-col md:flex-row relative group transition-all duration-300 hover:border-black/25"
+              className="showcase-card flex-shrink-0 w-[88vw] sm:w-[76vw] md:w-[68vw] lg:w-[52vw] max-w-[820px] h-[72vh] sm:h-[68vh] md:h-[65vh] lg:h-[60vh] min-h-[510px] max-h-[640px] rounded-2xl md:rounded-3xl bg-white border border-black/10 shadow-xl overflow-hidden flex flex-col lg:flex-row relative group transition-all duration-300 hover:border-black/25"
               data-cursor-text="INSPECT"
             >
               {/* Left Content Side */}
-              <div className="w-full md:w-[50%] p-6 sm:p-8 lg:p-10 flex flex-col justify-between order-2 md:order-1 relative z-10 bg-white">
+              <div className="w-full lg:w-[50%] p-4 sm:p-7 lg:p-10 flex flex-col justify-between order-2 lg:order-1 relative z-10 bg-white flex-1 min-h-0">
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="font-mono text-xs text-[#666666] uppercase tracking-widest">
+                  <div className="flex items-center justify-between gap-2 mb-2 sm:mb-3">
+                    <span className="font-mono text-[10px] sm:text-xs text-[#666666] uppercase tracking-widest">
                       {card.category}
                     </span>
                     <span className="font-mono text-xs font-bold text-[#1b1b1b]">
@@ -190,16 +191,16 @@ export default function CardsSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1b1b1b] tracking-tight font-['PP_Frama',sans-serif] mt-1 leading-[1.05]">
+                  <h3 className="text-xl sm:text-2xl lg:text-4xl font-bold text-[#1b1b1b] tracking-tight font-['PP_Frama',sans-serif] mt-0.5 sm:mt-1 leading-[1.08]">
                     {card.title}
                   </h3>
 
-                  <p className="text-[#4a4a4a] text-xs sm:text-sm lg:text-base leading-relaxed mt-3 font-normal">
+                  <p className="text-[#4a4a4a] text-xs sm:text-sm lg:text-base leading-relaxed mt-2 sm:mt-3 font-normal line-clamp-3 md:line-clamp-none">
                     {card.text}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-black/10 mt-4 flex items-center justify-between">
+                <div className="pt-3 sm:pt-4 border-t border-black/10 mt-3 sm:mt-4 flex items-center justify-between">
                   <Link
                     to={card.link}
                     className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#1b1b1b] hover:text-black font-semibold transition-colors group/link"
@@ -218,13 +219,13 @@ export default function CardsSection() {
               </div>
 
               {/* Right Image Side with Parallax */}
-              <div className="w-full md:w-[50%] h-[40%] md:h-full relative overflow-hidden order-1 md:order-2 bg-[#eae7dc]">
+              <div className="w-full lg:w-[50%] h-[210px] sm:h-[260px] md:h-[290px] lg:h-full flex-shrink-0 relative overflow-hidden order-1 lg:order-2 bg-[#eae7dc]">
                 <img
                   src={card.image}
                   alt={card.title}
-                  className="showcase-card-img w-full h-full object-cover filter contrast-[1.04] transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="showcase-card-img w-full h-full object-cover object-center filter contrast-[1.04] transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-white via-transparent to-transparent opacity-60 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-white via-transparent to-transparent opacity-40 pointer-events-none" />
               </div>
             </div>
           ))}

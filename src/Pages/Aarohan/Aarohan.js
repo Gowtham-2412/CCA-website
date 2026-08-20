@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
+import React, { useRef, useEffect, useLayoutEffect } from 'react';
 import styles from './Aarohan.module.css';
 import './Aarohan.css';
 import {
@@ -22,7 +22,6 @@ const galleryImages = [
   { src: ARHN4, caption: 'Hackathon' },
   { src: ARHN5, caption: 'Inspiratie Talks' },
   { src: ARHN6, caption: 'Decathlon Battle' },
-  { src: ARHN7, caption: 'Case Study Pitch' },
   { src: ARHN8, caption: 'Closing Ceremony' },
 ];
 
@@ -46,11 +45,12 @@ const Aarohan = () => {
   const mainRef = useRef(null);
   const titleRef = useRef(null);
   const leadRef = useRef(null);
-  const galleryViewportRef = useRef(null);
-  const galleryTrackRef = useRef(null);
+  const gallerySectionRef = useRef(null);
+  const galleryStageRef = useRef(null);
+  const cardsRef = useRef([]);
+  const counterRef = useRef(null);
   const aboutRef = useRef(null);
   const eventsGridRef = useRef(null);
-  const [activeGalleryIndex, setActiveGalleryIndex] = useState(0);
 
   /* Hero → light background transition */
   useEffect(() => {
@@ -119,73 +119,110 @@ const Aarohan = () => {
     return () => ctx.revert();
   }, []);
 
-  /* Horizontal gallery scroll */
+  /* Pinned Stacking Gallery Animation */
   useLayoutEffect(() => {
-    const track = galleryTrackRef.current;
-    if (!track || window.innerWidth < 768) return;
+    const section = gallerySectionRef.current;
+    const stage = galleryStageRef.current;
+    if (!section || !stage) return;
+
+    const cards = cardsRef.current.filter(Boolean);
+    if (cards.length === 0) return;
 
     const ctx = gsap.context(() => {
-      const scrollWidth = track.scrollWidth - track.parentElement.offsetWidth;
+      const isMobile = window.innerWidth < 640;
+      const stepOffset = isMobile ? 18 : 24;
 
-      gsap.to(track, {
-        x: -scrollWidth,
-        ease: 'none',
+      // Set initial positions:
+      // Card 0 is active at center (y: 0), Cards 1..N-1 are positioned offscreen below
+      gsap.set(cards[0], {
+        y: 0,
+        scale: 1,
+        filter: 'blur(0px)',
+        opacity: 1,
+        zIndex: 1,
+      });
+
+      cards.forEach((card, i) => {
+        if (i > 0) {
+          gsap.set(card, {
+            yPercent: 120,
+            scale: 0.98,
+            filter: 'blur(0px)',
+            opacity: 1,
+            zIndex: i + 1,
+          });
+        }
+      });
+
+      const totalTransitions = cards.length - 1; // 6 transitions for 7 cards
+
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: track.parentElement,
-          start: 'top top',
-          end: () => `+=${scrollWidth}`,
-          scrub: 0.8,
+          trigger: section,
           pin: true,
+          start: 'top top',
+          end: () => `+=${totalTransitions * 175}vh`,
+          scrub: 1.2,
           anticipatePin: 1,
           invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            if (counterRef.current) {
+              const activeIndex = Math.min(
+                cards.length,
+                Math.floor(self.progress * totalTransitions) + 1
+              );
+              counterRef.current.innerText = `FRAME 0${activeIndex} / 0${cards.length}`;
+            }
+          },
         },
       });
 
-      // Staggered clip-path reveals
-      const imgs = track.querySelectorAll('img');
-      imgs.forEach((img, i) => {
-        gsap.fromTo(img,
-          { clipPath: 'inset(0 100% 0 0)' },
+      // Animate cards sequentially with slow, gentle opacity fade (no black darkening)
+      for (let i = 1; i < cards.length; i++) {
+        const currentCard = cards[i];
+        const timePos = (i - 1) * 1.4;
+
+        // Current card i rises up from below to y: 0
+        tl.to(
+          currentCard,
           {
-            clipPath: 'inset(0 0% 0 0)', duration: 0.6, ease: 'power2.out',
-            scrollTrigger: { trigger: img, start: 'left 90%', scrub: false, containerAnimation: gsap.getById?.('gallery-scroll') },
-            delay: i * 0.08,
-          }
+            yPercent: 0,
+            y: 0,
+            scale: 1,
+            filter: 'blur(0px)',
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power2.inOut',
+          },
+          timePos
         );
-      });
-    }, track.parentElement);
+
+        // All previous cards (0 to i-1) shift up slightly, blur gently, and slowly fade opacity without turning black
+        for (let j = 0; j < i; j++) {
+          const depth = i - j; // how many cards are on top of card j
+          const targetY = -depth * stepOffset;
+          const blurVal = Math.min(3.5, depth * 0.7);
+          const opacityVal = Math.max(0.65, 1 - depth * 0.06);
+          const scaleVal = Math.max(0.92, 1 - depth * 0.015);
+
+          tl.to(
+            cards[j],
+            {
+              y: targetY,
+              filter: `blur(${blurVal}px)`,
+              opacity: opacityVal,
+              scale: scaleVal,
+              duration: 1.2,
+              ease: 'power2.inOut',
+            },
+            timePos
+          );
+        }
+      }
+    }, section);
 
     return () => ctx.revert();
   }, []);
-
-  /* Mobile gallery scroll tracking */
-  useEffect(() => {
-    const viewport = galleryViewportRef.current;
-    if (!viewport || window.innerWidth >= 768) return;
-
-    const handleScroll = () => {
-      const scrollLeft = viewport.scrollLeft;
-      const slideWidth = viewport.offsetWidth * 0.8;
-      const newIndex = Math.min(
-        galleryImages.length - 1,
-        Math.max(0, Math.round(scrollLeft / slideWidth))
-      );
-      setActiveGalleryIndex(newIndex);
-    };
-
-    viewport.addEventListener('scroll', handleScroll, { passive: true });
-    return () => viewport.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToGallerySlide = (index) => {
-    const viewport = galleryViewportRef.current;
-    if (!viewport) return;
-    const slides = viewport.querySelectorAll(`.${styles.gallerySlide}`);
-    if (slides[index]) {
-      slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      setActiveGalleryIndex(index);
-    }
-  };
 
   /* Events grid stagger */
   useEffect(() => {
@@ -287,34 +324,39 @@ const Aarohan = () => {
           </div>
         </section>
 
-        {/* ═══ Horizontal Photo Gallery ═══ */}
-        <section className={styles.gallerySection}>
+        {/* ═══ Pinned Stacking Photo Gallery ═══ */}
+        <section className={styles.gallerySection} ref={gallerySectionRef}>
           <div className={styles.gallerySectionHeader}>
-            <span style={{ fontFamily: "'SupplyMono', monospace", fontSize: '.72rem', letterSpacing: '.12em', textTransform: 'uppercase', color: '#b8d474' }}>
-              Moments
-            </span>
-            <h3 className={styles.gallerySectionTitle}>Aarohan in frames.</h3>
-          </div>
-          <div className={styles.galleryViewport} ref={galleryViewportRef}>
-            <div className={styles.galleryTrack} ref={galleryTrackRef}>
-              {galleryImages.map((img, i) => (
-                <div className={styles.gallerySlide} key={i}>
-                  <img src={img.src} alt={img.caption} />
-                  <span className={styles.galleryCaption}>{img.caption}</span>
-                </div>
-              ))}
+            <div className={styles.galleryBadgeRow}>
+              <span className={styles.galleryCategory}>MOMENTS</span>
+              <span className={styles.galleryCounter} ref={counterRef}>
+                FRAME 01 / 0{galleryImages.length}
+              </span>
             </div>
+            <h3 className={styles.gallerySectionTitle}>Aarohan in frames.</h3>
+            <p className={styles.gallerySectionLead}>
+              A visual chronicle of national competitions, arenas, keynote stages, and celebratory nights.
+            </p>
           </div>
 
-          {/* Mobile Interactive Pagination Dots */}
-          <div className={styles.galleryDots} aria-label="Gallery navigation">
-            {galleryImages.map((_, i) => (
-              <button
+          <div className={styles.galleryStage} ref={galleryStageRef}>
+            {galleryImages.map((img, i) => (
+              <div
+                className={styles.galleryCard}
                 key={i}
-                className={`${styles.galleryDot} ${activeGalleryIndex === i ? styles.galleryDotActive : ''}`}
-                onClick={() => scrollToGallerySlide(i)}
-                aria-label={`Go to slide ${i + 1}`}
-              />
+                ref={(el) => (cardsRef.current[i] = el)}
+                style={{ zIndex: i + 1 }}
+              >
+                {/* Full Bleed Card Media & Captions */}
+                <div className={styles.galleryCardImgWrap}>
+                  <img src={img.src} alt={img.caption} />
+                  <div className={styles.galleryOverlay} />
+                  <div className={styles.galleryCardContent}>
+                    <span className={styles.galleryContentTag}>MOMENT 0{i + 1} / 0{galleryImages.length}</span>
+                    <h4 className={styles.gallerySlideTitle}>{img.caption}</h4>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </section>

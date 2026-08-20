@@ -74,6 +74,7 @@ export default function AnimatedText({
           style={{
             display: 'inline-block',
             willChange: 'transform, opacity',
+            fontFamily: 'inherit',
           }}
         >
           {unit}

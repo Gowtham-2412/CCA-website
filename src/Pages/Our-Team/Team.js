@@ -92,6 +92,7 @@ export default function Team() {
           <section className="team-page__group" id={group.id} key={group.id}>
             {/* Sticky Group Header */}
             <header className="team-page__group-header">
+              <span className="editorial-kicker">0{group.num} // Group</span>
               <h2>{group.title}</h2>
               <p>{group.lead}</p>
             </header>

@@ -77,11 +77,12 @@ export default function CustomCursor() {
       scale: 1.1,
     },
     text: {
-      width: 72,
-      height: 72,
+      width: 78,
+      height: 78,
       backgroundColor: '#1b1b1b',
       border: 'none',
       scale: 1,
+      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
     },
   };
 

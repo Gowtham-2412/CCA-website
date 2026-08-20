@@ -8,7 +8,7 @@
 .editorial-kicker,
 .editorial-index,
 .editorial-meta {
-  font-family: 'SupplyMono', monospace;
+  font-family: 'PP Frama', sans-serif;
   font-size: .72rem;
   letter-spacing: .12em;
   line-height: 1.3;
@@ -18,13 +18,19 @@
 .editorial-kicker { color: var(--signal); }
 
 .editorial-title {
-  margin: .7rem 0 0;
+  font-family: 'PP Frama', sans-serif;
+  margin: .3rem 0 0;
   max-width: 14ch;
   font-size: clamp(2.6rem, 7.5vw, 10rem);
   font-weight: 600;
   letter-spacing: -.06em;
-  line-height: .8;
+  line-height: 1.15;
   word-break: break-word;
+}
+
+.editorial-title span,
+.editorial-title .anim-unit {
+  font-family: 'PP Frama', sans-serif !important;
 }
 
 .editorial-lead {
@@ -246,6 +252,7 @@
 }
 
 .editorial-section-title {
+  font-family: 'PP Frama', sans-serif;
   max-width: 15ch;
   margin: 0;
   font-size: clamp(2.2rem, 5vw, 6.2rem);
@@ -253,6 +260,11 @@
   letter-spacing: -.06em;
   line-height: .9;
   word-break: break-word;
+}
+
+.editorial-section-title span,
+.editorial-section-title .anim-unit {
+  font-family: 'PP Frama', sans-serif !important;
 }
 
 .editorial-number { color: var(--signal); font-size: .75rem; letter-spacing: .12em; }

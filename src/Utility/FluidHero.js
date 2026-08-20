@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 /* =====================================================================
    Constants & Shaders
@@ -737,23 +738,36 @@ export default function FluidHero() {
       tctx.clearRect(0, 0, textCanvas.width, textCanvas.height);
 
       const cs = getComputedStyle(heroTitle);
-
       const fontPx = parseFloat(cs.fontSize) * dpr;
 
-      tctx.font = `${cs.fontWeight} ${fontPx}px ${cs.fontFamily}`;
+      tctx.font = `${cs.fontWeight || '600'} ${fontPx}px ${cs.fontFamily || "'PP Frama', sans-serif"}`;
       tctx.fillStyle = '#ffffff';
       tctx.textAlign = 'center';
       tctx.textBaseline = 'alphabetic';
 
       const titleRect = heroTitle.getBoundingClientRect();
-
       const x = (titleRect.left - rect.left + titleRect.width / 2) * dpr;
+      const lineHeight = fontPx * 1.05;
+
+      // Dynamically wrap words to fit the screen width
+      const maxLineWidth = textCanvas.width * 0.88;
+      const words = ['WDCT', 'Presents,', 'Center', 'for', 'Cognitive', 'Activities.'];
+      const lines = [];
+      let currentLine = '';
+
+      for (let i = 0; i < words.length; i++) {
+        const testLine = currentLine ? `${currentLine} ${words[i]}` : words[i];
+        const w = tctx.measureText(testLine).width;
+        if (w > maxLineWidth && currentLine !== '') {
+          lines.push(currentLine);
+          currentLine = words[i];
+        } else {
+          currentLine = testLine;
+        }
+      }
+      if (currentLine) lines.push(currentLine);
 
       const startY = (titleRect.top - rect.top) * dpr + fontPx * 0.85;
-
-      const lineHeight = fontPx * 0.94;
-
-      const lines = ['WDCT Presents, Center for', 'Cognitive Activities.'];
 
       lines.forEach((line, i) => {
         tctx.fillText(line, x, startY + i * lineHeight);
@@ -1221,24 +1235,71 @@ export default function FluidHero() {
         </div>
         <div style={styles.bCursor} ref={cursorDotRef} />
 
-        <div style={styles.uContainer}>
-          <h1 style={styles.sTitle} id="heroTitle" ref={heroTitleRef}>
+        <div style={styles.uContainer} className="hero-content-container">
+          <h1 style={styles.sTitle} id="heroTitle" className="hero-main-title" ref={heroTitleRef}>
             WDCT Presents, Center for
-            <br />
+            <br className="hero-title-br" />
             Cognitive Activities.
           </h1>
-          <p style={styles.subtitle}>
-            CCA, Centre for Cognitive Activities, Founded in 2003 is the largest
-            and oldest technical club of NIT Durgapur, is the focal point where
-            the convergence of all technical and scientific endeavors of the
-            students materializes.
+          <p style={styles.subtitle} className="hero-subtitle">
+            NIT Durgapur's premier technical club, uniting student innovation, robotics, and scientific endeavors since 2003.
           </p>
-          <div style={styles.logoRow}>
-            <img src="/logos/core.png" alt="core" style={styles.logoImg} />
-            <img src="/logos/wdct.png" alt="wdct" style={styles.logoImg} />
-            <img src="/logos/rnd.png" alt="rnd" style={styles.logoImg} />
-            <img src="/logos/robo.png" alt="robo" style={styles.logoImg} />
-            <img src="/logos/ecell.png" alt="ecell" style={styles.logoImg} />
+          <div style={styles.logoRow} className="hero-logo-row">
+            <Link
+              to="/core"
+              className="hero-cell-link"
+              data-cursor-text="CORE CELL"
+              title="Core Cell"
+            >
+              <img src="/logos/core.png" alt="Core Cell" style={styles.logoImg} className="hero-logo-img" />
+            </Link>
+            <Link
+              to="/wdct"
+              className="hero-cell-link"
+              data-cursor-text="WDCT"
+              title="WDCT"
+            >
+              <img src="/logos/wdct.png" alt="WDCT" style={styles.logoImg} className="hero-logo-img" />
+            </Link>
+            <Link
+              to="/rnd"
+              className="hero-cell-link"
+              data-cursor-text="R&D CELL"
+              title="R&D Cell"
+            >
+              <img src="/logos/rnd.png" alt="R&D Cell" style={styles.logoImg} className="hero-logo-img" />
+            </Link>
+            <Link
+              to="/robo"
+              className="hero-cell-link"
+              data-cursor-text="ROBO-CELL"
+              title="Robo-Cell"
+            >
+              <img src="/logos/robo.png" alt="Robo-Cell" style={styles.logoImg} className="hero-logo-img" />
+            </Link>
+            <Link
+              to="/ecell"
+              className="hero-cell-link"
+              data-cursor-text="E-CELL"
+              title="E-Cell"
+            >
+              <img src="/logos/ecell.png" alt="E-Cell" style={styles.logoImg} className="hero-logo-img" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Mobile & Desktop Scroll Down Indicator */}
+        <div
+          className="hero-scroll-indicator"
+          onClick={() => {
+            const el = document.getElementById('cards-section') || document.querySelector('.showcase-card');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+            else window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' });
+          }}
+        >
+          <span className="hero-scroll-text">SCROLL TO EXPLORE</span>
+          <div className="hero-scroll-mouse">
+            <div className="hero-scroll-wheel" />
           </div>
         </div>
       </section>
@@ -1255,11 +1316,151 @@ export default function FluidHero() {
     background: var(--bg);
   }
 
-  @media (hover: none) {
-    #heroTitle {
-      opacity: 1 !important;
+  #heroTitle {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    user-select: none !important;
+  }
+
+  .hero-cell-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    flex-shrink: 1;
+    min-width: 0;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  }
+  .hero-cell-link:hover {
+    transform: scale(1.15) translateY(-3px);
+  }
+  .hero-cell-link:hover img {
+    opacity: 1 !important;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.15));
+  }
+
+  .hero-logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 2.5vw, 32px);
+    width: 100%;
+    max-width: 600px;
+    flex-wrap: nowrap;
+    padding: 0 clamp(4px, 2vw, 16px);
+    box-sizing: border-box;
+  }
+
+  .hero-logo-img {
+    height: clamp(40px, 8vw, 64px);
+    max-width: clamp(54px, 14vw, 110px);
+    width: auto;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    user-select: none;
+  }
+  .hero-scroll-indicator:hover {
+    opacity: 1;
+    transform: translateX(-50%) translateY(2px);
+  }
+  .hero-scroll-text {
+    font-family: 'SupplyMono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #555555;
+  }
+  .hero-scroll-mouse {
+    width: 18px;
+    height: 28px;
+    border: 1.5px solid rgba(43, 43, 43, 0.4);
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-scroll-wheel {
+    width: 3px;
+    height: 6px;
+    background: #c53030;
+    border-radius: 2px;
+    margin-top: 4px;
+    animation: heroScrollAnim 1.6s infinite ease-in-out;
+  }
+  @keyframes heroScrollAnim {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(8px); opacity: 0.3; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  /* Responsive Rules for Small Screens */
+  @media (max-width: 640px) {
+    #hero {
+      padding: 50px 12px 60px !important;
+      justify-content: center !important;
     }
-    
+    .hero-main-title {
+      font-size: clamp(1.6rem, 7.2vw, 2.2rem) !important;
+      line-height: 1.08 !important;
+      letter-spacing: -0.03em !important;
+    }
+    .hero-title-br {
+      display: none !important;
+    }
+    .hero-subtitle {
+      font-size: 0.78rem !important;
+      line-height: 1.5 !important;
+      margin-top: 12px !important;
+      padding: 0 10px !important;
+      max-width: 440px !important;
+    }
+    .hero-logo-row {
+      margin-top: 18px !important;
+      gap: 10px !important;
+      flex-wrap: nowrap !important;
+      justify-content: center !important;
+    }
+    .hero-logo-img {
+      height: 46px !important;
+      max-width: 62px !important;
+      opacity: 0.9 !important;
+    }
+    .hero-scroll-indicator {
+      bottom: 1.2rem;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .hero-main-title {
+      font-size: 1.45rem !important;
+    }
+    .hero-subtitle {
+      font-size: 0.72rem !important;
+    }
+    .hero-logo-row {
+      gap: 6px !important;
+    }
+    .hero-logo-img {
+      height: 40px !important;
+      max-width: 52px !important;
+    }
   }
 `}</style>
     </div>
@@ -1269,15 +1470,14 @@ export default function FluidHero() {
 /* Inline Style Objects */
 const styles = {
   root: {
-    height: 'clamp(560px, 92vh, 1200px)',
-    minHeight: '100vh',
+    height: 'clamp(620px, 100vh, 1200px)',
+    minHeight: '100svh',
     width: '100%',
     position: 'relative',
     backgroundColor: '#F1F1F1',
     overflow: 'hidden',
     cursor: 'default',
   },
-  // ...header, logo, nav, navLink, cta unchanged...
   hero: {
     position: 'relative',
     width: '100%',
@@ -1287,7 +1487,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 'clamp(32px, 8vh, 100px) clamp(20px, 6vw, 80px)',
+    padding: 'clamp(60px, 10vh, 100px) clamp(16px, 5vw, 80px) clamp(70px, 12vh, 100px)',
   },
   sFluid: {
     position: 'absolute',
@@ -1342,36 +1542,39 @@ const styles = {
     width: '100%',
     maxWidth: '1000px',
     fontWeight: 600,
-    fontSize: 'clamp(22px, 30vw, 64px)',
-    lineHeight: 0.94,
-    letterSpacing: '-0.03em',
+    fontSize: 'clamp(1.75rem, 6.2vw, 4rem)',
+    lineHeight: 0.95,
+    letterSpacing: '-0.04em',
     color: '#2b2b2b',
     opacity: 0,
     textAlign: 'center',
+    fontFamily: "'PP Frama', sans-serif",
   },
   subtitle: {
-    marginTop: 12,
-    maxWidth: 700,
+    marginTop: 14,
+    maxWidth: 680,
     width: '100%',
-    padding: '0 clamp(4px, 2vw, 0px)',
-    fontSize: 'clamp(13px, 1.6vw, 16px)',
+    padding: '0 clamp(8px, 3vw, 20px)',
+    fontSize: 'clamp(0.82rem, 1.3vw, 1.02rem)',
     lineHeight: 1.6,
     color: '#4a4a4a',
+    fontFamily: "'SupplyMono', monospace",
   },
   logoRow: {
-    marginTop: 'clamp(18px, 3vh, 28px)',
+    marginTop: 'clamp(16px, 3vh, 26px)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 'clamp(16px, 3vw, 40px)',
+    gap: 'clamp(12px, 2.8vw, 36px)',
     flexWrap: 'wrap',
     width: '100%',
-    padding: '0 clamp(8px, 4vw, 0px)',
+    padding: '0 clamp(4px, 2vw, 16px)',
   },
   logoImg: {
-    height: 'clamp(36px, 6vw, 80px)',
+    height: 'clamp(44px, 5vw, 64px)',
+    maxWidth: 'clamp(65px, 14vw, 120px)',
     width: 'auto',
     objectFit: 'contain',
-    opacity: 0.7,
+    opacity: 0.8,
   },
 };

@@ -42,7 +42,7 @@
 }
 
 .site-footer h2 {
-  max-width: 10ch;
+  max-width: 16ch;
   margin: .6rem 0 0;
   font: 600 clamp(2.2rem, 5.5vw, 6.5rem)/.88 'PP Frama', sans-serif;
   letter-spacing: -.06em;

@@ -19,11 +19,9 @@ const CELLS_DATA = [
     title: 'WDCT',
     category: 'Digital Creative Studio',
     role: 'Web Design & Creative Technology. Shaping how CCA is experienced online through bleeding-edge web platforms, interface craft, visual branding, and motion design.',
-    tags: ['Full-Stack Web', 'UI/UX Craft', 'Motion Design', 'Creative Dev'],
     path: '/wdct',
     image: wdct,
     logo: '/logos/wdct.png',
-    colClass: 'cell-card-col-4',
     glareColor: 'rgba(168, 85, 247, 0.25)',
   },
   {
@@ -31,11 +29,9 @@ const CELLS_DATA = [
     title: 'Core Cell',
     category: 'Operations & Strategy',
     role: 'The operational centre of CCA. We steer initiatives, coordinate cross-cell execution, and build national partnerships.',
-    tags: ['Strategic Planning', 'Fest Orchestration', 'Public Relations'],
     path: '/core',
     image: core,
     logo: '/logos/core.png',
-    colClass: 'cell-card-col-0',
     glareColor: 'rgba(255, 255, 255, 0.22)',
   },
   {
@@ -43,11 +39,9 @@ const CELLS_DATA = [
     title: 'E-Cell',
     category: 'Venture & Economics',
     role: 'Ideas with enterprise. Cultivating startup culture through hackathons, pitch arenas, case study conclaves, and venture mentorship.',
-    tags: ['Venture Pitching', 'Case Studies', 'E-Conclave'],
     path: '/ecell',
     image: ecell,
     logo: '/logos/ecell.png',
-    colClass: 'cell-card-col-1',
     glareColor: 'rgba(245, 158, 11, 0.25)',
   },
   {
@@ -55,11 +49,9 @@ const CELLS_DATA = [
     title: 'R&D Cell',
     category: 'Hardware & IoT',
     role: 'Research made tangible. Translating theoretical models and engineering blueprints into functional prototypes and deployed tech.',
-    tags: ['Embedded Systems', 'IoT Solutions', 'Hardware Prototyping'],
     path: '/rnd',
     image: rnd,
     logo: '/logos/rnd.png',
-    colClass: 'cell-card-col-2',
     glareColor: 'rgba(59, 130, 246, 0.25)',
   },
   {
@@ -67,11 +59,9 @@ const CELLS_DATA = [
     title: 'Robo-Cell',
     category: 'Robotics & Automation',
     role: 'Machines with intent. Designing combat robots, autonomous line-trackers, rovers, and cutting-edge mechatronic systems.',
-    tags: ['RoboWars', 'Autonomous Systems', 'Mechatronics'],
     path: '/robo',
     image: robo,
     logo: '/logos/robo.png',
-    colClass: 'cell-card-col-3',
     glareColor: 'rgba(239, 68, 68, 0.25)',
   },
 ];
@@ -81,33 +71,58 @@ export default function OurCells() {
     <main className="editorial-page cells-page">
       {/* ─── Hero Header ─── */}
       <header className="cells-page__hero">
-        <AnimatedSection direction="up" duration={0.6}>
-          <p className="editorial-kicker">CCA / Five Specialized Wings</p>
-        </AnimatedSection>
+        <div className="cells-hero__grid">
+          <div className="cells-hero__left">
+            <AnimatedSection direction="up" duration={0.6}>
+              <p className="editorial-kicker">CCA / Five Specialized Wings</p>
+            </AnimatedSection>
 
-        <AnimatedText
-          text="One collective, five ways to make."
-          variant="words"
-          tag="h1"
-          className="editorial-title"
-          stagger={0.045}
-          duration={0.7}
-        />
+            <AnimatedText
+              text="One collective, five ways to make."
+              variant="words"
+              tag="h1"
+              className="editorial-title cells-hero__title"
+              stagger={0.045}
+              duration={0.7}
+            />
+          </div>
 
-        <div className="cells-hero__lead-row">
-          <AnimatedSection direction="up" delay={0.2} duration={0.8}>
-            <p className="editorial-lead">
-              Each cell brings a distinct technical capability, discipline, and creative perspective
-              to the society. Together, they turn ambitious concepts into real-world systems.
-            </p>
-          </AnimatedSection>
+          <div className="cells-hero__right">
+            <AnimatedSection direction="up" delay={0.2} duration={0.8}>
+              <p className="editorial-lead cells-hero__lead">
+                Each cell brings a distinct technical capability, discipline, and creative perspective
+                to the society. Together, they turn ambitious concepts into real-world systems.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection direction="up" delay={0.35} duration={0.7}>
+              <div className="cells-hero__quick-nav">
+                <span className="cells-hero__nav-label">Jump to wing</span>
+                <div className="cells-hero__nav-pills">
+                  {CELLS_DATA.map((cell) => (
+                    <a
+                      key={cell.id}
+                      href={`#cell-${cell.id}`}
+                      className="cells-hero__nav-pill"
+                    >
+                      {cell.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </header>
 
-      {/* ─── Interactive Cell Explorer Grid ─── */}
+      {/* ─── Interactive Cell Explorer Grid (Olympic Rings 3 on top, 2 below) ─── */}
       <section className="cells-explorer-grid">
         {CELLS_DATA.map((cell, index) => (
-          <div key={cell.id} className={cell.colClass}>
+          <div
+            key={cell.id}
+            id={`cell-${cell.id}`}
+            className={`cell-card-item cell-card-item--${cell.id}`}
+          >
             <AnimatedSection direction="up" delay={index * 0.1} duration={0.7}>
               <Link
                 to={cell.path}
@@ -151,7 +166,6 @@ export default function OurCells() {
                       </span>
                       <h2 className="cell-card__title">{cell.title}</h2>
                       <p className="cell-card__role">{cell.role}</p>
-
 
                       <div className="cell-card__action">
                         <span className="cell-card__action-text">

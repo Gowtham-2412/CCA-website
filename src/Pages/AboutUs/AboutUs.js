@@ -7,7 +7,7 @@ import './AboutUs.css';
 
 import carouselimg1 from '../../Assets/Images/carouselimg1.JPG';
 import carouselimg2 from '../../Assets/Images/carouselimg2.JPG';
-import robozido from '../../Assets/Images/robozido.jpeg';
+import designworkshop from '../../Assets/Images/design workshop.jpeg';
 import arhn1 from '../../Assets/Images/ARHN1.jpeg';
 import arhn3 from '../../Assets/Images/ARHN3.jpeg';
 
@@ -27,11 +27,11 @@ const CHAPTERS = [
   },
   {
     step: '02',
-    label: 'The Workshop — Daily Reality',
-    title: 'A living laboratory of restless prototypes.',
-    body: 'From autonomous rovers and embedded IoT rigs to 3D web platforms and product strategy — our members build functional, ambitious work every day. There is always room for a first attempt and an audacious breakthrough.',
-    detail: 'Robotics fabrication · Software development · Design systems.',
-    image: robozido,
+    label: 'The Workshops — Hands-On Craft',
+    title: 'A living laboratory of ideas and execution.',
+    body: 'From interactive web design and UI/UX masterclasses to IoT systems, product research, and autonomous engineering — our hands-on workshops empower students to build functional, ambitious projects from day one.',
+    detail: 'Design workshops · Software development · Hardware labs.',
+    image: designworkshop,
   },
   {
     step: '03',
@@ -124,33 +124,18 @@ export default function AboutUs() {
 
         gsap.fromTo(
           scene,
-          { clipPath: 'circle(0% at 50% 50%)' },
+          {
+            clipPath: 'circle(0% at 50% 50%)',
+            webkitClipPath: 'circle(0% at 50% 50%)',
+          },
           {
             clipPath: 'circle(150% at 50% 50%)',
+            webkitClipPath: 'circle(150% at 50% 50%)',
             ease: 'none',
             scrollTrigger: {
               trigger: revealSection,
               start: 'top top',
               end: '+=100%',
-              scrub: 0.5,
-            },
-          }
-        );
-
-        // Fade in the text content slightly after mask starts opening
-        const revealText = scene.querySelectorAll('.reveal-stage__kicker, .reveal-stage__heading, .reveal-stage__sub');
-        gsap.fromTo(
-          revealText,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            stagger: 0.15,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: revealSection,
-              start: '15% top',
-              end: '55% top',
               scrub: 0.5,
             },
           }
@@ -162,72 +147,140 @@ export default function AboutUs() {
          ═══════════════════════════════════════════ */
       const story = storyRef.current;
       if (story) {
-        // Chapter 1 — Fullbleed parallax bg
-        const ch1Bg = story.querySelector('.chapter--fullbleed .chapter__bg');
-        if (ch1Bg) {
-          gsap.fromTo(ch1Bg, { y: '-10%' }, {
-            y: '10%',
-            ease: 'none',
-            scrollTrigger: {
-              trigger: ch1Bg.closest('.chapter'),
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: true,
-            },
-          });
-        }
+        const chapters = story.querySelectorAll('.chapter');
 
-        // All chapter text blocks — fade in up
-        const chapterTexts = story.querySelectorAll('.chapter__text, .chapter__text-half > div');
-        chapterTexts.forEach((el) => {
-          gsap.fromTo(
-            el.children,
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1,
-              y: 0,
-              stagger: 0.1,
-              duration: 0.8,
-              ease: 'power3.out',
+        chapters.forEach((chapter) => {
+          // Chapter text staggered reveal
+          const textContainer = chapter.querySelector('.chapter__text, .chapter__text-half > div');
+          if (textContainer) {
+            const step = textContainer.querySelector('.chapter__step');
+            const title = textContainer.querySelector('.chapter__title');
+            const body = textContainer.querySelector('.chapter__body');
+            const detail = textContainer.querySelector('.chapter__detail');
+
+            const tl = gsap.timeline({
               scrollTrigger: {
-                trigger: el,
-                start: 'top 80%',
+                trigger: chapter,
+                start: 'top 75%',
                 toggleActions: 'play none none none',
               },
+            });
+
+            if (step) {
+              tl.fromTo(
+                step,
+                { opacity: 0, x: -30 },
+                { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' },
+                0
+              );
             }
-          );
-        });
 
-        // Split chapter images — parallax
-        const splitImages = story.querySelectorAll('.chapter__image-half img');
-        splitImages.forEach((img) => {
-          gsap.fromTo(img, { y: '-8%', scale: 1.1 }, {
-            y: '8%',
-            scale: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: img.closest('.chapter'),
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: true,
-            },
-          });
-        });
+            if (title) {
+              tl.fromTo(
+                title,
+                { opacity: 0, y: 40, filter: 'blur(8px)' },
+                { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9, ease: 'power3.out' },
+                0.1
+              );
+            }
 
-        // Fullbleed chapter 3 bg parallax
-        const ch3Bg = story.querySelectorAll('.chapter--fullbleed')[1]?.querySelector('.chapter__bg');
-        if (ch3Bg) {
-          gsap.fromTo(ch3Bg, { y: '-10%' }, {
-            y: '10%',
-            ease: 'none',
-            scrollTrigger: {
-              trigger: ch3Bg.closest('.chapter'),
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: true,
-            },
-          });
-        }
+            if (body) {
+              tl.fromTo(
+                body,
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+                0.25
+              );
+            }
+
+            if (detail) {
+              tl.fromTo(
+                detail,
+                { opacity: 0, y: 20, scale: 0.95 },
+                { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out' },
+                0.4
+              );
+            }
+          }
+
+          // Fullbleed Chapter Background reveal & parallax
+          const fullbleedBg = chapter.querySelector('.chapter__bg');
+          if (fullbleedBg) {
+            const img = fullbleedBg.querySelector('img');
+            if (img) {
+              gsap.fromTo(
+                img,
+                { scale: 1.15, opacity: 0.4 },
+                {
+                  scale: 1,
+                  opacity: 1,
+                  duration: 1.4,
+                  ease: 'power2.out',
+                  scrollTrigger: {
+                    trigger: chapter,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none',
+                  },
+                }
+              );
+
+              gsap.fromTo(
+                fullbleedBg,
+                { y: '-10%' },
+                {
+                  y: '10%',
+                  ease: 'none',
+                  scrollTrigger: {
+                    trigger: chapter,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                  },
+                }
+              );
+            }
+          }
+
+          // Split Chapter Image reveal & parallax
+          const imageHalf = chapter.querySelector('.chapter__image-half');
+          if (imageHalf) {
+            const img = imageHalf.querySelector('img');
+            gsap.fromTo(
+              imageHalf,
+              { opacity: 0, y: 50, scale: 0.94 },
+              {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1.1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                  trigger: chapter,
+                  start: 'top 75%',
+                  toggleActions: 'play none none none',
+                },
+              }
+            );
+
+            if (img) {
+              gsap.fromTo(
+                img,
+                { y: '-6%', scale: 1.08 },
+                {
+                  y: '6%',
+                  scale: 1,
+                  ease: 'none',
+                  scrollTrigger: {
+                    trigger: chapter,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                  },
+                }
+              );
+            }
+          }
+        });
       }
 
       /* ═══════════════════════════════════════════
@@ -318,7 +371,14 @@ export default function AboutUs() {
       {/* ═══ ACT 1 — THE GRAND REVEAL ═══ */}
       <section ref={revealRef} className="reveal-stage">
         {/* The scene — content + background clipped by GSAP */}
-        <div ref={revealMaskRef} className="reveal-stage__scene" style={{ clipPath: 'circle(0% at 50% 50%)' }}>
+        <div
+          ref={revealMaskRef}
+          className="reveal-stage__scene"
+          style={{
+            clipPath: 'circle(0% at 50% 50%)',
+            WebkitClipPath: 'circle(0% at 50% 50%)',
+          }}
+        >
           <div className="reveal-stage__bg-image">
             <img src={arhn3} alt="CCA Assembly" />
           </div>
@@ -361,6 +421,9 @@ export default function AboutUs() {
 
         {/* Chapter 2 — Split layout: image left, text right */}
         <article className="chapter chapter--split">
+          <div className="chapter__ambient-bg">
+            <img src={CHAPTERS[1].image} alt="" aria-hidden="true" />
+          </div>
           <div className="chapter__image-half">
             <img src={CHAPTERS[1].image} alt={CHAPTERS[1].label} />
           </div>
@@ -400,6 +463,9 @@ export default function AboutUs() {
 
         {/* Chapter 4 — Split layout: text left, image right */}
         <article className="chapter chapter--split">
+          <div className="chapter__ambient-bg">
+            <img src={CHAPTERS[3].image} alt="" aria-hidden="true" />
+          </div>
           <div className="chapter__text-half" style={{ order: 0 }}>
             <div>
               <div className="chapter__step">
