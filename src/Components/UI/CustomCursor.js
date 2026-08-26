@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 /**
- * CustomCursor — Refined, minimalist editorial cursor.
- * Uses clean monochrome ink contrast and subtle spring physics.
+ * CustomCursor — Inverting contrast cursor with mix-blend-mode difference.
+ * Automatically adapts and inverts on dark and light backgrounds seamlessly.
  */
 export default function CustomCursor() {
   const [cursorText, setCursorText] = useState('');
@@ -63,34 +63,33 @@ export default function CustomCursor() {
 
   const variants = {
     default: {
-      width: 28,
-      height: 28,
+      width: 32,
+      height: 32,
       backgroundColor: 'transparent',
-      border: '1px solid rgba(27, 27, 27, 0.35)',
+      border: '1.5px solid #ffffff',
       scale: 1,
     },
     pointer: {
-      width: 44,
-      height: 44,
-      backgroundColor: 'rgba(27, 27, 27, 0.08)',
-      border: '1px solid rgba(27, 27, 27, 0.8)',
-      scale: 1.1,
+      width: 52,
+      height: 52,
+      backgroundColor: '#ffffff',
+      border: 'none',
+      scale: 1.12,
     },
     text: {
-      width: 78,
-      height: 78,
-      backgroundColor: '#1b1b1b',
+      width: 80,
+      height: 80,
+      backgroundColor: '#ffffff',
       border: 'none',
       scale: 1,
-      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
     },
   };
 
   return (
     <>
-      {/* Outer Follower Ring */}
+      {/* Outer Follower Ring / Interactive Lens */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-[9999] flex items-center justify-center rounded-full"
+        className="pointer-events-none fixed top-0 left-0 z-[99999] flex items-center justify-center rounded-full mix-blend-difference"
         style={{
           x: smoothX,
           y: smoothY,
@@ -106,7 +105,7 @@ export default function CustomCursor() {
             initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.6 }}
-            className="text-[9px] font-bold uppercase tracking-widest text-white select-none text-center px-1 font-mono"
+            className="text-[10px] font-bold uppercase tracking-widest text-black select-none text-center px-1 font-mono leading-tight"
           >
             {cursorText}
           </motion.span>
@@ -116,7 +115,7 @@ export default function CustomCursor() {
       {/* Inner Precision Dot */}
       {cursorVariant === 'default' && (
         <motion.div
-          className="pointer-events-none fixed top-0 left-0 z-[9999] w-1.5 h-1.5 rounded-full bg-[#1b1b1b]"
+          className="pointer-events-none fixed top-0 left-0 z-[99999] w-2 h-2 rounded-full bg-white mix-blend-difference"
           style={{
             x: dotX,
             y: dotY,
