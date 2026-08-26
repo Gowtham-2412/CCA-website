@@ -116,11 +116,17 @@ export default function useScramble(ref, text, opts = {}) {
 
       gsap.to(proxy, {
         p: 1,
-        ease: 'none',
+        duration: 0.85,
+        ease: 'power2.out',
         onUpdate: () => {
           live.textContent = scrambleAt(text, proxy.p);
         },
-        scrollTrigger: { trigger: heading, start, end, scrub: 0.6 },
+        scrollTrigger: {
+          trigger: heading,
+          start,
+          toggleActions: 'play none none none',
+          once: true,
+        },
       });
     });
 
@@ -145,7 +151,8 @@ export default function useScramble(ref, text, opts = {}) {
         scrollTrigger: {
           trigger: heading,
           start: 'top 85%',
-          toggleActions: 'play none none reverse',
+          toggleActions: 'play none none none',
+          once: true,
         },
       });
     });

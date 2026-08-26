@@ -44,15 +44,16 @@ export default function AboutTeaser() {
 
         gsap.to(counter, {
           value: target,
-          ease: 'none',
+          duration: 1.4,
+          ease: 'power2.out',
           onUpdate: () => {
             numberEl.textContent = format(counter.value, suffix);
           },
           scrollTrigger: {
             trigger: numberEl.closest('.home-stat'),
             start: 'top 85%',
-            end: 'top 45%',
-            scrub: 0.8,
+            toggleActions: 'play none none none',
+            once: true,
           },
         });
       });

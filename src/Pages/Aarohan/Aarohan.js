@@ -288,9 +288,7 @@ const Aarohan = () => {
         });
       }
 
-      /* ── About section ──
-         'play none none reverse' rather than the previous
-         'play none none none', which froze on the way back up. */
+      /* ── About section ── */
       if (aboutRef.current) {
         gsap.fromTo(
           aboutRef.current.querySelectorAll('.arhn-about-animate'),
@@ -304,7 +302,8 @@ const Aarohan = () => {
             scrollTrigger: {
               trigger: aboutRef.current,
               start: 'top 80%',
-              toggleActions: 'play none none reverse',
+              toggleActions: 'play none none none',
+              once: true,
             },
           }
         );
@@ -321,13 +320,12 @@ const Aarohan = () => {
             duration: 0.6,
             stagger: 0.08,
             ease: 'power3.out',
-            // Same reason as the stat cards: give the transform back to CSS so
-            // `.eventCard:hover { transform: translateY(-4px) }` still fires.
             clearProps: 'transform',
             scrollTrigger: {
               trigger: eventsGridRef.current,
               start: 'top 85%',
-              toggleActions: 'play none none reverse',
+              toggleActions: 'play none none none',
+              once: true,
             },
           }
         );
@@ -457,7 +455,8 @@ const Aarohan = () => {
             scrollTrigger: {
               trigger: aboutRef.current,
               start: 'top 85%',
-              toggleActions: 'play none none reverse',
+              toggleActions: 'play none none none',
+              once: true,
             },
           }
         );
@@ -478,7 +477,8 @@ const Aarohan = () => {
             scrollTrigger: {
               trigger: eventsGridRef.current,
               start: 'top 85%',
-              toggleActions: 'play none none reverse',
+              toggleActions: 'play none none none',
+              once: true,
             },
           }
         );

@@ -52,7 +52,7 @@ export default function HudFrame() {
           autoAlpha: 1,
           duration: 0.6,
           ease: 'power2.out',
-          scrollTrigger: { trigger: document.body, start: '80px top', toggleActions: 'play none none reverse' },
+          scrollTrigger: { trigger: document.body, start: '80px top', toggleActions: 'play none none none', once: true },
         }
       );
 
