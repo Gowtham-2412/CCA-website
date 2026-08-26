@@ -487,3 +487,27 @@
   border-color: var(--ink);
   transform: translateY(-2px);
 }
+
+@media (max-width: 480px) {
+  .cell-explorer-card {
+    min-height: 380px;
+    border-radius: 1.25rem;
+  }
+
+  .cell-card__content {
+    min-height: 360px;
+    padding: 1.25rem;
+  }
+
+  .cell-card__role {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    margin-bottom: 1rem;
+  }
+
+  .cells-bottom-cta {
+    margin-top: 3.5rem;
+    padding: 2rem 1.25rem;
+    border-radius: 1.25rem;
+  }
+}

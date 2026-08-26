@@ -1,3 +1,64 @@
 /* ═══════════════════════════════════════════════════
    Aarohan — Global Overrides
+
+   Everything here is a class name that CSS Modules cannot reach, because it's
+   emitted or toggled outside the module system:
+
+     .arhn-line*       from SplitLines.js, which returns plain markup
+     .arhn-scramble*   markup written inline in Aarohan.js for useScramble
+
+   Isolation comes from the `arhn-` prefix, not from nesting. These are
+   deliberately NOT the `.split-line` names used by Pages/AboutUs/AboutUs.css:
+   that stylesheet is imported app-wide (App.js loads every route eagerly, so its
+   CSS is always in the bundle), which means an unprefixed name here would
+   silently inherit another page's rules and break the moment that page changed.
+
+   `.arhn-about-animate` is also a global hook class, but it's a JS selector
+   only — it intentionally has no styles. A static `will-change` on it was
+   considered and dropped: it would keep five elements promoted for the whole
+   page in exchange for one entrance tween, which is the same anti-pattern this
+   rebuild removed from the gallery cards.
    ═══════════════════════════════════════════════════ */
+
+/* ─── Masked line reveal (SplitLines) ─── */
+.arhn-line {
+  display: block;
+  overflow: hidden;
+  /* A descender on the last line would otherwise be clipped by the mask. */
+  padding-bottom: 0.08em;
+}
+
+.arhn-line__inner {
+  display: block;
+}
+
+/* ─── Scramble decode (useScramble) ───
+   Two copies of the text. The ghost stays in normal flow and holds the box open
+   at the final text's exact size; the live copy is absolutely positioned over
+   it and can scramble to any width without moving a pixel of layout.
+
+   This is the whole reason the effect is layout-safe: 'PP Frama' is
+   proportional, so swapping glyphs — even at a constant character count —
+   changes the rendered width, which could re-wrap a heading and change its line
+   count. On this page that would shift the pinned gallery's start position and
+   invalidate its measurement mid-scroll. */
+.arhn-scramble {
+  position: relative;
+  display: block;
+}
+
+.arhn-scramble__ghost {
+  /* visibility, not display or opacity: it must still occupy space, and
+     visibility: hidden also removes it from the accessibility tree so the text
+     isn't announced twice. */
+  visibility: hidden;
+}
+
+.arhn-scramble__live {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Inherit the heading's own alignment rather than forcing left. */
+  text-align: inherit;
+}

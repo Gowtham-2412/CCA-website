@@ -56,25 +56,31 @@ export default function Team() {
     <main className="editorial-page team-page">
       {/* ─── Hero Section ─── */}
       <header className="team-page__hero">
-        <AnimatedSection direction="up" duration={0.6}>
-          <p className="editorial-kicker">CCA / People directory</p>
-        </AnimatedSection>
+        <div className="editorial-header">
+          <div className="editorial-header__left">
+            <AnimatedSection direction="up" duration={0.6}>
+              <p className="editorial-kicker">CCA / People directory</p>
+            </AnimatedSection>
 
-        <AnimatedText
-          text="The minds moving CCA."
-          variant="words"
-          tag="h1"
-          className="editorial-title"
-          stagger={0.045}
-          duration={0.7}
-        />
+            <AnimatedText
+              text="The minds moving CCA."
+              variant="words"
+              tag="h1"
+              className="editorial-title"
+              stagger={0.045}
+              duration={0.7}
+            />
+          </div>
 
-        <AnimatedSection direction="up" delay={0.2} duration={0.8}>
-          <p className="editorial-lead">
-            A collective of builders, organisers, researchers, and designers working across the year
-            to push technical and creative boundaries.
-          </p>
-        </AnimatedSection>
+          <div className="editorial-header__right">
+            <AnimatedSection direction="up" delay={0.2} duration={0.8}>
+              <p className="editorial-lead">
+                A collective of builders, organisers, researchers, and designers working across the year
+                to push technical and creative boundaries.
+              </p>
+            </AnimatedSection>
+          </div>
+        </div>
       </header>
 
       {/* ─── Quick Jump Navigation ─── */}

@@ -157,7 +157,7 @@ export default function CardsSection() {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.2}
               onDragEnd={handleDragEnd}
-              className="w-full rounded-2xl md:rounded-3xl bg-white border border-black/10 shadow-xl overflow-hidden flex flex-col lg:flex-row cursor-grab active:cursor-grabbing group"
+              className="w-full rounded-2xl md:rounded-3xl bg-white border border-black/10 shadow-xl overflow-hidden flex flex-col lg:flex-row cursor-grab active:cursor-grabbing group touch-pan-y"
             >
               {/* Left Content Side */}
               <div className="w-full lg:w-[48%] p-4 sm:p-7 lg:p-10 flex flex-col justify-between order-2 lg:order-1 relative z-10 bg-white">

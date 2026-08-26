@@ -7,11 +7,7 @@
 }
 
 .team-page__hero {
-  min-height: 44vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-bottom: 2.5rem;
+  padding-bottom: 1rem;
 }
 
 /* ─── Index Pill Navigation ─── */
@@ -122,9 +118,6 @@
 }
 
 @media (max-width: 860px) {
-  .team-page__hero {
-    min-height: 36vh;
-  }
 
   .team-page__group {
     display: flex;
@@ -164,7 +157,19 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 640px) {
+  .team-page__roster {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .team-page__roster .member-card,
+  .team-page__roster .member-card:nth-child(n) {
+    border-right: 0;
+  }
+
   .team-page__index {
     gap: 0.65rem;
   }

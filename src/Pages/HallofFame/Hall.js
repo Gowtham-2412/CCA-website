@@ -12,9 +12,15 @@ export default function Hall() {
   return (
     <main className="editorial-page hall-page">
       <header className="hall-page__hero">
-        <p className="editorial-kicker">CCA / Archive</p>
-        <h1 className="editorial-title">Hall of fame.</h1>
-        <p className="editorial-lead">A continuing record of the people who helped shape CCA and left a signal for the next cohort.</p>
+        <div className="editorial-header">
+          <div className="editorial-header__left">
+            <p className="editorial-kicker">CCA / Archive</p>
+            <h1 className="editorial-title">Hall of fame.</h1>
+          </div>
+          <div className="editorial-header__right">
+            <p className="editorial-lead">A continuing record of the people who helped shape CCA and left a signal for the next cohort.</p>
+          </div>
+        </div>
       </header>
       <section className="hall-page__archive">
         <nav aria-label="Choose a graduating batch">

@@ -1,0 +1,435 @@
+/* ═══════════════════════════════════════════════════
+   Home — sections below CardsSection
+   ═══════════════════════════════════════════════════
+
+   Three sections, in render order:
+     .home-about   dark contrast band + scrubbed stat counters
+     .home-events  4-up flagship events preview
+     .home-join    closing call to action
+
+   Horizontal rhythm follows the editorial system rather than CardsSection:
+   30px side padding (same as .editorial-page and .site-footer) with a
+   1440px inner container (same as the `wide` breakpoint and .max-container).
+   CardsSection's narrower max-w-6xl is left alone — it's the outlier. */
+
+.home-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(4.5rem, 9vh, 7.5rem) 30px;
+}
+
+.home-section__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Shared header block: kicker + big title on the left, action on the right. */
+.home-section__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem 3rem;
+  flex-wrap: wrap;
+}
+
+.home-section__title {
+  font-family: 'PP Frama', sans-serif;
+  margin: 0;
+  max-width: 18ch;
+  font-size: clamp(2rem, 4.6vw, 4.6rem);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.home-section__title span,
+.home-section__title .anim-unit {
+  font-family: 'PP Frama', sans-serif !important;
+}
+
+/* Header-right link ("All events ↗"). Visually matches Editorial.css's
+   .editorial-link, but that class doesn't reset text-decoration and there is no
+   global `a { text-decoration: none }` in this project — every page sets it
+   per-component — so this can't just reuse it. */
+.home-section__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font: 0.76rem 'SupplyMono', monospace;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.25s ease;
+}
+
+.home-section__action:hover {
+  border-color: var(--ink);
+}
+
+.home-section__action-arrow {
+  color: var(--signal);
+  transition: transform 0.25s ease;
+}
+
+.home-section__action:hover .home-section__action-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* ═══════════════════════════════════════════════════
+   1 — About teaser (dark band)
+   ═══════════════════════════════════════════════════ */
+
+.home-about {
+  /* var(--ink) currently resolves to #1b1b1b via index.css, which is what
+     Footer.css and CardsSection.js both hardcode. Note that App.css redefines
+     :root with --ink:#2b2b2b — index.css wins today only because index.js
+     imports ./App before ./index.css. If that order ever changes this band
+     stops matching the footer. Cosmetic; the real fix is changes.md §2. */
+  background: var(--ink);
+  color: var(--paper);
+
+  /* --signal (#c53030) on #1b1b1b is only 2.2:1 — fails AA. The footer has the
+     same problem; rather than inherit it, this band uses a lighter tint of the
+     same red at 4.8:1. */
+  --signal-on-dark: #e2564f;
+}
+
+.home-about .editorial-kicker {
+  color: var(--signal-on-dark);
+}
+
+.home-about__lead {
+  max-width: 46rem;
+  margin: 1.75rem 0 0;
+  color: #a8a8a8;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+}
+
+/* ─── Stat row ─── */
+.home-about__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem 3rem;
+  margin-top: clamp(3rem, 6vh, 4.5rem);
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.home-stat {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.home-stat__number {
+  font-family: 'PP Frama', sans-serif;
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  /* Keeps the row from reflowing as the scrubbed counter gains digits. */
+  font-variant-numeric: tabular-nums;
+}
+
+.home-stat__label {
+  margin-top: 0.9rem;
+  color: var(--paper);
+  font: 0.72rem 'SupplyMono', monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home-stat__desc {
+  margin-top: 0.55rem;
+  max-width: 22rem;
+  color: #8f8f8f;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+/* ─── Link out ─── */
+.home-about__action {
+  margin-top: clamp(2.5rem, 5vh, 3.5rem);
+}
+
+.home-about__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  color: var(--paper);
+  font: 0.78rem 'SupplyMono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.home-about__link:hover {
+  border-color: var(--signal-on-dark);
+  color: #fff;
+}
+
+.home-about__link-arrow {
+  color: var(--signal-on-dark);
+  transition: transform 0.25s ease;
+}
+
+.home-about__link:hover .home-about__link-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* ═══════════════════════════════════════════════════
+   2 — Events preview
+   ═══════════════════════════════════════════════════ */
+
+.home-events {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.home-events__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.5rem 1.75rem;
+  margin-top: clamp(2.5rem, 5vh, 3.75rem);
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.home-event {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-event__frame {
+  overflow: hidden;
+  border-radius: 0.25rem;
+  background: #e4e1d8;
+}
+
+.home-event__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.32;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-event:hover .home-event__img {
+  transform: scale(1.045);
+}
+
+.home-event__title {
+  margin: 1rem 0 0;
+  font-family: 'PP Frama', sans-serif;
+  font-size: clamp(1.15rem, 1.6vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  transition: color 0.2s ease;
+}
+
+.home-event:hover .home-event__title {
+  color: #000;
+}
+
+.home-event__date {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font: 0.7rem 'SupplyMono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════════
+   3 — Join / closing CTA
+   ═══════════════════════════════════════════════════ */
+
+.home-join {
+  background: var(--paper);
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+}
+
+.home-join__lead {
+  max-width: 42rem;
+  margin: 1.5rem 0 0;
+  color: #454545;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.home-join__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: clamp(2rem, 4vh, 2.75rem);
+}
+
+.home-join__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid var(--ink);
+  border-radius: 9999px;
+  font: 0.74rem 'SupplyMono', monospace;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.25s ease, background-color 0.25s ease,
+    color 0.25s ease, border-color 0.25s ease;
+}
+
+.home-join__btn svg {
+  transition: transform 0.25s ease;
+}
+
+.home-join__btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.home-join__btn--primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.home-join__btn--primary:hover {
+  transform: translateY(-2px);
+  background: #000;
+}
+
+.home-join__btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.home-join__btn--ghost:hover {
+  transform: translateY(-2px);
+  border-color: var(--ink);
+  background: rgba(0, 0, 0, 0.035);
+}
+
+/* ─── Socials ─── */
+.home-join__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  margin-top: clamp(2.5rem, 5vh, 3.25rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.home-join__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  font: 0.74rem 'SupplyMono', monospace;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.home-join__social:hover {
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.home-join__social-arrow {
+  color: var(--signal);
+  transition: transform 0.25s ease;
+}
+
+.home-join__social:hover .home-join__social-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* ═══════════════════════════════════════════════════
+   Responsive — matches the tailwind.config.js custom
+   breakpoints (xsm 500, wide 1440) closely enough to
+   stay predictable alongside CardsSection.
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .home-section {
+    padding: clamp(3.5rem, 7vh, 5rem) 20px;
+  }
+
+  /* 4-up → 2-up */
+  .home-events__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1.25rem;
+  }
+
+  .home-about__stats {
+    gap: 2rem 1.5rem;
+  }
+
+  .home-stat__desc {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 620px) {
+  /* Three big numerals stop fitting side by side well before the grid does. */
+  .home-about__stats {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .home-stat {
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .home-stat:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .home-stat__number {
+    font-size: clamp(2.4rem, 12vw, 3.4rem);
+  }
+}
+
+@media (max-width: 500px) {
+  /* 2-up → 1-up */
+  .home-events__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .home-section__head {
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .home-section__title {
+    max-width: 100%;
+  }
+
+  .home-join__buttons {
+    gap: 0.6rem;
+  }
+
+  .home-join__btn {
+    padding: 0.65rem 1.15rem;
+  }
+
+  .home-join__socials {
+    gap: 1rem 1.5rem;
+  }
+}

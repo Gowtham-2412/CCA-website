@@ -66,7 +66,7 @@ export default function AnimatedText({
   }, [units, duration, stagger, triggerStart, once]);
 
   return (
-    <Tag ref={wrapRef} className={className} style={{ ...style, overflow: 'hidden' }}>
+    <Tag ref={wrapRef} className={className} style={{ ...style, overflow: 'clip', paddingBottom: '0.12em' }}>
       {units.map((unit, i) => (
         <span
           key={i}

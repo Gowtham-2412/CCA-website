@@ -62,8 +62,16 @@ h1 .anim-unit, h2 .anim-unit, h3 .anim-unit, h4 .anim-unit, h5 .anim-unit, h6 .a
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
+
+/* Note: `scroll-behavior: smooth` was previously declared here on `*`. It was
+   removed because it fights GSAP ScrollTrigger — the browser's own smooth
+   interpolation and a scrubbed timeline end up competing to own the scroll
+   position, which makes every scrubbed animation feel laggy and imprecise.
+   Nothing regressed: all four intentional smooth scrolls in the app pass
+   `behavior: 'smooth'` explicitly in JS, which is unaffected by this rule —
+   see Components/Footer/Footer.js, Components/UI/ScrollToTop.js, and
+   Utility/FluidHero.js. */
 
 @layer components {
   .max-container {

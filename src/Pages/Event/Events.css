@@ -4,11 +4,7 @@
 
 /* ─── Hero ─── */
 .events-page__hero {
-  min-height: 40vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-bottom: 2.5rem;
+  padding-bottom: 1rem;
 }
 
 /* ─── Centered Pill Navigation ─── */
@@ -252,9 +248,6 @@
 
 /* ─── Responsive ─── */
 @media (max-width: 760px) {
-  .events-page__hero {
-    min-height: 30vh;
-  }
   .events-page__pill-nav {
     justify-content: center;
     flex-wrap: wrap;

@@ -26,10 +26,10 @@ const mainLinks = [
 
 const cellLinks = [
   ['WDCT', '/wdct'],
-  ['Core Cell', '/core-cell'],
+  ['Core Cell', '/core'],
   ['E-Cell', '/ecell'],
-  ['R&D Cell', '/rnd-cell'],
-  ['Robo-Cell', '/robo-cell'],
+  ['R&D Cell', '/rnd'],
+  ['Robo-Cell', '/robo'],
 ];
 
 export default function Footer() {
@@ -81,7 +81,6 @@ export default function Footer() {
       <div className="site-footer__top">
         {/* Headline */}
         <div className="site-footer__headline" ref={headlineRef}>
-          <p className="editorial-kicker mb-2">Centre For Cognitive Activities</p>
           <h2>Centre for Cognitive Activities.</h2>
         </div>
 

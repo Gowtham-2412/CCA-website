@@ -1,5 +1,25 @@
 /* ═══════════════════════════════════════════════════
-   Aarohan — Module CSS (Dark Tech Theme)
+   Aarohan — Module CSS (Arcade / Dark Tech Theme)
+
+   ── Tier architecture, and why it's this way round ──
+
+   The BASE styles below are the PLAIN tier: an ordinary vertical page with no
+   pinning, no overlays, and no absolutely-stacked cards. One media query —
+
+       @media (min-width: 900px) and (prefers-reduced-motion: no-preference)
+
+   — character-identical to CINEMA in motion.js, adds the arcade layout on top.
+
+   This ordering matters. If the arcade layout were the base, then a browser that
+   doesn't understand `prefers-reduced-motion` would match neither CINEMA nor
+   PLAIN, so no JS would run — and seven `position: absolute` gallery cards would
+   pile up on the same square of screen, unreadable. Inverted like this, that
+   browser gets a plain readable page that simply doesn't animate.
+
+   Anything scrubbed animates transform or opacity only. There is deliberately no
+   `filter` on a gallery image anywhere in this file: those images run up to
+   14.9 MB and a per-frame filter on one is the most expensive thing this page
+   could do.
    ═══════════════════════════════════════════════════ */
 
 /* ─── Layout Shell ─── */
@@ -41,12 +61,231 @@
   );
 }
 
+/* `z-index: 0` is load-bearing, not redundant: it makes .aarohan a stacking
+   context so the wireframe grid can sit at z-index -1 *inside* it — painting
+   after this element's own background but before its content. It also traps the
+   scanline pseudo-elements below, so they can never cover the navbar (the bug
+   the About page's film grain had at z-index 9999).
+
+   The `transition: background-color` that used to be here was removed. GSAP
+   scrubs this property, and a CSS transition competing for the same property is
+   exactly what makes a scrub feel laggy and imprecise. */
 .aarohan {
   position: relative;
+  z-index: 0;
   padding-top: 6rem;
   min-height: 100vh;
-  transition: background-color 0.5s ease;
   background: transparent;
+}
+
+/* ─── Arcade layers: active by default, disabled under prefers-reduced-motion ─── */
+.grid,
+.hud {
+  display: block;
+}
+
+.glitchLayer {
+  display: inline;
+}
+
+/* ─── Wireframe grid ─── */
+.grid {
+  position: fixed;
+  /* Overscan top and bottom so the parallax translate never exposes an edge. */
+  inset: -25vh 0;
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+  background-image:
+    linear-gradient(to right, rgba(184, 212, 116, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184, 212, 116, 0.07) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 128px 128px, 128px 128px, 32px 32px, 32px 32px;
+}
+
+/* ─── Boot sequence ─── */
+/* pointer-events: none even though it's a modal-looking overlay — if a tween
+   ever failed to complete, a click-blocking full-screen layer would trap the
+   reader. BootSequence also has a hard failsafe timeout. */
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 115;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bootInner {
+  font-family: 'SupplyMono', monospace;
+  font-size: clamp(0.7rem, 1.35vw, 0.95rem);
+  line-height: 1.75;
+  color: #b8d474;
+  padding: 1.5rem;
+  max-width: min(90vw, 640px);
+  width: 100%;
+}
+
+/* Reserved height: the lines start empty and are filled by JS, so without this
+   the block would grow as each line types and shove the others down. */
+.bootLine {
+  min-height: 1.75em;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.bootCaret {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.05em;
+  background: #b8d474;
+  vertical-align: text-bottom;
+  animation: arhn-caret 0.9s steps(1) infinite;
+}
+
+.bootWipe {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(184, 212, 116, 0) 0%,
+    rgba(184, 212, 116, 0.14) 45%,
+    rgba(184, 212, 116, 0) 100%
+  );
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+@keyframes arhn-caret {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ─── HUD ─── */
+/* z-index 90 keeps this under the navbar (z-110) and its fullscreen menu
+   (z-100), above page content. */
+.hud {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  font-family: 'SupplyMono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.hudCorner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(184, 212, 116, 0.5);
+}
+
+.hudCornerTl { top: 14px; left: 14px; border-right: 0; border-bottom: 0; }
+.hudCornerTr { top: 14px; right: 14px; border-left: 0; border-bottom: 0; }
+.hudCornerBl { bottom: 14px; left: 14px; border-right: 0; border-top: 0; }
+.hudCornerBr { bottom: 14px; right: 14px; border-left: 0; border-top: 0; }
+
+.hudReadoutTop,
+.hudReadoutBottom {
+  position: absolute;
+  left: clamp(2.6rem, 4vw, 3.4rem);
+  right: clamp(2.6rem, 4vw, 3.4rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hudReadoutTop { top: clamp(1.2rem, 2.4vw, 1.9rem); }
+.hudReadoutBottom { bottom: clamp(1.2rem, 2.4vw, 1.9rem); }
+
+.hudRec {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255, 0, 64, 0.75);
+}
+
+.hudRecDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff0040;
+  animation: arhn-rec 1.6s ease-in-out infinite;
+}
+
+@keyframes arhn-rec {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.15; }
+}
+
+/* Tabular figures so a ticking counter can never change width. */
+.hudTime {
+  font-variant-numeric: tabular-nums;
+  color: rgba(184, 212, 116, 0.72);
+}
+
+.hudMeta {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Scanlines + vignette + sweep ─── */
+/* Trapped inside .aarohan's stacking context, so these cannot rise above the
+   navbar no matter what z-index they claim. */
+.aarohan::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 88;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.028) 0 1px,
+      transparent 1px 3px
+    ),
+    radial-gradient(
+      ellipse at center,
+      transparent 55%,
+      rgba(0, 0, 0, 0.42) 100%
+    );
+}
+
+/* The sweep is a CSS animation on purpose. Editorial.css (imported on every
+   route by Footer.js) forces animation-duration to .01ms under
+   prefers-reduced-motion, so ambient CSS loops disable themselves. GSAP uses rAF
+   and is unaffected — which is why scroll-driven motion is gated in JS instead.
+   Ambient loops belong in CSS; scroll-driven motion belongs in GSAP. */
+.aarohan::before {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 26vh;
+  z-index: 89;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(184, 212, 116, 0.045) 50%,
+    transparent 100%
+  );
+  animation: arhn-sweep 7.5s linear infinite;
+}
+
+@keyframes arhn-sweep {
+  0% { transform: translateY(-30vh); }
+  100% { transform: translateY(120vh); }
 }
 
 /* ─── Hero Header ─── */
@@ -73,6 +312,38 @@
   will-change: clip-path, transform;
 }
 
+/* ─── RGB-split glitch ─── */
+.glitch {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.glitchBase {
+  position: relative;
+  z-index: 2;
+}
+
+/* Positioned over the base rather than duplicated in flow, so these never
+   affect layout. `display: none` in the base tier; switched on inside CINEMA. */
+.glitchLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: screen;
+  /* Constant opacity. Only position is animated, so this is not a "flash" under
+     WCAG 2.3.1 — see GlitchText.js. */
+  opacity: 0.55;
+  text-shadow: none;
+}
+
+.glitchRed { color: #ff0040; }
+.glitchCyan { color: #00e5ff; }
+
 .festSubtitle {
   font-family: 'SupplyMono', monospace;
   font-size: clamp(0.68rem, 1vw, 0.82rem);
@@ -90,7 +361,17 @@
   margin: 0 auto 2.5rem auto;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   font-weight: 400;
-  will-change: transform, opacity;
+}
+
+/* Shared kicker — was three copies of the same inline style object. */
+.sectionKicker {
+  display: block;
+  font-family: 'SupplyMono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #b8d474;
+  margin-bottom: 1rem;
 }
 
 /* ─── Stats Bar ─── */
@@ -121,11 +402,16 @@
   border-color: rgba(184, 212, 116, 0.3);
 }
 
+/* tabular-nums + a reserved min-width so counting 0 → 3,000 can't reflow the
+   card. "₹5 Lakhs+" is the widest final value. */
 .statVal {
   font-size: clamp(1.4rem, 2.5vw, 1.85rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  min-width: 6ch;
+  text-align: center;
 }
 
 .statLab {
@@ -146,8 +432,22 @@
   backdrop-filter: blur(4px);
 }
 
+/* GSAP's element. It exists purely so the scroll-velocity nudge has a transform
+   of its own — writing x here and the infinite keyframe animation on the track
+   below means the two never overwrite each other. */
+.marqueeNudge {
+  display: block;
+  will-change: transform;
+}
+
+/* `width: max-content` is required for the loop to be seamless. The track's
+   content is duplicated so that translateX(-50%) advances by exactly one set —
+   but a block-level flex container defaults to the width of its containing
+   block, which would make -50% half the *viewport* instead of half the content,
+   and the loop would visibly jump. */
 .marqueeTrack {
   display: flex;
+  width: max-content;
   gap: 0;
   white-space: nowrap;
   animation: marquee-scroll 30s linear infinite;
@@ -229,34 +529,44 @@
   transition: filter 0.3s ease;
 }
 
-.aboutImg1 { max-height: 280px; }
-.aboutImg2 { max-height: 200px; }
+/* aspect-ratio, not just max-height. These images sit ABOVE the pinned gallery,
+   so if a late decode changed their height it would shift the gallery's start
+   position and invalidate its pin measurement mid-scroll. Reserving the box up
+   front makes that impossible. */
+.aboutImg1 {
+  max-height: 280px;
+  aspect-ratio: 16 / 11;
+}
+
+.aboutImg2 {
+  max-height: 200px;
+  aspect-ratio: 16 / 9;
+}
 
 .aboutImg1:hover,
 .aboutImg2:hover {
   filter: grayscale(0) contrast(1.1) brightness(1.05);
 }
 
-/* ─── Photo Gallery (Pinned Stacking Deck) ─── */
+/* ─── Photo Gallery ───
+   A viewfinder (one large active frame) plus a contact sheet (seven
+   thumbnails). Identical at every width: nothing here is coupled to scroll, so
+   unlike the pinned deck this replaced there is no CINEMA/PLAIN split to
+   maintain. See GalleryViewfinder.js. */
 .gallerySection {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 680px;
-  max-height: 1120px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 1rem 2rem 2rem;
-  overflow: hidden;
+  padding: 3rem 1.25rem;
   box-sizing: border-box;
 }
 
 .gallerySectionHeader {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto 1.1rem;
+  margin: 0 auto 1.5rem;
   z-index: 20;
 }
 
@@ -284,6 +594,7 @@
   background: rgba(255, 255, 255, 0.06);
   padding: 0.15rem 0.5rem;
   border-radius: 9999px;
+  font-variant-numeric: tabular-nums;
 }
 
 .gallerySectionTitle {
@@ -305,49 +616,149 @@
   line-height: 1.5;
 }
 
-/* ─── Card Stage (Enlarged Image Height) ─── */
-.galleryStage {
-  position: relative;
+/* ─── Viewfinder ─── */
+.viewfinder {
   width: 100%;
   max-width: 1060px;
-  height: clamp(420px, 66vh, 620px);
   margin: 0 auto;
 }
 
-.galleryCard {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Fixed height, so a late decode can never resize this box and shift the page
+   below it. The active <img> fills it with object-fit: cover. */
+.vfStage {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: clamp(300px, 58vh, 620px);
   border-radius: 1.25rem;
   overflow: hidden;
+  /* Visible for the brief moment before an uncached frame decodes, so the gap
+     reads as a darkened viewfinder rather than a hole in the page. */
   background: #111111;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.4), 0 20px 50px rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
-  transform-origin: center top;
-  will-change: transform, opacity;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  transition: box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-/* Card Image & Overlays (Full Bleed) */
-.galleryCardImgWrap {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
+/* Starts transparent and is faded in by .vfImageReady once the bitmap is
+   actually decoded — see markReady() in GalleryViewfinder.js. Animating opacity
+   on a single image is the only per-frame compositor work this gallery does.
 
-.galleryCardImgWrap img {
+   No `filter` here. That is the whole point: a filter on a full-bleed photo of
+   this size is the most expensive thing this page could do, and the previous
+   build had `grayscale(0.06) contrast(1.05)` on every gallery image for a 6%
+   desaturation nobody could perceive. */
+.vfImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: grayscale(0.06) contrast(1.05);
+  opacity: 0;
+  display: block;
+}
+
+.vfImageReady {
+  animation: arhn-vf-in 0.4s ease-out forwards;
+}
+
+@keyframes arhn-vf-in {
+  from { opacity: 0; transform: scale(1.015); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─── Contact sheet ─── */
+.vfControls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+
+.vfNav {
+  flex-shrink: 0;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(184, 212, 116, 0.25);
+  color: #b8d474;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.vfNav:hover {
+  background: #b8d474;
+  border-color: #b8d474;
+  color: #0d0d0d;
+}
+
+.vfNav:focus-visible,
+.vfThumb:focus-visible {
+  outline: 2px solid #b8d474;
+  outline-offset: 2px;
+}
+
+/* Scrolls horizontally when the seven thumbs don't fit, which is the normal
+   case below ~700px. scrollbar hidden to match .marqueeWrap's clean edge. */
+.vfStrip {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 2px;
+}
+
+.vfStrip::-webkit-scrollbar {
+  display: none;
+}
+
+.vfThumb {
+  flex: 1 1 0;
+  min-width: 54px;
+  height: clamp(44px, 6vh, 62px);
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.4rem;
+  overflow: hidden;
+  background: #111111;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.vfThumb:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.vfThumbActive {
+  opacity: 1;
+  border-color: #b8d474;
+}
+
+.vfThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Visually hidden but still announced. Not display:none, which screen readers
+   skip entirely. */
+.vfLive {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .galleryOverlay {
@@ -360,6 +771,45 @@
     rgba(0, 0, 0, 0.78) 100%
   );
   pointer-events: none;
+}
+
+/* ─── Chromatic aberration on the frame ───
+   Two offset 1px borders, not a filter. The obvious implementation — a filter or
+   a duplicated image layer — would be applied to a full-bleed photo up to
+   14.9 MB, per frame. This costs two composited 1px outlines instead, and reads
+   the same at a glance.
+
+   CSS-animated on purpose: Editorial.css disables it under reduced motion for
+   free. Visible whenever the viewfinder is (it used to be gated on the pinned
+   deck's .is-live class, which no longer exists). */
+.galleryFringe {
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-radius: 1.25rem;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.5;
+}
+
+.galleryFringeRed {
+  border-color: rgba(255, 0, 64, 0.8);
+  animation: arhn-fringe-r 3.6s ease-in-out infinite;
+}
+
+.galleryFringeCyan {
+  border-color: rgba(0, 229, 255, 0.8);
+  animation: arhn-fringe-c 3.6s ease-in-out infinite;
+}
+
+@keyframes arhn-fringe-r {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-2px, 1px); }
+}
+
+@keyframes arhn-fringe-c {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(2px, -1px); }
 }
 
 .galleryCardContent {
@@ -427,7 +877,6 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  will-change: transform, opacity;
 }
 
 .eventCard:hover {
@@ -488,14 +937,40 @@
   overflow: hidden;
 }
 
-/* ─── Responsive ─── */
-@media (max-width: 900px) {
+/* ═══════════════════════════════════════════════════
+   CINEMA — the arcade tier.
+
+   This query string is character-identical to CINEMA in motion.js. Change one,
+   change both, or the CSS layout and the JS that animates it will disagree.
+
+   The gallery is deliberately absent from this block. It used to pin here — a
+   100vh section with absolutely-stacked cards and `will-change` on all seven —
+   and that is exactly what made it stutter. The viewfinder is the same layout at
+   every width, so there is nothing left to tier.
+   ═══════════════════════════════════════════════════ */
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .grid,
+  .hud {
+    display: block;
+  }
+
+  .glitchLayer {
+    display: inline;
+  }
+
+  .gallerySectionHeader {
+    margin-bottom: 1.1rem;
+  }
+}
+
+/* ─── Responsive (within the plain tier) ─── */
+@media (max-width: 899px) {
   .statsBar {
     grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
   }
   .statCard { padding: 0.85rem 0.6rem; }
-  .statVal { font-size: 1.3rem; }
+  .statVal { font-size: 1.3rem; min-width: 5ch; }
   .statLab { font-size: 0.7rem; }
 
   .aboutGrid {
@@ -509,20 +984,6 @@
   }
   .eventsGrid {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  }
-
-  .gallerySection {
-    padding: 1rem 1rem 1.5rem;
-    height: 100vh;
-    min-height: 580px;
-  }
-
-  .gallerySectionHeader {
-    margin-bottom: 0.85rem;
-  }
-
-  .galleryStage {
-    height: clamp(380px, 60vh, 520px);
   }
 
   .gallerySlideTitle {
@@ -542,7 +1003,28 @@
   .eventsSection { padding: 3rem 1.25rem; }
   .eventsGrid { grid-template-columns: 1fr; }
 
-  .galleryStage {
-    height: clamp(340px, 55vh, 460px);
+  .vfStage { height: clamp(240px, 42vh, 340px); }
+  /* The strip has to scroll at this width, so stop the thumbs from flexing
+     down to an untappable sliver. */
+  .vfThumb { flex: 0 0 auto; width: 58px; }
+}
+
+/* Belt and braces. Editorial.css already neutralises CSS animations under
+   reduced motion app-wide, and every JS effect is gated on the CINEMA query —
+   but the arcade decoration is stated here explicitly so a reader who asked for
+   less motion cannot end up with a static red/cyan fringe or a scanline grid
+   frozen mid-sweep. */
+@media (prefers-reduced-motion: reduce) {
+  .grid,
+  .hud,
+  .glitchLayer,
+  .galleryFringe,
+  .boot {
+    display: none;
+  }
+
+  .aarohan::before,
+  .aarohan::after {
+    display: none;
   }
 }

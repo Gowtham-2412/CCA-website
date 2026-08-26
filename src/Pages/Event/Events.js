@@ -11,7 +11,9 @@ import youthparliament from '../../Assets/Images/youth parliament.jpeg';
 import AnimatedText from '../../Components/UI/AnimatedText';
 import AnimatedSection from '../../Components/UI/AnimatedSection';
 
-const events = [
+/* Exported so the home page's EventsPreview can surface the first few without
+   keeping a second copy of this list. See ../Home/homeContent.js. */
+export const events = [
   {
     title: 'Parichay',
     category: 'Technical',
@@ -104,22 +106,28 @@ export default function Events() {
     <main className="editorial-page events-page">
       {/* ─── Header ─── */}
       <header className="events-page__hero">
-        <AnimatedSection direction="up" duration={0.5}>
-          <p className="editorial-kicker">CCA / Events</p>
-        </AnimatedSection>
-        <AnimatedText
-          text="Things worth showing up for."
-          variant="words"
-          tag="h1"
-          className="editorial-title"
-          stagger={0.06}
-          duration={0.7}
-        />
-        <AnimatedSection direction="up" delay={0.25} duration={0.7}>
-          <p className="editorial-lead">
-            A running record of CCA workshops, conversations, competitions and campus experiments.
-          </p>
-        </AnimatedSection>
+        <div className="editorial-header">
+          <div className="editorial-header__left">
+            <AnimatedSection direction="up" duration={0.5}>
+              <p className="editorial-kicker">CCA / Events</p>
+            </AnimatedSection>
+            <AnimatedText
+              text="Things worth showing up for."
+              variant="words"
+              tag="h1"
+              className="editorial-title"
+              stagger={0.06}
+              duration={0.7}
+            />
+          </div>
+          <div className="editorial-header__right">
+            <AnimatedSection direction="up" delay={0.25} duration={0.7}>
+              <p className="editorial-lead">
+                A running record of CCA workshops, conversations, competitions and campus experiments.
+              </p>
+            </AnimatedSection>
+          </div>
+        </div>
       </header>
 
       {/* ─── Centered Pill Navigation for Cell Filter ─── */}
