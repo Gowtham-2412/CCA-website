@@ -25,7 +25,8 @@ export default function Navbar() {
 
   const isAarohanPage = location.pathname === '/aarohan';
   const isAboutPage = location.pathname === '/about-us';
-  const isDarkPage = isAarohanPage || isAboutPage;
+  const isCellPage = ['/core', '/ecell', '/rnd', '/robo', '/wdct'].includes(location.pathname);
+  const isDarkPage = isAarohanPage || isAboutPage || (isCellPage && !isScrolled);
 
   // Auto-close menu on route change
   useEffect(() => {

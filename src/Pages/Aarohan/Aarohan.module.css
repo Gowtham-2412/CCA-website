@@ -696,8 +696,7 @@
 
 .vfNav:focus-visible,
 .vfThumb:focus-visible {
-  outline: 2px solid #b8d474;
-  outline-offset: 2px;
+  outline: none;
 }
 
 /* Scrolls horizontally when the seven thumbs don't fit, which is the normal

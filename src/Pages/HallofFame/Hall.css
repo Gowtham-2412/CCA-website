@@ -20,12 +20,20 @@
   padding: .65rem 0;
   background: none;
   border: 0;
+  outline: none;
   color: #777;
   text-align: left;
   cursor: pointer;
   font: 600 clamp(1.4rem, 2.5vw, 2.6rem)/1 'PP Frama', sans-serif;
   letter-spacing: -.04em;
   transition: color 0.2s ease;
+}
+
+.hall-page__archive nav button:focus,
+.hall-page__archive nav button:focus-visible,
+.hall-page__archive nav button:active {
+  outline: none;
+  border: 0;
 }
 
 .hall-page__archive nav button:hover,

@@ -6,7 +6,6 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
  * Automatically adapts and inverts on dark and light backgrounds seamlessly.
  */
 export default function CustomCursor() {
-  const [cursorText, setCursorText] = useState('');
   const [cursorVariant, setCursorVariant] = useState('default');
   const [isVisible, setIsVisible] = useState(false);
 
@@ -31,16 +30,8 @@ export default function CustomCursor() {
 
       const target = e.target.closest('[data-cursor-text], a, button, input, [role="button"]');
       if (target) {
-        const text = target.getAttribute('data-cursor-text');
-        if (text) {
-          setCursorText(text);
-          setCursorVariant('text');
-        } else {
-          setCursorText('');
-          setCursorVariant('pointer');
-        }
+        setCursorVariant('pointer');
       } else {
-        setCursorText('');
         setCursorVariant('default');
       }
     };
@@ -76,13 +67,6 @@ export default function CustomCursor() {
       border: 'none',
       scale: 1.12,
     },
-    text: {
-      width: 80,
-      height: 80,
-      backgroundColor: '#ffffff',
-      border: 'none',
-      scale: 1,
-    },
   };
 
   return (
@@ -99,18 +83,7 @@ export default function CustomCursor() {
         variants={variants}
         animate={cursorVariant}
         transition={{ type: 'spring', stiffness: 350, damping: 25 }}
-      >
-        {cursorText && (
-          <motion.span
-            initial={{ opacity: 0, scale: 0.6 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.6 }}
-            className="text-[10px] font-bold uppercase tracking-widest text-black select-none text-center px-1 font-mono leading-tight"
-          >
-            {cursorText}
-          </motion.span>
-        )}
-      </motion.div>
+      />
 
       {/* Inner Precision Dot */}
       {cursorVariant === 'default' && (

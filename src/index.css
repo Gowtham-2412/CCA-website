@@ -25,9 +25,22 @@
   font-style: normal;
 }
 
-*:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 4px;
+*:focus,
+*:focus-visible,
+*:active {
+  outline: none !important;
+}
+
+button, a, input, select, textarea, [role="button"], summary {
+  -webkit-tap-highlight-color: transparent;
+  outline: none !important;
+}
+
+button:focus, button:focus-visible, button:active,
+a:focus, a:focus-visible, a:active,
+input:focus, input:focus-visible, input:active,
+[role="button"]:focus, [role="button"]:focus-visible, [role="button"]:active {
+  outline: none !important;
 }
 
 html, body, #root {

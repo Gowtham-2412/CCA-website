@@ -15,7 +15,7 @@
 }
 
 .cca-nav-toggle:focus-visible {
-  outline: 2px solid #b8d474;
+  outline: none;
 }
 
 /* Fullscreen Menu Layer */

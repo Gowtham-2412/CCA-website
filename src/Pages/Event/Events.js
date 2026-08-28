@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight } from '../../Assets/Icons';
 import './Events.css';
@@ -91,6 +91,22 @@ const backdropVariants = {
 export default function Events() {
   const [cellFilter, setCellFilter] = useState('All');
   const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') setSelected(null);
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = 'auto';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [selected]);
 
   const cellFilters = useMemo(
     () => ['All', ...new Set(events.map((e) => e.cell))],

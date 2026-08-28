@@ -60,7 +60,7 @@ export default function Footer() {
       tween.scrollTrigger?.kill();
       tween.kill();
     };
-  }, []);
+  }, [pathname]);
 
   const scrollToTop = () => {
     window.scrollTo({
